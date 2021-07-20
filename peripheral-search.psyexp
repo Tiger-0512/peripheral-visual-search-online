@@ -221,11 +221,11 @@
       <CodeComponent name="set_variables">
         <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="target_class = 'cat'&amp;#10;non_target_classes = [&amp;#10;    'dog',&amp;#10;    'elephant',&amp;#10;    'tiger',&amp;#10;    'rabbit',&amp;#10;    'kangaroo',&amp;#10;    'sheep',&amp;#10;    'monkey',&amp;#10;    'lion',&amp;#10;    'bear',&amp;#10;    'fox',&amp;#10;    'pig',&amp;#10;    'otter',&amp;#10;]&amp;#10;&amp;#10;ans_keys_list = [['b', 'a', 'c', 'd'], ['f', 'e', 'g', 'h'], ['j', 'i', 'k', 'l']]&amp;#10;key_to_pos = {}&amp;#10;for i in range(len(ans_keys_list)):&amp;#10;    for j in range(len(ans_keys_list[i])):&amp;#10;        key_to_pos[ans_keys_list[i][j]] = [i, j]&amp;#10;print(key_to_pos)&amp;#10;&amp;#10;hw_rate = win.size[1] / win.size[0]&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="target_class = &quot;cat&quot;;&amp;#10;non_target_classes = [&quot;dog&quot;, &quot;elephant&quot;, &quot;tiger&quot;, &quot;rabbit&quot;, &quot;kangaroo&quot;, &quot;sheep&quot;, &quot;monkey&quot;, &quot;lion&quot;, &quot;bear&quot;, &quot;fox&quot;, &quot;pig&quot;, &quot;otter&quot;];&amp;#10;ans_keys_list = [[&quot;b&quot;, &quot;a&quot;, &quot;c&quot;, &quot;d&quot;], [&quot;f&quot;, &quot;e&quot;, &quot;g&quot;, &quot;h&quot;], [&quot;j&quot;, &quot;i&quot;, &quot;k&quot;, &quot;l&quot;]];&amp;#10;key_to_pos = {};&amp;#10;for (var i = 0, _pj_a = ans_keys_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    for (var j = 0, _pj_b = ans_keys_list[i].length; (j &lt; _pj_b); j += 1) {&amp;#10;        key_to_pos[ans_keys_list[i][j]] = [i, j];&amp;#10;    }&amp;#10;}&amp;#10;console.log(key_to_pos);&amp;#10;hw_rate = (win.size[1] / win.size[0]);&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Begin Experiment" updates="constant" val="target_class = 'cat'&amp;#10;non_target_classes = [&amp;#10;    'dog',&amp;#10;    'elephant',&amp;#10;    'tiger',&amp;#10;    'rabbit',&amp;#10;    'kangaroo',&amp;#10;    'sheep',&amp;#10;    'monkey',&amp;#10;    'lion',&amp;#10;    'bear',&amp;#10;    'fox',&amp;#10;    'pig',&amp;#10;    'otter',&amp;#10;]&amp;#10;&amp;#10;ans_keys_list = [['b', 'a', 'c', 'd'], ['f', 'e', 'g', 'h'], ['j', 'i', 'k', 'l']]&amp;#10;key_to_pos = {}&amp;#10;for i in range(len(ans_keys_list)):&amp;#10;    for j in range(len(ans_keys_list[i])):&amp;#10;        key_to_pos[ans_keys_list[i][j]] = [i, j]&amp;#10;&amp;#10;hw_rate = win.size[1] / win.size[0]" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="target_class = &quot;cat&quot;;&amp;#10;non_target_classes = [&quot;dog&quot;, &quot;elephant&quot;, &quot;tiger&quot;, &quot;rabbit&quot;, &quot;kangaroo&quot;, &quot;sheep&quot;, &quot;monkey&quot;, &quot;lion&quot;, &quot;bear&quot;, &quot;fox&quot;, &quot;pig&quot;, &quot;otter&quot;];&amp;#10;&amp;#10;ans_keys_list = [[&quot;b&quot;, &quot;a&quot;, &quot;c&quot;, &quot;d&quot;], [&quot;f&quot;, &quot;e&quot;, &quot;g&quot;, &quot;h&quot;], [&quot;j&quot;, &quot;i&quot;, &quot;k&quot;, &quot;l&quot;]];&amp;#10;key_to_pos = {};&amp;#10;for (var i = 0, _pj_a = ans_keys_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    for (var j = 0, _pj_b = ans_keys_list[i].length; (j &lt; _pj_b); j += 1) {&amp;#10;        key_to_pos[ans_keys_list[i][j]] = [i, j];&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;hw_rate = win.size[1] / win.size[0];&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="hw_rate = win.size[1] / win.size[0];&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="hw_rate = win.size[1] / win.size[0]" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
@@ -235,14 +235,31 @@
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="set_variables" valType="code"/>
       </CodeComponent>
-      <CodeComponent name="calc_ecc">
-        <Param name="Before Experiment" updates="constant" val="import math" valType="extendedCode"/>
-        <Param name="Before JS Experiment" updates="constant" val="import * as math from 'math';&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="eccentricity_level_0 = round(math.sqrt(2), 2)&amp;#10;eccentricity_level_1 = round(1 + math.sqrt(8), 2)&amp;#10;eccentricity_level_2 = round((math.sqrt(2) + 4 + math.sqrt((math.sqrt(2) + 4) ** 2 - 4 * (4 * math.sqrt(2) - 27))) / 2, 2)&amp;#10;eccentricities = [&amp;#10;    eccentricity_level_0,&amp;#10;    eccentricity_level_1,&amp;#10;    eccentricity_level_2&amp;#10;]&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="eccentricity_level_0 = round(Math.sqrt(2), 2);&amp;#10;eccentricity_level_1 = round((1 + math.sqrt(8)), 2);&amp;#10;eccentricity_level_2 = round((((math.sqrt(2) + 4) + math.sqrt((Math.pow((math.sqrt(2) + 4), 2) - (4 * ((4 * math.sqrt(2)) - 27))))) / 2), 2);&amp;#10;eccentricities = [eccentricity_level_0, eccentricity_level_1, eccentricity_level_2];&amp;#10;" valType="extendedCode"/>
+      <CodeComponent name="define_functions">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="const range = (start, end) =&gt; [...Array((end - start) + 1)].map((_, i) =&gt; start + i);&amp;#10;&amp;#10;const shuffle = ([...array]) =&gt; {&amp;#10;    for (let i = array.length - 1; i &gt;= 0; i--) {&amp;#10;        const j = Math.floor(Math.random() * (i + 1));&amp;#10;        [array[i], array[j]] = [array[j], array[i]];&amp;#10;    }&amp;#10;    return array;&amp;#10;}&amp;#10;&amp;#10;const calcRad = (deg) =&gt; {&amp;#10;    return deg * (Math.PI / 180);&amp;#10;}" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="define_functions" valType="code"/>
+      </CodeComponent>
+      <CodeComponent name="calc_ecc">
+        <Param name="Before Experiment" updates="constant" val="import math" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="eccentricity_level_0 = round(math.sqrt(2), 2)&amp;#10;eccentricity_level_1 = round(1 + math.sqrt(8), 2)&amp;#10;eccentricity_level_2 = round((math.sqrt(2) + 4 + math.sqrt((math.sqrt(2) + 4) ** 2 - 4 * (4 * math.sqrt(2) - 27))) / 2, 2)&amp;#10;eccentricities = [&amp;#10;    eccentricity_level_0,&amp;#10;    eccentricity_level_1,&amp;#10;    eccentricity_level_2&amp;#10;]&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="eccentricity_level_0 = Math.round(Math.sqrt(2) * 100) / 100;&amp;#10;eccentricity_level_1 = Math.round((1 + Math.sqrt(8)) * 100) / 100;&amp;#10;eccentricity_level_2 = Math.round(((Math.sqrt(2) + 4 + Math.sqrt(Math.pow((Math.sqrt(2) + 4), 2) - 4 * (4 * Math.sqrt(2) - 27))) / 2) * 100) / 100;&amp;#10;eccentricities = [eccentricity_level_0, eccentricity_level_1, eccentricity_level_2];&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
@@ -253,12 +270,12 @@
         <Param name="name" updates="None" val="calc_ecc" valType="code"/>
       </CodeComponent>
       <CodeComponent name="calc_deg2norm">
-        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before Experiment" updates="constant" val="import math&amp;#10;" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="import math&amp;#10;&amp;#10;# Local&amp;#10;# imac&amp;#10;# VA = round(360 / pi * math.atan2(33.5, 2 * 57))&amp;#10;# macbook&amp;#10;VA = round(360 / pi * math.atan2(17.9, 2 * 57))&amp;#10;&amp;#10;# Online&amp;#10;# VA = round(360 / pi * math.atan2(screen_height, 2 * 57))&amp;#10;&amp;#10;deg2norm = 2 / VA" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="var VA;&amp;#10;VA = Math.round(((360 / Math.PI) * Math.atan2(33.5, (2 * 57))));&amp;#10;deg2norm = 2 / VA" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="# Local&amp;#10;# imac&amp;#10;# VA = round(360 / pi * math.atan2(33.5, 2 * 57))&amp;#10;# macbook&amp;#10;VA = round(360 / pi * math.atan2(17.9, 2 * 57))&amp;#10;deg2norm = 2 / VA" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="VA = Math.round(360 / Math.PI * Math.atan2(17.9, (2 * 57)));&amp;#10;deg2norm = 2 / VA" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="VA = Math.round(360 / Math.PI * Math.atan2(screen_height, (2 * 57)));&amp;#10;deg2norm = 2 / VA" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="# Online&amp;#10;VA = round(360 / pi * math.atan2(screen_height, 2 * 57))&amp;#10;&amp;#10;deg2norm = 2 / VA" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -285,7 +302,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
-        <Param name="size" updates="constant" val="(deg2norm * hw_rate, deg2norm)" valType="list"/>
+        <Param name="size" updates="set every repeat" val="(deg2norm * hw_rate, deg2norm)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -311,7 +328,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
-        <Param name="size" updates="constant" val="(deg2norm * hw_rate, deg2norm)" valType="list"/>
+        <Param name="size" updates="set every repeat" val="(deg2norm * hw_rate, deg2norm)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -337,7 +354,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
-        <Param name="size" updates="constant" val="(deg2norm * hw_rate, deg2norm)" valType="list"/>
+        <Param name="size" updates="set every repeat" val="(deg2norm * hw_rate, deg2norm)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -363,7 +380,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
-        <Param name="size" updates="constant" val="(deg2norm * hw_rate, deg2norm)" valType="list"/>
+        <Param name="size" updates="set every repeat" val="(deg2norm * hw_rate, deg2norm)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -389,7 +406,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
-        <Param name="size" updates="constant" val="(2 * deg2norm * hw_rate, 2 * deg2norm)" valType="list"/>
+        <Param name="size" updates="set every repeat" val="(2 * deg2norm * hw_rate, 2 * deg2norm)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -415,7 +432,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
-        <Param name="size" updates="constant" val="(2 * deg2norm * hw_rate, 2 * deg2norm)" valType="list"/>
+        <Param name="size" updates="set every repeat" val="(2 * deg2norm * hw_rate, 2 * deg2norm)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -441,7 +458,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
-        <Param name="size" updates="constant" val="(2 * deg2norm * hw_rate, 2 * deg2norm)" valType="list"/>
+        <Param name="size" updates="set every repeat" val="(2 * deg2norm * hw_rate, 2 * deg2norm)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -467,7 +484,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
-        <Param name="size" updates="constant" val="(2 * deg2norm * hw_rate, 2 * deg2norm)" valType="list"/>
+        <Param name="size" updates="set every repeat" val="(2 * deg2norm * hw_rate, 2 * deg2norm)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -493,7 +510,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
-        <Param name="size" updates="constant" val="(2 * 2 * deg2norm * hw_rate, 2 * 2 * deg2norm)" valType="list"/>
+        <Param name="size" updates="set every repeat" val="(2 * 2 * deg2norm * hw_rate, 2 * 2 * deg2norm)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -519,7 +536,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
-        <Param name="size" updates="constant" val="(2 * 2 * deg2norm * hw_rate, 2 * 2 * deg2norm)" valType="list"/>
+        <Param name="size" updates="set every repeat" val="(2 * 2 * deg2norm * hw_rate, 2 * 2 * deg2norm)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -545,7 +562,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
-        <Param name="size" updates="constant" val="(2 * 2 *deg2norm * hw_rate, 2 * 2 * deg2norm)" valType="list"/>
+        <Param name="size" updates="set every repeat" val="(2 * 2 *deg2norm * hw_rate, 2 * 2 * deg2norm)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -571,7 +588,7 @@
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
-        <Param name="size" updates="constant" val="(2 * 2 * deg2norm * hw_rate, 2 * 2 * deg2norm)" valType="list"/>
+        <Param name="size" updates="set every repeat" val="(2 * 2 * deg2norm * hw_rate, 2 * 2 * deg2norm)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -582,13 +599,13 @@
         <Param name="units" updates="None" val="norm" valType="str"/>
       </ImageComponent>
       <CodeComponent name="set_image_position">
-        <Param name="Before Experiment" updates="constant" val="from  PIL import Image" valType="extendedCode"/>
-        <Param name="Before JS Experiment" updates="constant" val="import {Image} from 'PIL';&amp;#10;" valType="extendedCode"/>
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="image_list = [image_0_0, image_0_1, image_0_2, image_0_3, image_1_0, image_1_1, image_1_2, image_1_3, image_2_0, image_2_1, image_2_2, image_2_3];&amp;#10;for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    if ((i &lt; 4)) {&amp;#10;        image_list[i].pos = [(((hw_rate * deg2norm) * eccentricity_level_0) * math.cos(math.radians((((i % 4) * 90) + 45)))), ((deg2norm * eccentricity_level_0) * math.sin(math.radians((((i % 4) * 90) + 45))))];&amp;#10;    } else {&amp;#10;        if (((4 &lt;= i) &amp;&amp; (i &lt; 8))) {&amp;#10;            image_list[i].pos = [(((hw_rate * deg2norm) * eccentricity_level_1) * math.cos(math.radians(((i % 4) * 90)))), ((deg2norm * eccentricity_level_1) * math.sin(math.radians(((i % 4) * 90))))];&amp;#10;        } else {&amp;#10;            image_list[i].pos = [(((hw_rate * deg2norm) * eccentricity_level_2) * math.cos(math.radians((((i % 4) * 90) + 45)))), ((deg2norm * eccentricity_level_2) * math.sin(math.radians((((i % 4) * 90) + 45))))];&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="image_list = [&amp;#10;    image_0_0,&amp;#10;    image_0_1,&amp;#10;    image_0_2,&amp;#10;    image_0_3,&amp;#10;    image_1_0,&amp;#10;    image_1_1,&amp;#10;    image_1_2,&amp;#10;    image_1_3,&amp;#10;    image_2_0,&amp;#10;    image_2_1,&amp;#10;    image_2_2,&amp;#10;    image_2_3&amp;#10;]&amp;#10;&amp;#10;for i in range(len(image_list)):&amp;#10;    if i &lt; 4:&amp;#10;        image_list[i].pos = (&amp;#10;            hw_rate * deg2norm * eccentricity_level_0 * math.cos(math.radians(i % 4 * 90 + 45)),&amp;#10;            deg2norm * eccentricity_level_0 * math.sin(math.radians(i % 4 * 90 + 45))&amp;#10;        )&amp;#10;    elif 4 &lt;= i &lt; 8:&amp;#10;        image_list[i].pos = (&amp;#10;            hw_rate * deg2norm * eccentricity_level_1 * math.cos(math.radians(i % 4 * 90)),&amp;#10;            deg2norm * eccentricity_level_1 * math.sin(math.radians(i % 4 * 90))&amp;#10;        )&amp;#10;    else:&amp;#10;        image_list[i].pos = (&amp;#10;            hw_rate * deg2norm * eccentricity_level_2 * math.cos(math.radians(i % 4 * 90 + 45)),&amp;#10;            deg2norm * eccentricity_level_2 * math.sin(math.radians(i % 4 * 90 + 45))&amp;#10;        )&amp;#10;" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Begin JS Routine" updates="constant" val="image_list = [image_0_0, image_0_1, image_0_2, image_0_3, image_1_0, image_1_1, image_1_2, image_1_3, image_2_0, image_2_1, image_2_2, image_2_3];&amp;#10;for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    if (i &lt; 4) {&amp;#10;        image_list[i].pos = [&amp;#10;            hw_rate * deg2norm * eccentricities[0] * Math.cos(calcRad((i % 4) * 90 + 45)),&amp;#10;            deg2norm * eccentricities[0] * Math.sin(calcRad((i % 4) * 90 + 45))&amp;#10;        ];&amp;#10;    } else {&amp;#10;        if ((4 &lt;= i) &amp;&amp; (i &lt; 8)) {&amp;#10;            image_list[i].pos = [&amp;#10;                hw_rate * deg2norm * eccentricities[1] * Math.cos(calcRad((i % 4) * 90)),&amp;#10;                deg2norm * eccentricities[1] * Math.sin(calcRad((i % 4) * 90))&amp;#10;            ];&amp;#10;        } else {&amp;#10;            image_list[i].pos = [&amp;#10;                hw_rate * deg2norm * eccentricities[2] * Math.cos(calcRad((i % 4) * 90 + 45)),&amp;#10;                deg2norm * eccentricities[2] * Math.sin(calcRad((i % 4) * 90 + 45))&amp;#10;            ];&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="image_list = [&amp;#10;    image_0_0,&amp;#10;    image_0_1,&amp;#10;    image_0_2,&amp;#10;    image_0_3,&amp;#10;    image_1_0,&amp;#10;    image_1_1,&amp;#10;    image_1_2,&amp;#10;    image_1_3,&amp;#10;    image_2_0,&amp;#10;    image_2_1,&amp;#10;    image_2_2,&amp;#10;    image_2_3&amp;#10;]&amp;#10;&amp;#10;for i in range(len(image_list)):&amp;#10;    if i &lt; 4:&amp;#10;        image_list[i].pos = (&amp;#10;            hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(i % 4 * 90 + 45)),&amp;#10;            deg2norm * eccentricities[0] * math.sin(math.radians(i % 4 * 90 + 45))&amp;#10;        )&amp;#10;    elif 4 &lt;= i &lt; 8:&amp;#10;        image_list[i].pos = (&amp;#10;            hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(i % 4 * 90)),&amp;#10;            deg2norm * eccentricities[1] * math.sin(math.radians(i % 4 * 90))&amp;#10;        )&amp;#10;    else:&amp;#10;        image_list[i].pos = (&amp;#10;            hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(i % 4 * 90 + 45)),&amp;#10;            deg2norm * eccentricities[2] * math.sin(math.radians(i % 4 * 90 + 45))&amp;#10;        )&amp;#10;" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
@@ -605,7 +622,7 @@
         <Param name="durationEstim" updates="None" val="" valType="num"/>
         <Param name="fillColor" updates="constant" val="$(0.5059, 0.5059, 0.5059)" valType="color"/>
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="lineColor" updates="constant" val="" valType="color"/>
+        <Param name="lineColor" updates="constant" val="$(0.5059, 0.5059, 0.5059)" valType="color"/>
         <Param name="lineWidth" updates="constant" val="1" valType="num"/>
         <Param name="nVertices" updates="constant" val="100" valType="int"/>
         <Param name="name" updates="None" val="fixation_point" valType="code"/>
@@ -614,7 +631,7 @@
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="shape" updates="constant" val="regular polygon..." valType="str"/>
-        <Param name="size" updates="constant" val="(deg2norm / 5 * hw_rate, deg2norm / 5)" valType="list"/>
+        <Param name="size" updates="set every repeat" val="(deg2norm / 5 * hw_rate, deg2norm / 5)" valType="list"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -632,7 +649,7 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.3" valType="num"/>
         <Param name="name" updates="None" val="introduction_text" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -677,7 +694,7 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
         <Param name="name" updates="None" val="introduction_text_p" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -714,13 +731,13 @@
     </Routine>
     <Routine name="show_stim">
       <CodeComponent name="change_nontarget">
-        <Param name="Before Experiment" updates="constant" val="import random" valType="extendedCode"/>
-        <Param name="Before JS Experiment" updates="constant" val="import * as random from 'random';&amp;#10;" valType="extendedCode"/>
+        <Param name="Before Experiment" updates="constant" val="import random&amp;#10;from PIL import Image" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="_non_target_classes = random.sample(non_target_classes, non_target_classes.length);&amp;#10;for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    image_path = ((((&quot;html/resources/imagenet/&quot; + _non_target_classes[i]) + &quot;/image&quot;) + random.randrange(101, 151).toString().slice(1)) + &quot;.png&quot;);&amp;#10;    image_list[i].image = Image.open(image_path);&amp;#10;    thisExp.addData(_non_target_classes[i], image_path);&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="_non_target_classes = shuffle(non_target_classes);&amp;#10;for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    image_path = &quot;imagenet/&quot; + _non_target_classes[i] + &quot;/image&quot; + (Math.floor(Math.random() * (151 - 101)) + 101).toString().slice(1) + &quot;.png&quot;;&amp;#10;    image_list[i].setImage(image_path);&amp;#10;    // image_list[i].setImage(&quot;imagenet/cat/image01.png&quot;)&amp;#10;&amp;#10;    thisExp.addData(_non_target_classes[i], image_path);&amp;#10;}&amp;#10;" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="_non_target_classes = random.sample(non_target_classes, len(non_target_classes))&amp;#10;for i in range(len(image_list)):&amp;#10;    image_path = 'html/resources/imagenet/' + _non_target_classes[i] + '/image' + str(random.randrange(101, 151))[1:] + '.png'&amp;#10;    image_list[i].image = Image.open(image_path)&amp;#10;&amp;#10;    thisExp.addData(_non_target_classes[i], image_path)&amp;#10;" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
@@ -735,9 +752,9 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="image_path = ((((&quot;html/resources/imagenet/&quot; + target_class) + &quot;/image&quot;) + random.randrange(101, 151).toString().slice(1)) + &quot;.png&quot;);&amp;#10;image_list[((4 * thisPracticeTrial[&quot;pos&quot;]) + thisPracticeTrial[&quot;ori&quot;])].image = Image.open(image_path);&amp;#10;thisExp.addData(target_class, image_path);&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="image_path = &quot;imagenet/&quot; + target_class + &quot;/image&quot; + (Math.floor(Math.random() * (151 - 101)) + 101).toString().slice(1) + &quot;.png&quot;;&amp;#10;image_list[4 * pos + ori].setImage(image_path);&amp;#10;&amp;#10;thisExp.addData(target_class, image_path);&amp;#10;" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="image_path = 'html/resources/imagenet/' + target_class + '/image' + str(random.randrange(101, 151))[1:] + '.png'&amp;#10;image_list[4 * thisPracticeTrial['pos'] + thisPracticeTrial['ori']].image = Image.open(image_path)&amp;#10;&amp;#10;thisExp.addData(target_class, image_path)&amp;#10;" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
@@ -752,9 +769,9 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    image_list[i].size = [(thisPracticeTrial[&quot;size&quot;] * deg2norm), (thisPracticeTrial[&quot;size&quot;] * deg2norm)];&amp;#10;    if (((4 &lt;= i) &amp;&amp; (i &lt; 8))) {&amp;#10;        image_list[i].size = [(thisPracticeTrial[&quot;rate&quot;] * image_list[i].size[0]), (thisPracticeTrial[&quot;rate&quot;] * image_list[i].size[1])];&amp;#10;    } else {&amp;#10;        if ((i &gt;= 8)) {&amp;#10;            image_list[i].size = [(Math.pow(thisPracticeTrial[&quot;rate&quot;], 2) * image_list[i].size[0]), (Math.pow(thisPracticeTrial[&quot;rate&quot;], 2) * image_list[i].size[1])];&amp;#10;        }&amp;#10;    }&amp;#10;    image_list[i].size[0] *= hw_rate;&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    image_list[i].size = [size * deg2norm, size * deg2norm];&amp;#10;    if (((4 &lt;= i) &amp;&amp; (i &lt; 8))) {&amp;#10;        image_list[i].size = [rate * image_list[i].size[0], rate * image_list[i].size[1]];&amp;#10;    } else {&amp;#10;        if ((i &gt;= 8)) {&amp;#10;            image_list[i].size = [Math.pow(rate, 2) * image_list[i].size[0], Math.pow(rate, 2) * image_list[i].size[1]];&amp;#10;        }&amp;#10;    }&amp;#10;    image_list[i].size[0] *= hw_rate;&amp;#10;}&amp;#10;" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="for i in range(len(image_list)):&amp;#10;    image_list[i].size = (thisPracticeTrial['size'] * deg2norm, thisPracticeTrial['size'] * deg2norm)&amp;#10;    if 4 &lt;= i &lt; 8:&amp;#10;        image_list[i].size = (thisPracticeTrial['rate'] * image_list[i].size[0], thisPracticeTrial['rate'] * image_list[i].size[1])&amp;#10;    elif i &gt;= 8:&amp;#10;        image_list[i].size = ((thisPracticeTrial['rate'] ** 2) * image_list[i].size[0], (thisPracticeTrial['rate'] ** 2) * image_list[i].size[1])&amp;#10;    image_list[i].size[0] *= hw_rate&amp;#10;" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
@@ -769,14 +786,14 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="fixation_point.setAutoDraw(true);" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="if show_stimClock.getTime() &gt; 1:&amp;#10;    for i in range(len(image_list)):&amp;#10;        image_list[i].draw()&amp;#10;&amp;#10;fixation_point.draw()" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="if ((show_stimClock.getTime() &gt; 1)) {&amp;#10;    for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;        image_list[i].draw();&amp;#10;    }&amp;#10;}&amp;#10;fixation_point.draw();&amp;#10;" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="fixation_point.draw()&amp;#10;&amp;#10;if show_stimClock.getTime() &gt; 1:&amp;#10;    for i in range(len(image_list)):&amp;#10;        image_list[i].draw()&amp;#10;" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="if ((show_stimClock.getTime() &gt; 1)) {&amp;#10;    for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;        image_list[i].setAutoDraw(true);&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="fixation_point.setAutoDraw(false);&amp;#10;&amp;#10;for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    image_list[i].setAutoDraw(false);&amp;#10;}" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="draw_and_flip" valType="code"/>
@@ -792,7 +809,7 @@
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="num"/>
+        <Param name="startVal" updates="None" val="1.0" valType="num"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="num"/>
         <Param name="store" updates="constant" val="nothing" valType="str"/>
@@ -849,9 +866,9 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="stimuli_arrangement.size = [((hw_rate * (((2 * eccentricities[2]) / math.sqrt(2)) + 8)) * deg2norm), ((((2 * eccentricities[2]) / math.sqrt(2)) + 8) * deg2norm)];&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="stimuli_arrangement.size = [&amp;#10;    hw_rate * (2 * eccentricities[2] / Math.sqrt(2) + 8) * deg2norm,&amp;#10;    (2 * eccentricities[2] / Math.sqrt(2) + 8) * deg2norm&amp;#10;];&amp;#10;" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="stimuli_arrangement.size = (&amp;#10;    hw_rate * (2 * eccentricities[2] / math.sqrt(2) + 8) * deg2norm,&amp;#10;    (2 * eccentricities[2] / math.sqrt(2) + 8) * deg2norm,&amp;#10;)" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
@@ -895,11 +912,11 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
         <Param name="name" updates="None" val="text_B" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(45)), deg2norm * eccentricities[0] * math.sin(math.radians(45)))" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -920,11 +937,11 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
         <Param name="name" updates="None" val="text_A" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(45 + 90)), deg2norm * eccentricities[0] * math.sin(math.radians(45 + 90)))" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -945,11 +962,11 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
         <Param name="name" updates="None" val="text_C" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(45 + 90 * 2)), deg2norm * eccentricities[0] * math.sin(math.radians(45 + 90 * 2)))" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -970,11 +987,11 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
         <Param name="name" updates="None" val="text_D" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(315)), deg2norm * eccentricities[0] * math.sin(math.radians(315)))" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -995,11 +1012,11 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
         <Param name="name" updates="None" val="text_F" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(0)), deg2norm * eccentricities[1] * math.sin(math.radians(0)))" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -1020,11 +1037,11 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
         <Param name="name" updates="None" val="text_E" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(90)), deg2norm * eccentricities[1] * math.sin(math.radians(90)))" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -1045,11 +1062,11 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
         <Param name="name" updates="None" val="text_G" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(90 * 2)), deg2norm * eccentricities[1] * math.sin(math.radians(90 * 2)))" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -1070,11 +1087,11 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
         <Param name="name" updates="None" val="text_H" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(90 * 3)), deg2norm * eccentricities[1] * math.sin(math.radians(90 * 3)))" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -1095,11 +1112,11 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
         <Param name="name" updates="None" val="text_J" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(45)), deg2norm * eccentricities[2] * math.sin(math.radians(45)))" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -1120,11 +1137,11 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
         <Param name="name" updates="None" val="text_I" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(45 + 90)), deg2norm * eccentricities[2] * math.sin(math.radians(45 + 90)))" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -1145,11 +1162,11 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
         <Param name="name" updates="None" val="text_K" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(45 + 90 * 2)), deg2norm * eccentricities[2] * math.sin(math.radians(45 + 90 * 2)))" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -1170,11 +1187,11 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
         <Param name="name" updates="None" val="text_L" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(45 + 90 * 3)), deg2norm * eccentricities[2] * math.sin(math.radians(45 + 90 * 3)))" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -1186,6 +1203,23 @@
         <Param name="units" updates="None" val="norm" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
+      <CodeComponent name="place_alphabets">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="alphabets_list = [text_B, text_A, text_C, text_D, text_F, text_E, text_G, text_H, text_J, text_I, text_K, text_L];&amp;#10;for (var i = 0, _pj_a = alphabets_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    if ((i &lt; 4)) {&amp;#10;        alphabets_list[i].pos = [&amp;#10;            hw_rate * deg2norm * eccentricities[0] * Math.cos(calcRad((i % 4) * 90 + 45)),&amp;#10;            deg2norm * eccentricities[0] * Math.sin(calcRad((i % 4) * 90 + 45))&amp;#10;        ];&amp;#10;    } else {&amp;#10;        if (((4 &lt;= i) &amp;&amp; (i &lt; 8))) {&amp;#10;            alphabets_list[i].pos = [&amp;#10;                hw_rate * deg2norm * eccentricities[1] * Math.cos(calcRad((i % 4) * 90)),&amp;#10;                deg2norm * eccentricities[1] * Math.sin(calcRad((i % 4) * 90))&amp;#10;            ];&amp;#10;        } else {&amp;#10;            alphabets_list[i].pos = [&amp;#10;                hw_rate * deg2norm * eccentricities[2] * Math.cos(calcRad((i % 4) * 90 + 45)),&amp;#10;                deg2norm * eccentricities[2] * Math.sin(calcRad((i % 4) * 90 + 45))&amp;#10;            ];&amp;#10;        }&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="alphabets_list = [&amp;#10;    text_B,&amp;#10;    text_A,&amp;#10;    text_C,&amp;#10;    text_D,&amp;#10;    text_F,&amp;#10;    text_E,&amp;#10;    text_G,&amp;#10;    text_H,&amp;#10;    text_J,&amp;#10;    text_I,&amp;#10;    text_K,&amp;#10;    text_L&amp;#10;]&amp;#10;&amp;#10;for i in range(len(alphabets_list)):&amp;#10;    if i &lt; 4:&amp;#10;        alphabets_list[i].pos = (&amp;#10;            hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(i % 4 * 90 + 45)),&amp;#10;            deg2norm * eccentricities[0] * math.sin(math.radians(i % 4 * 90 + 45))&amp;#10;        )&amp;#10;    elif 4 &lt;= i &lt; 8:&amp;#10;        alphabets_list[i].pos = (&amp;#10;            hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(i % 4 * 90)),&amp;#10;            deg2norm * eccentricities[1] * math.sin(math.radians(i % 4 * 90))&amp;#10;        )&amp;#10;    else:&amp;#10;        alphabets_list[i].pos = (&amp;#10;            hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(i % 4 * 90 + 45)),&amp;#10;            deg2norm * eccentricities[2] * math.sin(math.radians(i % 4 * 90 + 45))&amp;#10;        )&amp;#10;" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="place_alphabets" valType="code"/>
+      </CodeComponent>
       <KeyboardComponent name="key_ans">
         <Param name="allowedKeys" updates="constant" val="'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l'" valType="list"/>
         <Param name="correctAns" updates="constant" val="" valType="str"/>
@@ -1215,7 +1249,7 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
         <Param name="name" updates="None" val="feedback_text" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -1236,11 +1270,11 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="if (((key_to_pos[key_ans.keys][0] === thisPracticeTrial[&quot;pos&quot;]) &amp;&amp; (key_to_pos[key_ans.keys][1] === thisPracticeTrial[&quot;ori&quot;]))) {&amp;#10;    feedback_text.text = &quot;Your answer is correct!&quot;;&amp;#10;    thisExp.addData(&quot;TF&quot;, &quot;True&quot;);&amp;#10;} else {&amp;#10;    feedback_text.text = &quot;Your answer is incorrect.&quot;;&amp;#10;    thisExp.addData(&quot;TF&quot;, &quot;False&quot;);&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="if key_to_pos[key_ans.keys][0] == thisPracticeTrial['pos'] and key_to_pos[key_ans.keys][1] == thisPracticeTrial['ori']:&amp;#10;    feedback_text.text = 'Your answer is correct!'&amp;#10;    thisExp.addData('TF', 'True')&amp;#10;else:&amp;#10;    feedback_text.text = 'Your answer is incorrect.'&amp;#10;    thisExp.addData('TF', 'False')&amp;#10; " valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="if ((key_to_pos[key_ans.keys][0] === pos) &amp;&amp; (key_to_pos[key_ans.keys][1] === ori)) {&amp;#10;    feedback_text.text = &quot;Your answer is correct!&quot;;&amp;#10;    thisExp.addData(&quot;TF&quot;, &quot;True&quot;);&amp;#10;} else {&amp;#10;    feedback_text.text = &quot;Your answer is incorrect.&quot;;&amp;#10;    thisExp.addData(&quot;TF&quot;, &quot;False&quot;);&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if key_to_pos[key_ans.keys][0] == thisPracticeTrial['pos'] and key_to_pos[key_ans.keys][1] == thisPracticeTrial['ori']:&amp;#10;    feedback_text.text = 'Your answer is correct!'&amp;#10;    thisExp.addData('TF', 'True')&amp;#10;else:&amp;#10;    feedback_text.text = 'Your answer is incorrect.'&amp;#10;    thisExp.addData('TF', 'False')&amp;#10;" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="if show_feedbackClock.getTime() &gt; 1:&amp;#10;    continueRoutine=False&amp;#10;" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="if (show_feedbackClock.getTime() &gt; 1) {&amp;#10;    continueRoutine = false;&amp;#10;}" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
@@ -1318,14 +1352,14 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="fixation_point.fillColor = [(- 0.498), (- 0.498), (- 0.498)];&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="fixation_point.fillColor = (-0.4980, -0.4980, -0.4980)" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Begin JS Routine" updates="constant" val="fixation_point.fillColor = [(- 0.498), (- 0.498), (- 0.498)];&amp;#10;fixation_point.lineColor = [(- 0.498), (- 0.498), (- 0.498)];&amp;#10;fixation_point.setAutoDraw(true);" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="fixation_point.fillColor = (-0.4980, -0.4980, -0.4980)&amp;#10;fixation_point.lineColor = (-0.4980, -0.4980, -0.4980)&amp;#10;" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="fixation_point.draw()" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="fixation_point.draw();&amp;#10;" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="fixation_point.setAutoDraw(false);" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="draw_fixation" valType="code"/>
@@ -1353,15 +1387,15 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="flag = false;&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="flag = False" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="fixation_point.fillColor = [0.5059, 0.5059, 0.5059];&amp;#10;" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="fixation_point.fillColor = (0.5059, 0.5059, 0.5059)&amp;#10;" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="fixation_point.fillColor = [0.5059, 0.5059, 0.5059];&amp;#10;fixation_point.lineColor = [0.5059, 0.5059, 0.5059];&amp;#10;" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="fixation_point.fillColor = (0.5059, 0.5059, 0.5059)&amp;#10;fixation_point.lineColor = (0.5059, 0.5059, 0.5059)" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="change_fixation_color" valType="code"/>
       </CodeComponent>
@@ -1432,7 +1466,6 @@
     <Routine name="ask_question"/>
     <Routine name="show_feedback"/>
     <LoopTerminator name="PracticeTrials"/>
-    <Routine name="actual_intro"/>
     <LoopInitiator loopType="TrialHandler" name="ActualTrials">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[{'size': 1, 'rate': 1, 'pos': 0, 'ori': 0}, {'size': 1, 'rate': 1, 'pos': 0, 'ori': 1}, {'size': 1, 'rate': 1, 'pos': 1, 'ori': 2}, {'size': 1, 'rate': 1, 'pos': 1, 'ori': 3}, {'size': 1, 'rate': 1, 'pos': 2, 'ori': 0}, {'size': 1, 'rate': 1, 'pos': 2, 'ori': 1}, {'size': 1, 'rate': 1, 'pos': 0, 'ori': 2}, {'size': 1, 'rate': 1, 'pos': 0, 'ori': 3}, {'size': 1, 'rate': 1, 'pos': 1, 'ori': 0}, {'size': 1, 'rate': 1, 'pos': 1, 'ori': 1}, {'size': 1, 'rate': 1, 'pos': 2, 'ori': 2}, {'size': 1, 'rate': 1, 'pos': 2, 'ori': 3}, {'size': 1, 'rate': 2, 'pos': 0, 'ori': 0}, {'size': 1, 'rate': 2, 'pos': 0, 'ori': 1}, {'size': 1, 'rate': 2, 'pos': 1, 'ori': 2}, {'size': 1, 'rate': 2, 'pos': 1, 'ori': 3}, {'size': 1, 'rate': 2, 'pos': 2, 'ori': 0}, {'size': 1, 'rate': 2, 'pos': 2, 'ori': 1}, {'size': 1, 'rate': 2, 'pos': 0, 'ori': 2}, {'size': 1, 'rate': 2, 'pos': 0, 'ori': 3}, {'size': 1, 'rate': 2, 'pos': 1, 'ori': 0}, {'size': 1, 'rate': 2, 'pos': 1, 'ori': 1}, {'size': 1, 'rate': 2, 'pos': 2, 'ori': 2}, {'size': 1, 'rate': 2, 'pos': 2, 'ori': 3}, {'size': 2, 'rate': 1, 'pos': 0, 'ori': 0}, {'size': 2, 'rate': 1, 'pos': 0, 'ori': 1}, {'size': 2, 'rate': 1, 'pos': 1, 'ori': 2}, {'size': 2, 'rate': 1, 'pos': 1, 'ori': 3}, {'size': 2, 'rate': 1, 'pos': 2, 'ori': 0}, {'size': 2, 'rate': 1, 'pos': 2, 'ori': 1}, {'size': 2, 'rate': 1, 'pos': 0, 'ori': 2}, {'size': 2, 'rate': 1, 'pos': 0, 'ori': 3}, {'size': 2, 'rate': 1, 'pos': 1, 'ori': 0}, {'size': 2, 'rate': 1, 'pos': 1, 'ori': 1}, {'size': 2, 'rate': 1, 'pos': 2, 'ori': 2}, {'size': 2, 'rate': 1, 'pos': 2, 'ori': 3}, {'size': 2, 'rate': 2, 'pos': 0, 'ori': 0}, {'size': 2, 'rate': 2, 'pos': 0, 'ori': 1}, {'size': 2, 'rate': 2, 'pos': 1, 'ori': 2}, {'size': 2, 'rate': 2, 'pos': 1, 'ori': 3}, {'size': 2, 'rate': 2, 'pos': 2, 'ori': 0}, {'size': 2, 'rate': 2, 'pos': 2, 'ori': 1}, {'size': 2, 'rate': 2, 'pos': 0, 'ori': 2}, {'size': 2, 'rate': 2, 'pos': 0, 'ori': 3}, {'size': 2, 'rate': 2, 'pos': 1, 'ori': 0}, {'size': 2, 'rate': 2, 'pos': 1, 'ori': 1}, {'size': 2, 'rate': 2, 'pos': 2, 'ori': 2}, {'size': 2, 'rate': 2, 'pos': 2, 'ori': 3}]" valType="str"/>
@@ -1444,11 +1477,11 @@
       <Param name="name" updates="None" val="ActualTrials" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
+    <Routine name="actual_intro"/>
     <Routine name="gitter"/>
     <Routine name="show_stim"/>
     <Routine name="ask_question"/>
     <Routine name="show_feedback"/>
-    <Routine name="take_break"/>
     <LoopTerminator name="ActualTrials"/>
   </Flow>
 </PsychoPy2experiment>

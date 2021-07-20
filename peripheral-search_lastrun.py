@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on Sun Jul 18 17:36:49 2021
+    on Tue Jul 20 23:33:46 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -29,9 +29,12 @@ import sys  # to get file system encoding
 from psychopy.hardware import keyboard
 
 import math
-from  PIL import Image
+import math
+
 import random
+from PIL import Image
 import random
+from PIL import Image
 
 
 # Ensure that relative paths start from the same directory as this script
@@ -172,10 +175,8 @@ key_to_pos = {}
 for i in range(len(ans_keys_list)):
     for j in range(len(ans_keys_list[i])):
         key_to_pos[ans_keys_list[i][j]] = [i, j]
-print(key_to_pos)
 
 hw_rate = win.size[1] / win.size[0]
-
 eccentricity_level_0 = round(math.sqrt(2), 2)
 eccentricity_level_1 = round(1 + math.sqrt(8), 2)
 eccentricity_level_2 = round((math.sqrt(2) + 4 + math.sqrt((math.sqrt(2) + 4) ** 2 - 4 * (4 * math.sqrt(2) - 27))) / 2, 2)
@@ -185,127 +186,121 @@ eccentricities = [
     eccentricity_level_2
 ]
 
-import math
-
 # Local
 # imac
 # VA = round(360 / pi * math.atan2(33.5, 2 * 57))
 # macbook
 VA = round(360 / pi * math.atan2(17.9, 2 * 57))
-
-# Online
-# VA = round(360 / pi * math.atan2(screen_height, 2 * 57))
-
 deg2norm = 2 / VA
 image_0_0 = visual.ImageStim(
     win=win,
     name='image_0_0', units='norm', 
     image='html/resources/imagenet/bear/image01.png', mask=None,
-    ori=0.0, pos=(0, 0), size=(deg2norm * hw_rate, deg2norm),
+    ori=0.0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-3.0)
+    texRes=128.0, interpolate=True, depth=-4.0)
 image_0_1 = visual.ImageStim(
     win=win,
     name='image_0_1', units='norm', 
     image='html/resources/imagenet/cat/image01.png', mask=None,
-    ori=0.0, pos=(0, 0), size=(deg2norm * hw_rate, deg2norm),
+    ori=0.0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-4.0)
+    texRes=128.0, interpolate=True, depth=-5.0)
 image_0_2 = visual.ImageStim(
     win=win,
     name='image_0_2', units='norm', 
     image='html/resources/imagenet/dog/image01.png', mask=None,
-    ori=0.0, pos=(0, 0), size=(deg2norm * hw_rate, deg2norm),
+    ori=0.0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-5.0)
+    texRes=128.0, interpolate=True, depth=-6.0)
 image_0_3 = visual.ImageStim(
     win=win,
     name='image_0_3', units='norm', 
     image='html/resources/imagenet/elephant/image01.png', mask=None,
-    ori=0.0, pos=(0, 0), size=(deg2norm * hw_rate, deg2norm),
+    ori=0.0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-6.0)
+    texRes=128.0, interpolate=True, depth=-7.0)
 image_1_0 = visual.ImageStim(
     win=win,
     name='image_1_0', units='norm', 
     image='html/resources/imagenet/fox/image01.png', mask=None,
-    ori=0.0, pos=(0, 0), size=(2 * deg2norm * hw_rate, 2 * deg2norm),
+    ori=0.0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-7.0)
+    texRes=128.0, interpolate=True, depth=-8.0)
 image_1_1 = visual.ImageStim(
     win=win,
     name='image_1_1', units='norm', 
     image='html/resources/imagenet/kangaroo/image01.png', mask=None,
-    ori=0.0, pos=(0, 0), size=(2 * deg2norm * hw_rate, 2 * deg2norm),
+    ori=0.0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-8.0)
+    texRes=128.0, interpolate=True, depth=-9.0)
 image_1_2 = visual.ImageStim(
     win=win,
     name='image_1_2', units='norm', 
     image='html/resources/imagenet/lion/image01.png', mask=None,
-    ori=0.0, pos=(0, 0), size=(2 * deg2norm * hw_rate, 2 * deg2norm),
+    ori=0.0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-9.0)
+    texRes=128.0, interpolate=True, depth=-10.0)
 image_1_3 = visual.ImageStim(
     win=win,
     name='image_1_3', units='norm', 
     image='html/resources/imagenet/monkey/image01.png', mask=None,
-    ori=0.0, pos=(0, 0), size=(2 * deg2norm * hw_rate, 2 * deg2norm),
+    ori=0.0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-10.0)
+    texRes=128.0, interpolate=True, depth=-11.0)
 image_2_0 = visual.ImageStim(
     win=win,
     name='image_2_0', units='norm', 
     image='html/resources/imagenet/otter/image01.png', mask=None,
-    ori=0.0, pos=(0, 0), size=(2 * 2 * deg2norm * hw_rate, 2 * 2 * deg2norm),
+    ori=0.0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-11.0)
+    texRes=128.0, interpolate=True, depth=-12.0)
 image_2_1 = visual.ImageStim(
     win=win,
     name='image_2_1', units='norm', 
     image='html/resources/imagenet/pig/image01.png', mask=None,
-    ori=0.0, pos=(0, 0), size=(2 * 2 * deg2norm * hw_rate, 2 * 2 * deg2norm),
+    ori=0.0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-12.0)
+    texRes=128.0, interpolate=True, depth=-13.0)
 image_2_2 = visual.ImageStim(
     win=win,
     name='image_2_2', units='norm', 
     image='html/resources/imagenet/rabbit/image01.png', mask=None,
-    ori=0.0, pos=(0, 0), size=(2 * 2 *deg2norm * hw_rate, 2 * 2 * deg2norm),
+    ori=0.0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-13.0)
+    texRes=128.0, interpolate=True, depth=-14.0)
 image_2_3 = visual.ImageStim(
     win=win,
     name='image_2_3', units='norm', 
     image='html/resources/imagenet/sheep/image01.png', mask=None,
-    ori=0.0, pos=(0, 0), size=(2 * 2 * deg2norm * hw_rate, 2 * 2 * deg2norm),
+    ori=0.0, pos=(0, 0), size=1.0,
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
-    texRes=128.0, interpolate=True, depth=-14.0)
+    texRes=128.0, interpolate=True, depth=-15.0)
 fixation_point = visual.Polygon(
     win=win, name='fixation_point',units='norm', 
-    edges=100, size=(deg2norm / 5 * hw_rate, deg2norm / 5),
+    edges=100, size=[1.0, 1.0],
     ori=0.0, pos=(0, 0),
-    lineWidth=1.0,     colorSpace='rgb',  lineColor=None, fillColor=(0.5059, 0.5059, 0.5059),
-    opacity=None, depth=-16.0, interpolate=True)
+    lineWidth=1.0,     colorSpace='rgb',  lineColor=(0.5059, 0.5059, 0.5059), fillColor=(0.5059, 0.5059, 0.5059),
+    opacity=None, depth=-17.0, interpolate=True)
 introduction_text = visual.TextStim(win=win, name='introduction_text',
     text='',
     font='Open Sans',
-    units='norm', pos=(0.6, 0.3), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0.6, 0.3), height=deg2norm * 0.3, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
-    depth=-17.0);
+    depth=-18.0);
 exp_info_key_resp = keyboard.Keyboard()
 
 # Initialize components for Routine "practice_intro"
@@ -313,7 +308,7 @@ practice_introClock = core.Clock()
 introduction_text_p = visual.TextStim(win=win, name='introduction_text_p',
     text="Let's practice with some stimuli.\n\nHit a Key when ready.",
     font='Open Sans',
-    units='norm', pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -347,84 +342,84 @@ question_text = visual.TextStim(win=win, name='question_text',
 text_B = visual.TextStim(win=win, name='text_B',
     text='B',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(45)), deg2norm * eccentricities[0] * math.sin(math.radians(45))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-3.0);
 text_A = visual.TextStim(win=win, name='text_A',
     text='A',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(45 + 90)), deg2norm * eccentricities[0] * math.sin(math.radians(45 + 90))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-4.0);
 text_C = visual.TextStim(win=win, name='text_C',
     text='C',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(45 + 90 * 2)), deg2norm * eccentricities[0] * math.sin(math.radians(45 + 90 * 2))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-5.0);
 text_D = visual.TextStim(win=win, name='text_D',
     text='D',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(315)), deg2norm * eccentricities[0] * math.sin(math.radians(315))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-6.0);
 text_F = visual.TextStim(win=win, name='text_F',
     text='F',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(0)), deg2norm * eccentricities[1] * math.sin(math.radians(0))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-7.0);
 text_E = visual.TextStim(win=win, name='text_E',
     text='E',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(90)), deg2norm * eccentricities[1] * math.sin(math.radians(90))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-8.0);
 text_G = visual.TextStim(win=win, name='text_G',
     text='G',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(90 * 2)), deg2norm * eccentricities[1] * math.sin(math.radians(90 * 2))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-9.0);
 text_H = visual.TextStim(win=win, name='text_H',
     text='H',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(90 * 3)), deg2norm * eccentricities[1] * math.sin(math.radians(90 * 3))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-10.0);
 text_J = visual.TextStim(win=win, name='text_J',
     text='J',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(45)), deg2norm * eccentricities[2] * math.sin(math.radians(45))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-11.0);
 text_I = visual.TextStim(win=win, name='text_I',
     text='I',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(45 + 90)), deg2norm * eccentricities[2] * math.sin(math.radians(45 + 90))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-12.0);
 text_K = visual.TextStim(win=win, name='text_K',
     text='K',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(45 + 90 * 2)), deg2norm * eccentricities[2] * math.sin(math.radians(45 + 90 * 2))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-13.0);
 text_L = visual.TextStim(win=win, name='text_L',
     text='L',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(45 + 90 * 3)), deg2norm * eccentricities[2] * math.sin(math.radians(45 + 90 * 3))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-14.0);
@@ -435,21 +430,11 @@ show_feedbackClock = core.Clock()
 feedback_text = visual.TextStim(win=win, name='feedback_text',
     text='feedback text',
     font='Open Sans',
-    units='norm', pos=(0, 0), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
 show_fb_key_resp = keyboard.Keyboard()
-
-# Initialize components for Routine "take_break"
-take_breakClock = core.Clock()
-break_text = visual.TextStim(win=win, name='break_text',
-    text='Please take a short break.\n\nIf the experiment is ready, \nthe window will change to the fixation point.',
-    font='Open Sans',
-    units='norm', pos=(0, 0), height=0.1, wrapWidth=None, ori=0.0, 
-    color='white', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
 
 # Initialize components for Routine "actual_intro"
 actual_introClock = core.Clock()
@@ -490,84 +475,84 @@ question_text = visual.TextStim(win=win, name='question_text',
 text_B = visual.TextStim(win=win, name='text_B',
     text='B',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(45)), deg2norm * eccentricities[0] * math.sin(math.radians(45))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-3.0);
 text_A = visual.TextStim(win=win, name='text_A',
     text='A',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(45 + 90)), deg2norm * eccentricities[0] * math.sin(math.radians(45 + 90))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-4.0);
 text_C = visual.TextStim(win=win, name='text_C',
     text='C',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(45 + 90 * 2)), deg2norm * eccentricities[0] * math.sin(math.radians(45 + 90 * 2))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-5.0);
 text_D = visual.TextStim(win=win, name='text_D',
     text='D',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(315)), deg2norm * eccentricities[0] * math.sin(math.radians(315))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-6.0);
 text_F = visual.TextStim(win=win, name='text_F',
     text='F',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(0)), deg2norm * eccentricities[1] * math.sin(math.radians(0))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-7.0);
 text_E = visual.TextStim(win=win, name='text_E',
     text='E',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(90)), deg2norm * eccentricities[1] * math.sin(math.radians(90))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-8.0);
 text_G = visual.TextStim(win=win, name='text_G',
     text='G',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(90 * 2)), deg2norm * eccentricities[1] * math.sin(math.radians(90 * 2))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-9.0);
 text_H = visual.TextStim(win=win, name='text_H',
     text='H',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(90 * 3)), deg2norm * eccentricities[1] * math.sin(math.radians(90 * 3))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-10.0);
 text_J = visual.TextStim(win=win, name='text_J',
     text='J',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(45)), deg2norm * eccentricities[2] * math.sin(math.radians(45))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-11.0);
 text_I = visual.TextStim(win=win, name='text_I',
     text='I',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(45 + 90)), deg2norm * eccentricities[2] * math.sin(math.radians(45 + 90))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-12.0);
 text_K = visual.TextStim(win=win, name='text_K',
     text='K',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(45 + 90 * 2)), deg2norm * eccentricities[2] * math.sin(math.radians(45 + 90 * 2))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-13.0);
 text_L = visual.TextStim(win=win, name='text_L',
     text='L',
     font='Open Sans',
-    units='norm', pos=(hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(45 + 90 * 3)), deg2norm * eccentricities[2] * math.sin(math.radians(45 + 90 * 3))), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-14.0);
@@ -578,7 +563,7 @@ show_feedbackClock = core.Clock()
 feedback_text = visual.TextStim(win=win, name='feedback_text',
     text='feedback text',
     font='Open Sans',
-    units='norm', pos=(0, 0), height=deg2norm, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -796,6 +781,23 @@ routineTimer.reset()
 # ------Prepare to start Routine "exp_intro"-------
 continueRoutine = True
 # update component parameters for each repeat
+hw_rate = win.size[1] / win.size[0]
+# Online
+VA = round(360 / pi * math.atan2(screen_height, 2 * 57))
+
+deg2norm = 2 / VA
+image_0_0.setSize((deg2norm * hw_rate, deg2norm))
+image_0_1.setSize((deg2norm * hw_rate, deg2norm))
+image_0_2.setSize((deg2norm * hw_rate, deg2norm))
+image_0_3.setSize((deg2norm * hw_rate, deg2norm))
+image_1_0.setSize((2 * deg2norm * hw_rate, 2 * deg2norm))
+image_1_1.setSize((2 * deg2norm * hw_rate, 2 * deg2norm))
+image_1_2.setSize((2 * deg2norm * hw_rate, 2 * deg2norm))
+image_1_3.setSize((2 * deg2norm * hw_rate, 2 * deg2norm))
+image_2_0.setSize((2 * 2 * deg2norm * hw_rate, 2 * 2 * deg2norm))
+image_2_1.setSize((2 * 2 * deg2norm * hw_rate, 2 * 2 * deg2norm))
+image_2_2.setSize((2 * 2 *deg2norm * hw_rate, 2 * 2 * deg2norm))
+image_2_3.setSize((2 * 2 * deg2norm * hw_rate, 2 * 2 * deg2norm))
 image_list = [
     image_0_0,
     image_0_1,
@@ -814,20 +816,21 @@ image_list = [
 for i in range(len(image_list)):
     if i < 4:
         image_list[i].pos = (
-            hw_rate * deg2norm * eccentricity_level_0 * math.cos(math.radians(i % 4 * 90 + 45)),
-            deg2norm * eccentricity_level_0 * math.sin(math.radians(i % 4 * 90 + 45))
+            hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(i % 4 * 90 + 45)),
+            deg2norm * eccentricities[0] * math.sin(math.radians(i % 4 * 90 + 45))
         )
     elif 4 <= i < 8:
         image_list[i].pos = (
-            hw_rate * deg2norm * eccentricity_level_1 * math.cos(math.radians(i % 4 * 90)),
-            deg2norm * eccentricity_level_1 * math.sin(math.radians(i % 4 * 90))
+            hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(i % 4 * 90)),
+            deg2norm * eccentricities[1] * math.sin(math.radians(i % 4 * 90))
         )
     else:
         image_list[i].pos = (
-            hw_rate * deg2norm * eccentricity_level_2 * math.cos(math.radians(i % 4 * 90 + 45)),
-            deg2norm * eccentricity_level_2 * math.sin(math.radians(i % 4 * 90 + 45))
+            hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(i % 4 * 90 + 45)),
+            deg2norm * eccentricities[2] * math.sin(math.radians(i % 4 * 90 + 45))
         )
 
+fixation_point.setSize((deg2norm / 5 * hw_rate, deg2norm / 5))
 exp_info_key_resp.keys = []
 exp_info_key_resp.rt = []
 _exp_info_key_resp_allKeys = []
@@ -1137,10 +1140,11 @@ for thisPracticeTrial in PracticeTrials:
     continueRoutine = True
     # update component parameters for each repeat
     fixation_point.fillColor = (-0.4980, -0.4980, -0.4980)
+    fixation_point.lineColor = (-0.4980, -0.4980, -0.4980)
+    
     exp_start.keys = []
     exp_start.rt = []
     _exp_start_allKeys = []
-    flag = False
     # keep track of which components have finished
     gitterComponents = [exp_start]
     for thisComponent in gitterComponents:
@@ -1218,7 +1222,7 @@ for thisPracticeTrial in PracticeTrials:
     PracticeTrials.addData('exp_start.started', exp_start.tStartRefresh)
     PracticeTrials.addData('exp_start.stopped', exp_start.tStopRefresh)
     fixation_point.fillColor = (0.5059, 0.5059, 0.5059)
-    
+    fixation_point.lineColor = (0.5059, 0.5059, 0.5059)
     # the Routine "gitter" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -1271,15 +1275,16 @@ for thisPracticeTrial in PracticeTrials:
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
+        fixation_point.draw()
+        
         if show_stimClock.getTime() > 1:
             for i in range(len(image_list)):
                 image_list[i].draw()
         
-        fixation_point.draw()
         
         # *show_stim_key_resp* updates
         waitOnFlip = False
-        if show_stim_key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        if show_stim_key_resp.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
             # keep track of start time/frame for later
             show_stim_key_resp.frameNStart = frameN  # exact frame index
             show_stim_key_resp.tStart = t  # local t and not account for scr refresh
@@ -1331,6 +1336,38 @@ for thisPracticeTrial in PracticeTrials:
         hw_rate * (2 * eccentricities[2] / math.sqrt(2) + 8) * deg2norm,
         (2 * eccentricities[2] / math.sqrt(2) + 8) * deg2norm,
     )
+    alphabets_list = [
+        text_B,
+        text_A,
+        text_C,
+        text_D,
+        text_F,
+        text_E,
+        text_G,
+        text_H,
+        text_J,
+        text_I,
+        text_K,
+        text_L
+    ]
+    
+    for i in range(len(alphabets_list)):
+        if i < 4:
+            alphabets_list[i].pos = (
+                hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(i % 4 * 90 + 45)),
+                deg2norm * eccentricities[0] * math.sin(math.radians(i % 4 * 90 + 45))
+            )
+        elif 4 <= i < 8:
+            alphabets_list[i].pos = (
+                hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(i % 4 * 90)),
+                deg2norm * eccentricities[1] * math.sin(math.radians(i % 4 * 90))
+            )
+        else:
+            alphabets_list[i].pos = (
+                hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(i % 4 * 90 + 45)),
+                deg2norm * eccentricities[2] * math.sin(math.radians(i % 4 * 90 + 45))
+            )
+    
     key_ans.keys = []
     key_ans.rt = []
     _key_ans_allKeys = []
@@ -1549,7 +1586,7 @@ for thisPracticeTrial in PracticeTrials:
     else:
         feedback_text.text = 'Your answer is incorrect.'
         thisExp.addData('TF', 'False')
-     
+    
     show_fb_key_resp.keys = []
     show_fb_key_resp.rt = []
     _show_fb_key_resp_allKeys = []
@@ -1585,6 +1622,9 @@ for thisPracticeTrial in PracticeTrials:
             feedback_text.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(feedback_text, 'tStartRefresh')  # time at next scr refresh
             feedback_text.setAutoDraw(True)
+        if show_feedbackClock.getTime() > 1:
+            continueRoutine=False
+        
         
         # *show_fb_key_resp* updates
         waitOnFlip = False
@@ -1631,165 +1671,10 @@ for thisPracticeTrial in PracticeTrials:
             thisComponent.setAutoDraw(False)
     # the Routine "show_feedback" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
-    
-    # ------Prepare to start Routine "take_break"-------
-    continueRoutine = True
-    # update component parameters for each repeat
-    if PracticeTrials.thisTrialN != 1:
-        continueRoutine=False
-    
-    # keep track of which components have finished
-    take_breakComponents = [break_text]
-    for thisComponent in take_breakComponents:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    take_breakClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-    frameN = -1
-    
-    # -------Run Routine "take_break"-------
-    while continueRoutine:
-        # get current time
-        t = take_breakClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=take_breakClock)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # *break_text* updates
-        if break_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            break_text.frameNStart = frameN  # exact frame index
-            break_text.tStart = t  # local t and not account for scr refresh
-            break_text.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(break_text, 'tStartRefresh')  # time at next scr refresh
-            break_text.setAutoDraw(True)
-        if take_breakClock.getTime() > 60:
-            continueRoutine=False
-        
-        
-        # check for quit (typically the Esc key)
-        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-            core.quit()
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in take_breakComponents:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # -------Ending Routine "take_break"-------
-    for thisComponent in take_breakComponents:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    PracticeTrials.addData('break_text.started', break_text.tStartRefresh)
-    PracticeTrials.addData('break_text.stopped', break_text.tStopRefresh)
-    # the Routine "take_break" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
     thisExp.nextEntry()
     
 # completed 1.0 repeats of 'PracticeTrials'
 
-
-# ------Prepare to start Routine "actual_intro"-------
-continueRoutine = True
-# update component parameters for each repeat
-actual_intro_key_resp.keys = []
-actual_intro_key_resp.rt = []
-_actual_intro_key_resp_allKeys = []
-# keep track of which components have finished
-actual_introComponents = [text_4, actual_intro_key_resp]
-for thisComponent in actual_introComponents:
-    thisComponent.tStart = None
-    thisComponent.tStop = None
-    thisComponent.tStartRefresh = None
-    thisComponent.tStopRefresh = None
-    if hasattr(thisComponent, 'status'):
-        thisComponent.status = NOT_STARTED
-# reset timers
-t = 0
-_timeToFirstFrame = win.getFutureFlipTime(clock="now")
-actual_introClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
-frameN = -1
-
-# -------Run Routine "actual_intro"-------
-while continueRoutine:
-    # get current time
-    t = actual_introClock.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=actual_introClock)
-    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-    # update/draw components on each frame
-    
-    # *text_4* updates
-    if text_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        text_4.frameNStart = frameN  # exact frame index
-        text_4.tStart = t  # local t and not account for scr refresh
-        text_4.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(text_4, 'tStartRefresh')  # time at next scr refresh
-        text_4.setAutoDraw(True)
-    
-    # *actual_intro_key_resp* updates
-    waitOnFlip = False
-    if actual_intro_key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        actual_intro_key_resp.frameNStart = frameN  # exact frame index
-        actual_intro_key_resp.tStart = t  # local t and not account for scr refresh
-        actual_intro_key_resp.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(actual_intro_key_resp, 'tStartRefresh')  # time at next scr refresh
-        actual_intro_key_resp.status = STARTED
-        # keyboard checking is just starting
-        waitOnFlip = True
-        win.callOnFlip(actual_intro_key_resp.clock.reset)  # t=0 on next screen flip
-        win.callOnFlip(actual_intro_key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
-    if actual_intro_key_resp.status == STARTED and not waitOnFlip:
-        theseKeys = actual_intro_key_resp.getKeys(keyList=['s'], waitRelease=False)
-        _actual_intro_key_resp_allKeys.extend(theseKeys)
-        if len(_actual_intro_key_resp_allKeys):
-            actual_intro_key_resp.keys = _actual_intro_key_resp_allKeys[-1].name  # just the last key pressed
-            actual_intro_key_resp.rt = _actual_intro_key_resp_allKeys[-1].rt
-            # a response ends the routine
-            continueRoutine = False
-    
-    # check for quit (typically the Esc key)
-    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
-        core.quit()
-    
-    # check if all components have finished
-    if not continueRoutine:  # a component has requested a forced-end of Routine
-        break
-    continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in actual_introComponents:
-        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-            continueRoutine = True
-            break  # at least one component has not yet finished
-    
-    # refresh the screen
-    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-        win.flip()
-
-# -------Ending Routine "actual_intro"-------
-for thisComponent in actual_introComponents:
-    if hasattr(thisComponent, "setAutoDraw"):
-        thisComponent.setAutoDraw(False)
-thisExp.addData('text_4.started', text_4.tStartRefresh)
-thisExp.addData('text_4.stopped', text_4.tStopRefresh)
-# the Routine "actual_intro" was not non-slip safe, so reset the non-slip timer
-routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
 ActualTrials = data.TrialHandler(nReps=4.0, method='random', 
@@ -1810,14 +1695,102 @@ for thisActualTrial in ActualTrials:
         for paramName in thisActualTrial:
             exec('{} = thisActualTrial[paramName]'.format(paramName))
     
+    # ------Prepare to start Routine "actual_intro"-------
+    continueRoutine = True
+    # update component parameters for each repeat
+    actual_intro_key_resp.keys = []
+    actual_intro_key_resp.rt = []
+    _actual_intro_key_resp_allKeys = []
+    # keep track of which components have finished
+    actual_introComponents = [text_4, actual_intro_key_resp]
+    for thisComponent in actual_introComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    actual_introClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    frameN = -1
+    
+    # -------Run Routine "actual_intro"-------
+    while continueRoutine:
+        # get current time
+        t = actual_introClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=actual_introClock)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *text_4* updates
+        if text_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_4.frameNStart = frameN  # exact frame index
+            text_4.tStart = t  # local t and not account for scr refresh
+            text_4.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_4, 'tStartRefresh')  # time at next scr refresh
+            text_4.setAutoDraw(True)
+        
+        # *actual_intro_key_resp* updates
+        waitOnFlip = False
+        if actual_intro_key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            actual_intro_key_resp.frameNStart = frameN  # exact frame index
+            actual_intro_key_resp.tStart = t  # local t and not account for scr refresh
+            actual_intro_key_resp.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(actual_intro_key_resp, 'tStartRefresh')  # time at next scr refresh
+            actual_intro_key_resp.status = STARTED
+            # keyboard checking is just starting
+            waitOnFlip = True
+            win.callOnFlip(actual_intro_key_resp.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(actual_intro_key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
+        if actual_intro_key_resp.status == STARTED and not waitOnFlip:
+            theseKeys = actual_intro_key_resp.getKeys(keyList=['s'], waitRelease=False)
+            _actual_intro_key_resp_allKeys.extend(theseKeys)
+            if len(_actual_intro_key_resp_allKeys):
+                actual_intro_key_resp.keys = _actual_intro_key_resp_allKeys[-1].name  # just the last key pressed
+                actual_intro_key_resp.rt = _actual_intro_key_resp_allKeys[-1].rt
+                # a response ends the routine
+                continueRoutine = False
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in actual_introComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "actual_intro"-------
+    for thisComponent in actual_introComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    ActualTrials.addData('text_4.started', text_4.tStartRefresh)
+    ActualTrials.addData('text_4.stopped', text_4.tStopRefresh)
+    # the Routine "actual_intro" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
+    
     # ------Prepare to start Routine "gitter"-------
     continueRoutine = True
     # update component parameters for each repeat
     fixation_point.fillColor = (-0.4980, -0.4980, -0.4980)
+    fixation_point.lineColor = (-0.4980, -0.4980, -0.4980)
+    
     exp_start.keys = []
     exp_start.rt = []
     _exp_start_allKeys = []
-    flag = False
     # keep track of which components have finished
     gitterComponents = [exp_start]
     for thisComponent in gitterComponents:
@@ -1895,7 +1868,7 @@ for thisActualTrial in ActualTrials:
     ActualTrials.addData('exp_start.started', exp_start.tStartRefresh)
     ActualTrials.addData('exp_start.stopped', exp_start.tStopRefresh)
     fixation_point.fillColor = (0.5059, 0.5059, 0.5059)
-    
+    fixation_point.lineColor = (0.5059, 0.5059, 0.5059)
     # the Routine "gitter" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -1948,15 +1921,16 @@ for thisActualTrial in ActualTrials:
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
+        fixation_point.draw()
+        
         if show_stimClock.getTime() > 1:
             for i in range(len(image_list)):
                 image_list[i].draw()
         
-        fixation_point.draw()
         
         # *show_stim_key_resp* updates
         waitOnFlip = False
-        if show_stim_key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        if show_stim_key_resp.status == NOT_STARTED and tThisFlip >= 1.0-frameTolerance:
             # keep track of start time/frame for later
             show_stim_key_resp.frameNStart = frameN  # exact frame index
             show_stim_key_resp.tStart = t  # local t and not account for scr refresh
@@ -2008,6 +1982,38 @@ for thisActualTrial in ActualTrials:
         hw_rate * (2 * eccentricities[2] / math.sqrt(2) + 8) * deg2norm,
         (2 * eccentricities[2] / math.sqrt(2) + 8) * deg2norm,
     )
+    alphabets_list = [
+        text_B,
+        text_A,
+        text_C,
+        text_D,
+        text_F,
+        text_E,
+        text_G,
+        text_H,
+        text_J,
+        text_I,
+        text_K,
+        text_L
+    ]
+    
+    for i in range(len(alphabets_list)):
+        if i < 4:
+            alphabets_list[i].pos = (
+                hw_rate * deg2norm * eccentricities[0] * math.cos(math.radians(i % 4 * 90 + 45)),
+                deg2norm * eccentricities[0] * math.sin(math.radians(i % 4 * 90 + 45))
+            )
+        elif 4 <= i < 8:
+            alphabets_list[i].pos = (
+                hw_rate * deg2norm * eccentricities[1] * math.cos(math.radians(i % 4 * 90)),
+                deg2norm * eccentricities[1] * math.sin(math.radians(i % 4 * 90))
+            )
+        else:
+            alphabets_list[i].pos = (
+                hw_rate * deg2norm * eccentricities[2] * math.cos(math.radians(i % 4 * 90 + 45)),
+                deg2norm * eccentricities[2] * math.sin(math.radians(i % 4 * 90 + 45))
+            )
+    
     key_ans.keys = []
     key_ans.rt = []
     _key_ans_allKeys = []
@@ -2226,7 +2232,7 @@ for thisActualTrial in ActualTrials:
     else:
         feedback_text.text = 'Your answer is incorrect.'
         thisExp.addData('TF', 'False')
-     
+    
     show_fb_key_resp.keys = []
     show_fb_key_resp.rt = []
     _show_fb_key_resp_allKeys = []
@@ -2262,6 +2268,9 @@ for thisActualTrial in ActualTrials:
             feedback_text.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(feedback_text, 'tStartRefresh')  # time at next scr refresh
             feedback_text.setAutoDraw(True)
+        if show_feedbackClock.getTime() > 1:
+            continueRoutine=False
+        
         
         # *show_fb_key_resp* updates
         waitOnFlip = False

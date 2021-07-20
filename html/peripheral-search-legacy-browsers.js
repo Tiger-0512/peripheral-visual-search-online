@@ -20,14 +20,19 @@ let expName = 'peripheral-search';  // from the Builder filename that created th
 let expInfo = {'participant': ''};
 
 // Start code blocks for 'Before Experiment'
-import * as math from 'math';
+const range = (start, end) => [...Array((end - start) + 1)].map((_, i) => start + i);
 
-import {Image} from 'PIL';
+const shuffle = ([...array]) => {
+    for (let i = array.length - 1; i >= 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
 
-import * as random from 'random';
-
-import * as random from 'random';
-
+const calcRad = (deg) => {
+    return deg * (Math.PI / 180);
+}
 // schedule the experiment:
 psychoJS.schedule(psychoJS.gui.DlgFromDict({
   dictionary: expInfo,
@@ -57,9 +62,6 @@ const PracticeTrialsLoopScheduler = new Scheduler(psychoJS);
 flowScheduler.add(PracticeTrialsLoopBegin, PracticeTrialsLoopScheduler);
 flowScheduler.add(PracticeTrialsLoopScheduler);
 flowScheduler.add(PracticeTrialsLoopEnd);
-flowScheduler.add(actual_introRoutineBegin());
-flowScheduler.add(actual_introRoutineEachFrame());
-flowScheduler.add(actual_introRoutineEnd());
 const ActualTrialsLoopScheduler = new Scheduler(psychoJS);
 flowScheduler.add(ActualTrialsLoopBegin, ActualTrialsLoopScheduler);
 flowScheduler.add(ActualTrialsLoopScheduler);
@@ -174,8 +176,6 @@ var show_fb_key_resp;
 var actual_introClock;
 var text_4;
 var actual_intro_key_resp;
-var take_breakClock;
-var break_text;
 var globalClock;
 var routineTimer;
 function experimentInit() {
@@ -271,6 +271,7 @@ function experimentInit() {
   exp_introClock = new util.Clock();
   target_class = "cat";
   non_target_classes = ["dog", "elephant", "tiger", "rabbit", "kangaroo", "sheep", "monkey", "lion", "bear", "fox", "pig", "otter"];
+  
   ans_keys_list = [["b", "a", "c", "d"], ["f", "e", "g", "h"], ["j", "i", "k", "l"]];
   key_to_pos = {};
   for (var i = 0, _pj_a = ans_keys_list.length; (i < _pj_a); i += 1) {
@@ -278,132 +279,131 @@ function experimentInit() {
           key_to_pos[ans_keys_list[i][j]] = [i, j];
       }
   }
-  console.log(key_to_pos);
-  hw_rate = (win.size[1] / win.size[0]);
   
-  eccentricity_level_0 = round(Math.sqrt(2), 2);
-  eccentricity_level_1 = round((1 + math.sqrt(8)), 2);
-  eccentricity_level_2 = round((((math.sqrt(2) + 4) + math.sqrt((Math.pow((math.sqrt(2) + 4), 2) - (4 * ((4 * math.sqrt(2)) - 27))))) / 2), 2);
+  hw_rate = win.size[1] / win.size[0];
+  
+  eccentricity_level_0 = Math.round(Math.sqrt(2) * 100) / 100;
+  eccentricity_level_1 = Math.round((1 + Math.sqrt(8)) * 100) / 100;
+  eccentricity_level_2 = Math.round(((Math.sqrt(2) + 4 + Math.sqrt(Math.pow((Math.sqrt(2) + 4), 2) - 4 * (4 * Math.sqrt(2) - 27))) / 2) * 100) / 100;
   eccentricities = [eccentricity_level_0, eccentricity_level_1, eccentricity_level_2];
   
-  var VA;
-  VA = Math.round(((360 / Math.PI) * Math.atan2(33.5, (2 * 57))));
+  VA = Math.round(360 / Math.PI * Math.atan2(17.9, (2 * 57)));
   deg2norm = 2 / VA
   image_0_0 = new visual.ImageStim({
     win : psychoJS.window,
     name : 'image_0_0', units : 'norm', 
     image : 'html/resources/imagenet/bear/image01.png', mask : undefined,
-    ori : 0.0, pos : [0, 0], size : [(deg2norm * hw_rate), deg2norm],
+    ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -3.0 
+    texRes : 128.0, interpolate : true, depth : -4.0 
   });
   image_0_1 = new visual.ImageStim({
     win : psychoJS.window,
     name : 'image_0_1', units : 'norm', 
     image : 'html/resources/imagenet/cat/image01.png', mask : undefined,
-    ori : 0.0, pos : [0, 0], size : [(deg2norm * hw_rate), deg2norm],
+    ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -4.0 
+    texRes : 128.0, interpolate : true, depth : -5.0 
   });
   image_0_2 = new visual.ImageStim({
     win : psychoJS.window,
     name : 'image_0_2', units : 'norm', 
     image : 'html/resources/imagenet/dog/image01.png', mask : undefined,
-    ori : 0.0, pos : [0, 0], size : [(deg2norm * hw_rate), deg2norm],
+    ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -5.0 
+    texRes : 128.0, interpolate : true, depth : -6.0 
   });
   image_0_3 = new visual.ImageStim({
     win : psychoJS.window,
     name : 'image_0_3', units : 'norm', 
     image : 'html/resources/imagenet/elephant/image01.png', mask : undefined,
-    ori : 0.0, pos : [0, 0], size : [(deg2norm * hw_rate), deg2norm],
+    ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -6.0 
+    texRes : 128.0, interpolate : true, depth : -7.0 
   });
   image_1_0 = new visual.ImageStim({
     win : psychoJS.window,
     name : 'image_1_0', units : 'norm', 
     image : 'html/resources/imagenet/fox/image01.png', mask : undefined,
-    ori : 0.0, pos : [0, 0], size : [((2 * deg2norm) * hw_rate), (2 * deg2norm)],
+    ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -7.0 
+    texRes : 128.0, interpolate : true, depth : -8.0 
   });
   image_1_1 = new visual.ImageStim({
     win : psychoJS.window,
     name : 'image_1_1', units : 'norm', 
     image : 'html/resources/imagenet/kangaroo/image01.png', mask : undefined,
-    ori : 0.0, pos : [0, 0], size : [((2 * deg2norm) * hw_rate), (2 * deg2norm)],
+    ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -8.0 
+    texRes : 128.0, interpolate : true, depth : -9.0 
   });
   image_1_2 = new visual.ImageStim({
     win : psychoJS.window,
     name : 'image_1_2', units : 'norm', 
     image : 'html/resources/imagenet/lion/image01.png', mask : undefined,
-    ori : 0.0, pos : [0, 0], size : [((2 * deg2norm) * hw_rate), (2 * deg2norm)],
+    ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -9.0 
+    texRes : 128.0, interpolate : true, depth : -10.0 
   });
   image_1_3 = new visual.ImageStim({
     win : psychoJS.window,
     name : 'image_1_3', units : 'norm', 
     image : 'html/resources/imagenet/monkey/image01.png', mask : undefined,
-    ori : 0.0, pos : [0, 0], size : [((2 * deg2norm) * hw_rate), (2 * deg2norm)],
+    ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -10.0 
+    texRes : 128.0, interpolate : true, depth : -11.0 
   });
   image_2_0 = new visual.ImageStim({
     win : psychoJS.window,
     name : 'image_2_0', units : 'norm', 
     image : 'html/resources/imagenet/otter/image01.png', mask : undefined,
-    ori : 0.0, pos : [0, 0], size : [(((2 * 2) * deg2norm) * hw_rate), ((2 * 2) * deg2norm)],
+    ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -11.0 
+    texRes : 128.0, interpolate : true, depth : -12.0 
   });
   image_2_1 = new visual.ImageStim({
     win : psychoJS.window,
     name : 'image_2_1', units : 'norm', 
     image : 'html/resources/imagenet/pig/image01.png', mask : undefined,
-    ori : 0.0, pos : [0, 0], size : [(((2 * 2) * deg2norm) * hw_rate), ((2 * 2) * deg2norm)],
+    ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -12.0 
+    texRes : 128.0, interpolate : true, depth : -13.0 
   });
   image_2_2 = new visual.ImageStim({
     win : psychoJS.window,
     name : 'image_2_2', units : 'norm', 
     image : 'html/resources/imagenet/rabbit/image01.png', mask : undefined,
-    ori : 0.0, pos : [0, 0], size : [(((2 * 2) * deg2norm) * hw_rate), ((2 * 2) * deg2norm)],
+    ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -13.0 
+    texRes : 128.0, interpolate : true, depth : -14.0 
   });
   image_2_3 = new visual.ImageStim({
     win : psychoJS.window,
     name : 'image_2_3', units : 'norm', 
     image : 'html/resources/imagenet/sheep/image01.png', mask : undefined,
-    ori : 0.0, pos : [0, 0], size : [(((2 * 2) * deg2norm) * hw_rate), ((2 * 2) * deg2norm)],
+    ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -14.0 
+    texRes : 128.0, interpolate : true, depth : -15.0 
   });
   fixation_point = new visual.Polygon ({
     win: psychoJS.window, name: 'fixation_point', units : 'norm', 
-    edges: 100, size:[((deg2norm / 5) * hw_rate), (deg2norm / 5)],
+    edges: 100, size:[1.0, 1.0],
     ori: 0.0, pos: [0, 0],
-    lineWidth: 1.0, lineColor: new util.Color(undefined),
+    lineWidth: 1.0, lineColor: new util.Color([0.5059, 0.5059, 0.5059]),
     fillColor: new util.Color([0.5059, 0.5059, 0.5059]),
-    opacity: undefined, depth: -16, interpolate: true,
+    opacity: undefined, depth: -17, interpolate: true,
   });
   
   introduction_text = new visual.TextStim({
@@ -412,9 +412,9 @@ function experimentInit() {
     text: '',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [0.6, 0.3], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    pos: [0.6, 0.3], height: deg2norm * 0.3,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
-    depth: -17.0 
+    depth: -18.0 
   });
   
   exp_info_key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
@@ -427,7 +427,7 @@ function experimentInit() {
     text: "Let's practice with some stimuli.\n\nHit a Key when ready.",
     font: 'Open Sans',
     units: 'norm', 
-    pos: [0, 0], height: 0.1,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
@@ -470,7 +470,7 @@ function experimentInit() {
     text: 'B',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[0]) * math.cos(math.radians(45))), ((deg2norm * eccentricities[0]) * math.sin(math.radians(45)))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -3.0 
   });
@@ -481,7 +481,7 @@ function experimentInit() {
     text: 'A',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[0]) * math.cos(math.radians((45 + 90)))), ((deg2norm * eccentricities[0]) * math.sin(math.radians((45 + 90))))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -4.0 
   });
@@ -492,7 +492,7 @@ function experimentInit() {
     text: 'C',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[0]) * math.cos(math.radians((45 + (90 * 2))))), ((deg2norm * eccentricities[0]) * math.sin(math.radians((45 + (90 * 2)))))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -5.0 
   });
@@ -503,7 +503,7 @@ function experimentInit() {
     text: 'D',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[0]) * math.cos(math.radians(315))), ((deg2norm * eccentricities[0]) * math.sin(math.radians(315)))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -6.0 
   });
@@ -514,7 +514,7 @@ function experimentInit() {
     text: 'F',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[1]) * math.cos(math.radians(0))), ((deg2norm * eccentricities[1]) * math.sin(math.radians(0)))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -7.0 
   });
@@ -525,7 +525,7 @@ function experimentInit() {
     text: 'E',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[1]) * math.cos(math.radians(90))), ((deg2norm * eccentricities[1]) * math.sin(math.radians(90)))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -8.0 
   });
@@ -536,7 +536,7 @@ function experimentInit() {
     text: 'G',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[1]) * math.cos(math.radians((90 * 2)))), ((deg2norm * eccentricities[1]) * math.sin(math.radians((90 * 2))))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -9.0 
   });
@@ -547,7 +547,7 @@ function experimentInit() {
     text: 'H',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[1]) * math.cos(math.radians((90 * 3)))), ((deg2norm * eccentricities[1]) * math.sin(math.radians((90 * 3))))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -10.0 
   });
@@ -558,7 +558,7 @@ function experimentInit() {
     text: 'J',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[2]) * math.cos(math.radians(45))), ((deg2norm * eccentricities[2]) * math.sin(math.radians(45)))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -11.0 
   });
@@ -569,7 +569,7 @@ function experimentInit() {
     text: 'I',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[2]) * math.cos(math.radians((45 + 90)))), ((deg2norm * eccentricities[2]) * math.sin(math.radians((45 + 90))))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -12.0 
   });
@@ -580,7 +580,7 @@ function experimentInit() {
     text: 'K',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[2]) * math.cos(math.radians((45 + (90 * 2))))), ((deg2norm * eccentricities[2]) * math.sin(math.radians((45 + (90 * 2)))))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -13.0 
   });
@@ -591,7 +591,7 @@ function experimentInit() {
     text: 'L',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[2]) * math.cos(math.radians((45 + (90 * 3))))), ((deg2norm * eccentricities[2]) * math.sin(math.radians((45 + (90 * 3)))))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -14.0 
   });
@@ -606,7 +606,7 @@ function experimentInit() {
     text: 'feedback text',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [0, 0], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
@@ -664,7 +664,7 @@ function experimentInit() {
     text: 'B',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[0]) * math.cos(math.radians(45))), ((deg2norm * eccentricities[0]) * math.sin(math.radians(45)))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -3.0 
   });
@@ -675,7 +675,7 @@ function experimentInit() {
     text: 'A',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[0]) * math.cos(math.radians((45 + 90)))), ((deg2norm * eccentricities[0]) * math.sin(math.radians((45 + 90))))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -4.0 
   });
@@ -686,7 +686,7 @@ function experimentInit() {
     text: 'C',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[0]) * math.cos(math.radians((45 + (90 * 2))))), ((deg2norm * eccentricities[0]) * math.sin(math.radians((45 + (90 * 2)))))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -5.0 
   });
@@ -697,7 +697,7 @@ function experimentInit() {
     text: 'D',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[0]) * math.cos(math.radians(315))), ((deg2norm * eccentricities[0]) * math.sin(math.radians(315)))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -6.0 
   });
@@ -708,7 +708,7 @@ function experimentInit() {
     text: 'F',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[1]) * math.cos(math.radians(0))), ((deg2norm * eccentricities[1]) * math.sin(math.radians(0)))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -7.0 
   });
@@ -719,7 +719,7 @@ function experimentInit() {
     text: 'E',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[1]) * math.cos(math.radians(90))), ((deg2norm * eccentricities[1]) * math.sin(math.radians(90)))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -8.0 
   });
@@ -730,7 +730,7 @@ function experimentInit() {
     text: 'G',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[1]) * math.cos(math.radians((90 * 2)))), ((deg2norm * eccentricities[1]) * math.sin(math.radians((90 * 2))))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -9.0 
   });
@@ -741,7 +741,7 @@ function experimentInit() {
     text: 'H',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[1]) * math.cos(math.radians((90 * 3)))), ((deg2norm * eccentricities[1]) * math.sin(math.radians((90 * 3))))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -10.0 
   });
@@ -752,7 +752,7 @@ function experimentInit() {
     text: 'J',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[2]) * math.cos(math.radians(45))), ((deg2norm * eccentricities[2]) * math.sin(math.radians(45)))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -11.0 
   });
@@ -763,7 +763,7 @@ function experimentInit() {
     text: 'I',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[2]) * math.cos(math.radians((45 + 90)))), ((deg2norm * eccentricities[2]) * math.sin(math.radians((45 + 90))))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -12.0 
   });
@@ -774,7 +774,7 @@ function experimentInit() {
     text: 'K',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[2]) * math.cos(math.radians((45 + (90 * 2))))), ((deg2norm * eccentricities[2]) * math.sin(math.radians((45 + (90 * 2)))))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -13.0 
   });
@@ -785,7 +785,7 @@ function experimentInit() {
     text: 'L',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [(((hw_rate * deg2norm) * eccentricities[2]) * math.cos(math.radians((45 + (90 * 3))))), ((deg2norm * eccentricities[2]) * math.sin(math.radians((45 + (90 * 3)))))], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -14.0 
   });
@@ -800,25 +800,12 @@ function experimentInit() {
     text: 'feedback text',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [0, 0], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
   
   show_fb_key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
-  
-  // Initialize components for Routine "take_break"
-  take_breakClock = new util.Clock();
-  break_text = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'break_text',
-    text: 'Please take a short break.\n\nIf the experiment is ready, \nthe window will change to the fixation point.',
-    font: 'Open Sans',
-    units: 'norm', 
-    pos: [0, 0], height: 0.1,  wrapWidth: undefined, ori: 0.0,
-    color: new util.Color('white'),  opacity: undefined,
-    depth: 0.0 
-  });
   
   // Create some handy timers
   globalClock = new util.Clock();  // to track the time since experiment started
@@ -1132,19 +1119,45 @@ function exp_introRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
+    hw_rate = win.size[1] / win.size[0];
+    
+    VA = Math.round(360 / Math.PI * Math.atan2(screen_height, (2 * 57)));
+    deg2norm = 2 / VA
+    image_0_0.setSize([(deg2norm * hw_rate), deg2norm]);
+    image_0_1.setSize([(deg2norm * hw_rate), deg2norm]);
+    image_0_2.setSize([(deg2norm * hw_rate), deg2norm]);
+    image_0_3.setSize([(deg2norm * hw_rate), deg2norm]);
+    image_1_0.setSize([((2 * deg2norm) * hw_rate), (2 * deg2norm)]);
+    image_1_1.setSize([((2 * deg2norm) * hw_rate), (2 * deg2norm)]);
+    image_1_2.setSize([((2 * deg2norm) * hw_rate), (2 * deg2norm)]);
+    image_1_3.setSize([((2 * deg2norm) * hw_rate), (2 * deg2norm)]);
+    image_2_0.setSize([(((2 * 2) * deg2norm) * hw_rate), ((2 * 2) * deg2norm)]);
+    image_2_1.setSize([(((2 * 2) * deg2norm) * hw_rate), ((2 * 2) * deg2norm)]);
+    image_2_2.setSize([(((2 * 2) * deg2norm) * hw_rate), ((2 * 2) * deg2norm)]);
+    image_2_3.setSize([(((2 * 2) * deg2norm) * hw_rate), ((2 * 2) * deg2norm)]);
     image_list = [image_0_0, image_0_1, image_0_2, image_0_3, image_1_0, image_1_1, image_1_2, image_1_3, image_2_0, image_2_1, image_2_2, image_2_3];
     for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
-        if ((i < 4)) {
-            image_list[i].pos = [(((hw_rate * deg2norm) * eccentricity_level_0) * math.cos(math.radians((((i % 4) * 90) + 45)))), ((deg2norm * eccentricity_level_0) * math.sin(math.radians((((i % 4) * 90) + 45))))];
+        if (i < 4) {
+            image_list[i].pos = [
+                hw_rate * deg2norm * eccentricities[0] * Math.cos(calcRad((i % 4) * 90 + 45)),
+                deg2norm * eccentricities[0] * Math.sin(calcRad((i % 4) * 90 + 45))
+            ];
         } else {
-            if (((4 <= i) && (i < 8))) {
-                image_list[i].pos = [(((hw_rate * deg2norm) * eccentricity_level_1) * math.cos(math.radians(((i % 4) * 90)))), ((deg2norm * eccentricity_level_1) * math.sin(math.radians(((i % 4) * 90))))];
+            if ((4 <= i) && (i < 8)) {
+                image_list[i].pos = [
+                    hw_rate * deg2norm * eccentricities[1] * Math.cos(calcRad((i % 4) * 90)),
+                    deg2norm * eccentricities[1] * Math.sin(calcRad((i % 4) * 90))
+                ];
             } else {
-                image_list[i].pos = [(((hw_rate * deg2norm) * eccentricity_level_2) * math.cos(math.radians((((i % 4) * 90) + 45)))), ((deg2norm * eccentricity_level_2) * math.sin(math.radians((((i % 4) * 90) + 45))))];
+                image_list[i].pos = [
+                    hw_rate * deg2norm * eccentricities[2] * Math.cos(calcRad((i % 4) * 90 + 45)),
+                    deg2norm * eccentricities[2] * Math.sin(calcRad((i % 4) * 90 + 45))
+                ];
             }
         }
     }
     
+    fixation_point.setSize([((deg2norm / 5) * hw_rate), (deg2norm / 5)]);
     exp_info_key_resp.keys = undefined;
     exp_info_key_resp.rt = undefined;
     _exp_info_key_resp_allKeys = [];
@@ -1569,6 +1582,9 @@ function ActualTrialsLoopBegin(ActualTrialsLoopScheduler) {
     const snapshot = ActualTrials.getSnapshot();
 
     ActualTrialsLoopScheduler.add(importConditions(snapshot));
+    ActualTrialsLoopScheduler.add(actual_introRoutineBegin(snapshot));
+    ActualTrialsLoopScheduler.add(actual_introRoutineEachFrame(snapshot));
+    ActualTrialsLoopScheduler.add(actual_introRoutineEnd(snapshot));
     ActualTrialsLoopScheduler.add(gitterRoutineBegin(snapshot));
     ActualTrialsLoopScheduler.add(gitterRoutineEachFrame(snapshot));
     ActualTrialsLoopScheduler.add(gitterRoutineEnd(snapshot));
@@ -1581,9 +1597,6 @@ function ActualTrialsLoopBegin(ActualTrialsLoopScheduler) {
     ActualTrialsLoopScheduler.add(show_feedbackRoutineBegin(snapshot));
     ActualTrialsLoopScheduler.add(show_feedbackRoutineEachFrame(snapshot));
     ActualTrialsLoopScheduler.add(show_feedbackRoutineEnd(snapshot));
-    ActualTrialsLoopScheduler.add(take_breakRoutineBegin(snapshot));
-    ActualTrialsLoopScheduler.add(take_breakRoutineEachFrame(snapshot));
-    ActualTrialsLoopScheduler.add(take_breakRoutineEnd(snapshot));
     ActualTrialsLoopScheduler.add(endLoopIteration(ActualTrialsLoopScheduler, snapshot));
   });
 
@@ -1599,7 +1612,6 @@ function ActualTrialsLoopEnd() {
 
 
 var _exp_start_allKeys;
-var flag;
 var gitterComponents;
 function gitterRoutineBegin(snapshot) {
   return function () {
@@ -1610,12 +1622,11 @@ function gitterRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
     fixation_point.fillColor = [(- 0.498), (- 0.498), (- 0.498)];
-    
+    fixation_point.lineColor = [(- 0.498), (- 0.498), (- 0.498)];
+    fixation_point.setAutoDraw(true);
     exp_start.keys = undefined;
     exp_start.rt = undefined;
     _exp_start_allKeys = [];
-    flag = false;
-    
     // keep track of which components have finished
     gitterComponents = [];
     gitterComponents.push(exp_start);
@@ -1636,8 +1647,6 @@ function gitterRoutineEachFrame(snapshot) {
     t = gitterClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
-    fixation_point.draw();
-    
     
     // *exp_start* updates
     if (t >= 0.0 && exp_start.status === PsychoJS.Status.NOT_STARTED) {
@@ -1697,6 +1706,7 @@ function gitterRoutineEnd(snapshot) {
         thisComponent.setAutoDraw(false);
       }
     });
+    fixation_point.setAutoDraw(false);
     psychoJS.experiment.addData('exp_start.keys', exp_start.keys);
     if (typeof exp_start.keys !== 'undefined') {  // we had a response
         psychoJS.experiment.addData('exp_start.rt', exp_start.rt);
@@ -1705,6 +1715,7 @@ function gitterRoutineEnd(snapshot) {
     
     exp_start.stop();
     fixation_point.fillColor = [0.5059, 0.5059, 0.5059];
+    fixation_point.lineColor = [0.5059, 0.5059, 0.5059];
     
     // the Routine "gitter" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
@@ -1726,29 +1737,33 @@ function show_stimRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    _non_target_classes = random.sample(non_target_classes, non_target_classes.length);
+    _non_target_classes = shuffle(non_target_classes);
     for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
-        image_path = (((("html/resources/imagenet/" + _non_target_classes[i]) + "/image") + random.randrange(101, 151).toString().slice(1)) + ".png");
-        image_list[i].image = Image.open(image_path);
+        image_path = "imagenet/" + _non_target_classes[i] + "/image" + (Math.floor(Math.random() * (151 - 101)) + 101).toString().slice(1) + ".png";
+        image_list[i].setImage(image_path);
+        // image_list[i].setImage("imagenet/cat/image01.png")
+    
         thisExp.addData(_non_target_classes[i], image_path);
     }
     
-    image_path = (((("html/resources/imagenet/" + target_class) + "/image") + random.randrange(101, 151).toString().slice(1)) + ".png");
-    image_list[((4 * thisPracticeTrial["pos"]) + thisPracticeTrial["ori"])].image = Image.open(image_path);
+    image_path = "imagenet/" + target_class + "/image" + (Math.floor(Math.random() * (151 - 101)) + 101).toString().slice(1) + ".png";
+    image_list[4 * pos + ori].setImage(image_path);
+    
     thisExp.addData(target_class, image_path);
     
     for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
-        image_list[i].size = [(thisPracticeTrial["size"] * deg2norm), (thisPracticeTrial["size"] * deg2norm)];
+        image_list[i].size = [size * deg2norm, size * deg2norm];
         if (((4 <= i) && (i < 8))) {
-            image_list[i].size = [(thisPracticeTrial["rate"] * image_list[i].size[0]), (thisPracticeTrial["rate"] * image_list[i].size[1])];
+            image_list[i].size = [rate * image_list[i].size[0], rate * image_list[i].size[1]];
         } else {
             if ((i >= 8)) {
-                image_list[i].size = [(Math.pow(thisPracticeTrial["rate"], 2) * image_list[i].size[0]), (Math.pow(thisPracticeTrial["rate"], 2) * image_list[i].size[1])];
+                image_list[i].size = [Math.pow(rate, 2) * image_list[i].size[0], Math.pow(rate, 2) * image_list[i].size[1]];
             }
         }
         image_list[i].size[0] *= hw_rate;
     }
     
+    fixation_point.setAutoDraw(true);
     show_stim_key_resp.keys = undefined;
     show_stim_key_resp.rt = undefined;
     _show_stim_key_resp_allKeys = [];
@@ -1774,14 +1789,13 @@ function show_stimRoutineEachFrame(snapshot) {
     // update/draw components on each frame
     if ((show_stimClock.getTime() > 1)) {
         for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
-            image_list[i].draw();
+            image_list[i].setAutoDraw(true);
         }
     }
-    fixation_point.draw();
     
     
     // *show_stim_key_resp* updates
-    if (t >= 0.0 && show_stim_key_resp.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 1.0 && show_stim_key_resp.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       show_stim_key_resp.tStart = t;  // (not accounting for frame time here)
       show_stim_key_resp.frameNStart = frameN;  // exact frame index
@@ -1838,6 +1852,11 @@ function show_stimRoutineEnd(snapshot) {
         thisComponent.setAutoDraw(false);
       }
     });
+    fixation_point.setAutoDraw(false);
+    
+    for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
+        image_list[i].setAutoDraw(false);
+    }
     show_stim_key_resp.stop();
     thisExp.addData("reactionTime", (show_stimClock.getTime() - 1));
     
@@ -1849,6 +1868,7 @@ function show_stimRoutineEnd(snapshot) {
 }
 
 
+var alphabets_list;
 var _key_ans_allKeys;
 var ask_questionComponents;
 function ask_questionRoutineBegin(snapshot) {
@@ -1859,7 +1879,32 @@ function ask_questionRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    stimuli_arrangement.size = [((hw_rate * (((2 * eccentricities[2]) / math.sqrt(2)) + 8)) * deg2norm), ((((2 * eccentricities[2]) / math.sqrt(2)) + 8) * deg2norm)];
+    stimuli_arrangement.size = [
+        hw_rate * (2 * eccentricities[2] / Math.sqrt(2) + 8) * deg2norm,
+        (2 * eccentricities[2] / Math.sqrt(2) + 8) * deg2norm
+    ];
+    
+    alphabets_list = [text_B, text_A, text_C, text_D, text_F, text_E, text_G, text_H, text_J, text_I, text_K, text_L];
+    for (var i = 0, _pj_a = alphabets_list.length; (i < _pj_a); i += 1) {
+        if ((i < 4)) {
+            alphabets_list[i].pos = [
+                hw_rate * deg2norm * eccentricities[0] * Math.cos(calcRad((i % 4) * 90 + 45)),
+                deg2norm * eccentricities[0] * Math.sin(calcRad((i % 4) * 90 + 45))
+            ];
+        } else {
+            if (((4 <= i) && (i < 8))) {
+                alphabets_list[i].pos = [
+                    hw_rate * deg2norm * eccentricities[1] * Math.cos(calcRad((i % 4) * 90)),
+                    deg2norm * eccentricities[1] * Math.sin(calcRad((i % 4) * 90))
+                ];
+            } else {
+                alphabets_list[i].pos = [
+                    hw_rate * deg2norm * eccentricities[2] * Math.cos(calcRad((i % 4) * 90 + 45)),
+                    deg2norm * eccentricities[2] * Math.sin(calcRad((i % 4) * 90 + 45))
+                ];
+            }
+        }
+    }
     
     key_ans.keys = undefined;
     key_ans.rt = undefined;
@@ -2122,7 +2167,7 @@ function show_feedbackRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    if (((key_to_pos[key_ans.keys][0] === thisPracticeTrial["pos"]) && (key_to_pos[key_ans.keys][1] === thisPracticeTrial["ori"]))) {
+    if ((key_to_pos[key_ans.keys][0] === pos) && (key_to_pos[key_ans.keys][1] === ori)) {
         feedback_text.text = "Your answer is correct!";
         thisExp.addData("TF", "True");
     } else {
@@ -2164,6 +2209,9 @@ function show_feedbackRoutineEachFrame(snapshot) {
       feedback_text.setAutoDraw(true);
     }
 
+    if (show_feedbackClock.getTime() > 1) {
+        continueRoutine = false;
+    }
     
     // *show_fb_key_resp* updates
     if (t >= 0.0 && show_fb_key_resp.status === PsychoJS.Status.NOT_STARTED) {
@@ -2344,96 +2392,6 @@ function actual_introRoutineEnd(snapshot) {
 }
 
 
-var take_breakComponents;
-function take_breakRoutineBegin(snapshot) {
-  return function () {
-    //------Prepare to start Routine 'take_break'-------
-    t = 0;
-    take_breakClock.reset(); // clock
-    frameN = -1;
-    continueRoutine = true; // until we're told otherwise
-    // update component parameters for each repeat
-    if ((ActualTrials.thisTrialN !== 47)) {
-        continueRoutine = false;
-    }
-    
-    // keep track of which components have finished
-    take_breakComponents = [];
-    take_breakComponents.push(break_text);
-    
-    take_breakComponents.forEach( function(thisComponent) {
-      if ('status' in thisComponent)
-        thisComponent.status = PsychoJS.Status.NOT_STARTED;
-       });
-    return Scheduler.Event.NEXT;
-  }
-}
-
-
-function take_breakRoutineEachFrame(snapshot) {
-  return function () {
-    //------Loop for each frame of Routine 'take_break'-------
-    // get current time
-    t = take_breakClock.getTime();
-    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
-    // update/draw components on each frame
-    
-    // *break_text* updates
-    if (t >= 0.0 && break_text.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      break_text.tStart = t;  // (not accounting for frame time here)
-      break_text.frameNStart = frameN;  // exact frame index
-      
-      break_text.setAutoDraw(true);
-    }
-
-    if ((take_breakClock.getTime() > 30)) {
-        continueRoutine = false;
-    }
-    
-    // check for quit (typically the Esc key)
-    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
-      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
-    }
-    
-    // check if the Routine should terminate
-    if (!continueRoutine) {  // a component has requested a forced-end of Routine
-      return Scheduler.Event.NEXT;
-    }
-    
-    continueRoutine = false;  // reverts to True if at least one component still running
-    take_breakComponents.forEach( function(thisComponent) {
-      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
-        continueRoutine = true;
-      }
-    });
-    
-    // refresh the screen if continuing
-    if (continueRoutine) {
-      return Scheduler.Event.FLIP_REPEAT;
-    } else {
-      return Scheduler.Event.NEXT;
-    }
-  };
-}
-
-
-function take_breakRoutineEnd(snapshot) {
-  return function () {
-    //------Ending Routine 'take_break'-------
-    take_breakComponents.forEach( function(thisComponent) {
-      if (typeof thisComponent.setAutoDraw === 'function') {
-        thisComponent.setAutoDraw(false);
-      }
-    });
-    // the Routine "take_break" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset();
-    
-    return Scheduler.Event.NEXT;
-  };
-}
-
-
 function endLoopIteration(scheduler, snapshot) {
   // ------Prepare for next entry------
   return function () {
@@ -2470,6 +2428,10 @@ function quitPsychoJS(message, isCompleted) {
   if (psychoJS.experiment.isEntryEmpty()) {
     psychoJS.experiment.nextEntry();
   }
+  
+  
+  
+  
   
   
   
