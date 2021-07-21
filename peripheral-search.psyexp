@@ -222,7 +222,7 @@
         <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="target_class = 'cat'&amp;#10;non_target_classes = [&amp;#10;    'dog',&amp;#10;    'elephant',&amp;#10;    'tiger',&amp;#10;    'rabbit',&amp;#10;    'kangaroo',&amp;#10;    'sheep',&amp;#10;    'monkey',&amp;#10;    'lion',&amp;#10;    'bear',&amp;#10;    'fox',&amp;#10;    'pig',&amp;#10;    'otter',&amp;#10;]&amp;#10;&amp;#10;ans_keys_list = [['b', 'a', 'c', 'd'], ['f', 'e', 'g', 'h'], ['j', 'i', 'k', 'l']]&amp;#10;key_to_pos = {}&amp;#10;for i in range(len(ans_keys_list)):&amp;#10;    for j in range(len(ans_keys_list[i])):&amp;#10;        key_to_pos[ans_keys_list[i][j]] = [i, j]&amp;#10;&amp;#10;hw_rate = win.size[1] / win.size[0]" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="target_class = &quot;cat&quot;;&amp;#10;non_target_classes = [&quot;dog&quot;, &quot;elephant&quot;, &quot;tiger&quot;, &quot;rabbit&quot;, &quot;kangaroo&quot;, &quot;sheep&quot;, &quot;monkey&quot;, &quot;lion&quot;, &quot;bear&quot;, &quot;fox&quot;, &quot;pig&quot;, &quot;otter&quot;];&amp;#10;&amp;#10;ans_keys_list = [[&quot;b&quot;, &quot;a&quot;, &quot;c&quot;, &quot;d&quot;], [&quot;f&quot;, &quot;e&quot;, &quot;g&quot;, &quot;h&quot;], [&quot;j&quot;, &quot;i&quot;, &quot;k&quot;, &quot;l&quot;]];&amp;#10;key_to_pos = {};&amp;#10;for (var i = 0, _pj_a = ans_keys_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    for (var j = 0, _pj_b = ans_keys_list[i].length; (j &lt; _pj_b); j += 1) {&amp;#10;        key_to_pos[ans_keys_list[i][j]] = [i, j];&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;hw_rate = win.size[1] / win.size[0];&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="target_class = &quot;cat&quot;;&amp;#10;non_target_classes = [&quot;dog&quot;, &quot;elephant&quot;, &quot;tiger&quot;, &quot;rabbit&quot;, &quot;kangaroo&quot;, &quot;sheep&quot;, &quot;monkey&quot;, &quot;lion&quot;, &quot;bear&quot;, &quot;fox&quot;, &quot;pig&quot;, &quot;otter&quot;];&amp;#10;&amp;#10;ans_keys_list = [[&quot;b&quot;, &quot;a&quot;, &quot;c&quot;, &quot;d&quot;], [&quot;f&quot;, &quot;e&quot;, &quot;g&quot;, &quot;h&quot;], [&quot;j&quot;, &quot;i&quot;, &quot;k&quot;, &quot;l&quot;]];&amp;#10;key_to_pos = {};&amp;#10;for (var i = 0, _pj_a = ans_keys_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    for (var j = 0, _pj_b = ans_keys_list[i].length; (j &lt; _pj_b); j += 1) {&amp;#10;        key_to_pos[ans_keys_list[i][j]] = [i, j];&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;hw_rate = win.size[1] / win.size[0];&amp;#10;&amp;#10;count = 0&amp;#10;reps = 0&amp;#10;" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="hw_rate = win.size[1] / win.size[0];&amp;#10;" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="hw_rate = win.size[1] / win.size[0]" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Both" valType="str"/>
@@ -833,6 +833,23 @@
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="store_rt" valType="code"/>
       </CodeComponent>
+      <CodeComponent name="force_change">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="if show_stimClock.getTime() &gt; 7:&amp;#10;    continueRoutine=False&amp;#10;" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="if (show_stimClock.getTime() &gt; 7) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="force_change" valType="code"/>
+      </CodeComponent>
     </Routine>
     <Routine name="ask_question">
       <ImageComponent name="stimuli_arrangement">
@@ -1302,7 +1319,7 @@
       </KeyboardComponent>
     </Routine>
     <Routine name="actual_intro">
-      <TextComponent name="text_4">
+      <TextComponent name="introduction_text_a">
         <Param name="color" updates="constant" val="white" valType="color"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="contrast" updates="constant" val="1" valType="num"/>
@@ -1311,8 +1328,8 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm" valType="num"/>
-        <Param name="name" updates="None" val="text_4" valType="code"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
+        <Param name="name" updates="None" val="introduction_text_a" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
@@ -1410,7 +1427,7 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="0.1" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
         <Param name="name" updates="None" val="break_text" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
@@ -1431,11 +1448,11 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="if ((ActualTrials.thisTrialN !== 47)) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="if (count != 47) {&amp;#10;    count += 1;&amp;#10;    continueRoutine = false;&amp;#10;}" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="if ActualTrials.thisTrialN != 47:&amp;#10;    continueRoutine=False&amp;#10;" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="if take_breakClock.getTime() &gt; 30:&amp;#10;    continueRoutine=False&amp;#10;" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="if ((take_breakClock.getTime() &gt; 30)) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="if ((take_breakClock.getTime() &gt; 30)) {&amp;#10;    count = 0&amp;#10;    reps += 1&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
@@ -1466,6 +1483,7 @@
     <Routine name="ask_question"/>
     <Routine name="show_feedback"/>
     <LoopTerminator name="PracticeTrials"/>
+    <Routine name="actual_intro"/>
     <LoopInitiator loopType="TrialHandler" name="ActualTrials">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[{'size': 1, 'rate': 1, 'pos': 0, 'ori': 0}, {'size': 1, 'rate': 1, 'pos': 0, 'ori': 1}, {'size': 1, 'rate': 1, 'pos': 1, 'ori': 2}, {'size': 1, 'rate': 1, 'pos': 1, 'ori': 3}, {'size': 1, 'rate': 1, 'pos': 2, 'ori': 0}, {'size': 1, 'rate': 1, 'pos': 2, 'ori': 1}, {'size': 1, 'rate': 1, 'pos': 0, 'ori': 2}, {'size': 1, 'rate': 1, 'pos': 0, 'ori': 3}, {'size': 1, 'rate': 1, 'pos': 1, 'ori': 0}, {'size': 1, 'rate': 1, 'pos': 1, 'ori': 1}, {'size': 1, 'rate': 1, 'pos': 2, 'ori': 2}, {'size': 1, 'rate': 1, 'pos': 2, 'ori': 3}, {'size': 1, 'rate': 2, 'pos': 0, 'ori': 0}, {'size': 1, 'rate': 2, 'pos': 0, 'ori': 1}, {'size': 1, 'rate': 2, 'pos': 1, 'ori': 2}, {'size': 1, 'rate': 2, 'pos': 1, 'ori': 3}, {'size': 1, 'rate': 2, 'pos': 2, 'ori': 0}, {'size': 1, 'rate': 2, 'pos': 2, 'ori': 1}, {'size': 1, 'rate': 2, 'pos': 0, 'ori': 2}, {'size': 1, 'rate': 2, 'pos': 0, 'ori': 3}, {'size': 1, 'rate': 2, 'pos': 1, 'ori': 0}, {'size': 1, 'rate': 2, 'pos': 1, 'ori': 1}, {'size': 1, 'rate': 2, 'pos': 2, 'ori': 2}, {'size': 1, 'rate': 2, 'pos': 2, 'ori': 3}, {'size': 2, 'rate': 1, 'pos': 0, 'ori': 0}, {'size': 2, 'rate': 1, 'pos': 0, 'ori': 1}, {'size': 2, 'rate': 1, 'pos': 1, 'ori': 2}, {'size': 2, 'rate': 1, 'pos': 1, 'ori': 3}, {'size': 2, 'rate': 1, 'pos': 2, 'ori': 0}, {'size': 2, 'rate': 1, 'pos': 2, 'ori': 1}, {'size': 2, 'rate': 1, 'pos': 0, 'ori': 2}, {'size': 2, 'rate': 1, 'pos': 0, 'ori': 3}, {'size': 2, 'rate': 1, 'pos': 1, 'ori': 0}, {'size': 2, 'rate': 1, 'pos': 1, 'ori': 1}, {'size': 2, 'rate': 1, 'pos': 2, 'ori': 2}, {'size': 2, 'rate': 1, 'pos': 2, 'ori': 3}, {'size': 2, 'rate': 2, 'pos': 0, 'ori': 0}, {'size': 2, 'rate': 2, 'pos': 0, 'ori': 1}, {'size': 2, 'rate': 2, 'pos': 1, 'ori': 2}, {'size': 2, 'rate': 2, 'pos': 1, 'ori': 3}, {'size': 2, 'rate': 2, 'pos': 2, 'ori': 0}, {'size': 2, 'rate': 2, 'pos': 2, 'ori': 1}, {'size': 2, 'rate': 2, 'pos': 0, 'ori': 2}, {'size': 2, 'rate': 2, 'pos': 0, 'ori': 3}, {'size': 2, 'rate': 2, 'pos': 1, 'ori': 0}, {'size': 2, 'rate': 2, 'pos': 1, 'ori': 1}, {'size': 2, 'rate': 2, 'pos': 2, 'ori': 2}, {'size': 2, 'rate': 2, 'pos': 2, 'ori': 3}]" valType="str"/>
@@ -1477,11 +1495,11 @@
       <Param name="name" updates="None" val="ActualTrials" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
-    <Routine name="actual_intro"/>
     <Routine name="gitter"/>
     <Routine name="show_stim"/>
     <Routine name="ask_question"/>
     <Routine name="show_feedback"/>
+    <Routine name="take_break"/>
     <LoopTerminator name="ActualTrials"/>
   </Flow>
 </PsychoPy2experiment>

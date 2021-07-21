@@ -73,6 +73,9 @@ const PracticeTrialsLoopScheduler = new Scheduler(psychoJS);
 flowScheduler.add(PracticeTrialsLoopBegin, PracticeTrialsLoopScheduler);
 flowScheduler.add(PracticeTrialsLoopScheduler);
 flowScheduler.add(PracticeTrialsLoopEnd);
+flowScheduler.add(actual_introRoutineBegin());
+flowScheduler.add(actual_introRoutineEachFrame());
+flowScheduler.add(actual_introRoutineEnd());
 const ActualTrialsLoopScheduler = new Scheduler(psychoJS);
 flowScheduler.add(ActualTrialsLoopBegin, ActualTrialsLoopScheduler);
 flowScheduler.add(ActualTrialsLoopScheduler);
@@ -137,6 +140,8 @@ var non_target_classes;
 var ans_keys_list;
 var key_to_pos;
 var hw_rate;
+var count;
+var reps;
 var eccentricity_level_0;
 var eccentricity_level_1;
 var eccentricity_level_2;
@@ -185,8 +190,10 @@ var show_feedbackClock;
 var feedback_text;
 var show_fb_key_resp;
 var actual_introClock;
-var text_4;
+var introduction_text_a;
 var actual_intro_key_resp;
+var take_breakClock;
+var break_text;
 var globalClock;
 var routineTimer;
 function experimentInit() {
@@ -292,6 +299,9 @@ function experimentInit() {
   }
   
   hw_rate = win.size[1] / win.size[0];
+  
+  count = 0
+  reps = 0
   
   eccentricity_level_0 = Math.round(Math.sqrt(2) * 100) / 100;
   eccentricity_level_1 = Math.round((1 + Math.sqrt(8)) * 100) / 100;
@@ -626,13 +636,13 @@ function experimentInit() {
   
   // Initialize components for Routine "actual_intro"
   actual_introClock = new util.Clock();
-  text_4 = new visual.TextStim({
+  introduction_text_a = new visual.TextStim({
     win: psychoJS.window,
-    name: 'text_4',
+    name: 'introduction_text_a',
     text: "Practice part has finished.\n\nNext part is the experiment.\nHit 's' Key when ready.",
     font: 'Open Sans',
     units: 'norm', 
-    pos: [0, 0], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
@@ -817,6 +827,19 @@ function experimentInit() {
   });
   
   show_fb_key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
+  // Initialize components for Routine "take_break"
+  take_breakClock = new util.Clock();
+  break_text = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'break_text',
+    text: 'Please take a short break.\n\nIf the experiment is ready, \nthe window will change to the fixation point.',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: 0.0 
+  });
   
   // Create some handy timers
   globalClock = new util.Clock();  // to track the time since experiment started
@@ -1587,9 +1610,6 @@ function ActualTrialsLoopBegin(ActualTrialsLoopScheduler) {
   for (const thisActualTrial of ActualTrials) {
     const snapshot = ActualTrials.getSnapshot();
     ActualTrialsLoopScheduler.add(importConditions(snapshot));
-    ActualTrialsLoopScheduler.add(actual_introRoutineBegin(snapshot));
-    ActualTrialsLoopScheduler.add(actual_introRoutineEachFrame(snapshot));
-    ActualTrialsLoopScheduler.add(actual_introRoutineEnd(snapshot));
     ActualTrialsLoopScheduler.add(gitterRoutineBegin(snapshot));
     ActualTrialsLoopScheduler.add(gitterRoutineEachFrame(snapshot));
     ActualTrialsLoopScheduler.add(gitterRoutineEnd(snapshot));
@@ -1602,6 +1622,9 @@ function ActualTrialsLoopBegin(ActualTrialsLoopScheduler) {
     ActualTrialsLoopScheduler.add(show_feedbackRoutineBegin(snapshot));
     ActualTrialsLoopScheduler.add(show_feedbackRoutineEachFrame(snapshot));
     ActualTrialsLoopScheduler.add(show_feedbackRoutineEnd(snapshot));
+    ActualTrialsLoopScheduler.add(take_breakRoutineBegin(snapshot));
+    ActualTrialsLoopScheduler.add(take_breakRoutineEachFrame(snapshot));
+    ActualTrialsLoopScheduler.add(take_breakRoutineEnd(snapshot));
     ActualTrialsLoopScheduler.add(endLoopIteration(ActualTrialsLoopScheduler, snapshot));
   }
 
@@ -1818,6 +1841,10 @@ function show_stimRoutineEachFrame(snapshot) {
         // a response ends the routine
         continueRoutine = false;
       }
+    }
+    
+    if (show_stimClock.getTime() > 7) {
+        continueRoutine = false;
     }
     
     // check for quit (typically the Esc key)
@@ -2296,7 +2323,7 @@ function actual_introRoutineBegin(snapshot) {
     _actual_intro_key_resp_allKeys = [];
     // keep track of which components have finished
     actual_introComponents = [];
-    actual_introComponents.push(text_4);
+    actual_introComponents.push(introduction_text_a);
     actual_introComponents.push(actual_intro_key_resp);
     
     for (const thisComponent of actual_introComponents)
@@ -2315,13 +2342,13 @@ function actual_introRoutineEachFrame(snapshot) {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     
-    // *text_4* updates
-    if (t >= 0.0 && text_4.status === PsychoJS.Status.NOT_STARTED) {
+    // *introduction_text_a* updates
+    if (t >= 0.0 && introduction_text_a.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
-      text_4.tStart = t;  // (not accounting for frame time here)
-      text_4.frameNStart = frameN;  // exact frame index
+      introduction_text_a.tStart = t;  // (not accounting for frame time here)
+      introduction_text_a.frameNStart = frameN;  // exact frame index
       
-      text_4.setAutoDraw(true);
+      introduction_text_a.setAutoDraw(true);
     }
 
     
@@ -2392,6 +2419,97 @@ function actual_introRoutineEnd(snapshot) {
 }
 
 
+var take_breakComponents;
+function take_breakRoutineBegin(snapshot) {
+  return function () {
+    //------Prepare to start Routine 'take_break'-------
+    t = 0;
+    take_breakClock.reset(); // clock
+    frameN = -1;
+    continueRoutine = true; // until we're told otherwise
+    // update component parameters for each repeat
+    if (count != 47) {
+        count += 1;
+        continueRoutine = false;
+    }
+    // keep track of which components have finished
+    take_breakComponents = [];
+    take_breakComponents.push(break_text);
+    
+    for (const thisComponent of take_breakComponents)
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+function take_breakRoutineEachFrame(snapshot) {
+  return function () {
+    //------Loop for each frame of Routine 'take_break'-------
+    // get current time
+    t = take_breakClock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    
+    // *break_text* updates
+    if (t >= 0.0 && break_text.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      break_text.tStart = t;  // (not accounting for frame time here)
+      break_text.frameNStart = frameN;  // exact frame index
+      
+      break_text.setAutoDraw(true);
+    }
+
+    if ((take_breakClock.getTime() > 30)) {
+        count = 0
+        reps += 1
+        continueRoutine = false;
+    }
+    
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    for (const thisComponent of take_breakComponents)
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+        break;
+      }
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+function take_breakRoutineEnd(snapshot) {
+  return function () {
+    //------Ending Routine 'take_break'-------
+    for (const thisComponent of take_breakComponents) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    }
+    // the Routine "take_break" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
+    return Scheduler.Event.NEXT;
+  };
+}
+
+
 function endLoopIteration(scheduler, snapshot) {
   // ------Prepare for next entry------
   return function () {
@@ -2428,6 +2546,8 @@ function quitPsychoJS(message, isCompleted) {
   if (psychoJS.experiment.isEntryEmpty()) {
     psychoJS.experiment.nextEntry();
   }
+  
+  
   
   
   
