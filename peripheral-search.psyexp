@@ -218,23 +218,6 @@
       </KeyboardComponent>
     </Routine>
     <Routine name="exp_intro">
-      <CodeComponent name="set_variables">
-        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="target_class = 'cat'&amp;#10;non_target_classes = [&amp;#10;    'dog',&amp;#10;    'elephant',&amp;#10;    'tiger',&amp;#10;    'rabbit',&amp;#10;    'kangaroo',&amp;#10;    'sheep',&amp;#10;    'monkey',&amp;#10;    'lion',&amp;#10;    'bear',&amp;#10;    'fox',&amp;#10;    'pig',&amp;#10;    'otter',&amp;#10;]&amp;#10;&amp;#10;ans_keys_list = [['b', 'a', 'c', 'd'], ['f', 'e', 'g', 'h'], ['j', 'i', 'k', 'l']]&amp;#10;key_to_pos = {}&amp;#10;for i in range(len(ans_keys_list)):&amp;#10;    for j in range(len(ans_keys_list[i])):&amp;#10;        key_to_pos[ans_keys_list[i][j]] = [i, j]&amp;#10;&amp;#10;hw_rate = win.size[1] / win.size[0]" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="target_class = &quot;cat&quot;;&amp;#10;non_target_classes = [&quot;dog&quot;, &quot;elephant&quot;, &quot;tiger&quot;, &quot;rabbit&quot;, &quot;kangaroo&quot;, &quot;sheep&quot;, &quot;monkey&quot;, &quot;lion&quot;, &quot;bear&quot;, &quot;fox&quot;, &quot;pig&quot;, &quot;otter&quot;];&amp;#10;&amp;#10;ans_keys_list = [[&quot;b&quot;, &quot;a&quot;, &quot;c&quot;, &quot;d&quot;], [&quot;f&quot;, &quot;e&quot;, &quot;g&quot;, &quot;h&quot;], [&quot;j&quot;, &quot;i&quot;, &quot;k&quot;, &quot;l&quot;]];&amp;#10;key_to_pos = {};&amp;#10;for (var i = 0, _pj_a = ans_keys_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    for (var j = 0, _pj_b = ans_keys_list[i].length; (j &lt; _pj_b); j += 1) {&amp;#10;        key_to_pos[ans_keys_list[i][j]] = [i, j];&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;hw_rate = win.size[1] / win.size[0];&amp;#10;&amp;#10;count = 0&amp;#10;reps = 0&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="hw_rate = win.size[1] / win.size[0];&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="hw_rate = win.size[1] / win.size[0]" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Both" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="set_variables" valType="code"/>
-      </CodeComponent>
       <CodeComponent name="define_functions">
         <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="const range = (start, end) =&gt; [...Array((end - start) + 1)].map((_, i) =&gt; start + i);&amp;#10;&amp;#10;const shuffle = ([...array]) =&gt; {&amp;#10;    for (let i = array.length - 1; i &gt;= 0; i--) {&amp;#10;        const j = Math.floor(Math.random() * (i + 1));&amp;#10;        [array[i], array[j]] = [array[j], array[i]];&amp;#10;    }&amp;#10;    return array;&amp;#10;}&amp;#10;&amp;#10;const calcRad = (deg) =&gt; {&amp;#10;    return deg * (Math.PI / 180);&amp;#10;}" valType="extendedCode"/>
@@ -251,6 +234,23 @@
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="define_functions" valType="code"/>
+      </CodeComponent>
+      <CodeComponent name="set_variables">
+        <Param name="Before Experiment" updates="constant" val="import random" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="target_class = 'cat'&amp;#10;non_target_classes = [&amp;#10;    'dog',&amp;#10;    'elephant',&amp;#10;    'tiger',&amp;#10;    'rabbit',&amp;#10;    'kangaroo',&amp;#10;    'sheep',&amp;#10;    'monkey',&amp;#10;    'lion',&amp;#10;    'bear',&amp;#10;    'fox',&amp;#10;    'pig',&amp;#10;    'otter',&amp;#10;]&amp;#10;&amp;#10;ans_keys_list = [['b', 'a', 'c', 'd'], ['f', 'e', 'g', 'h'], ['j', 'i', 'k', 'l']]&amp;#10;key_to_pos = {}&amp;#10;for i in range(len(ans_keys_list)):&amp;#10;    for j in range(len(ans_keys_list[i])):&amp;#10;        key_to_pos[ans_keys_list[i][j]] = [i, j]&amp;#10;&amp;#10;hw_rate = win.size[1] / win.size[0]&amp;#10;&amp;#10;idx = list(range(101, 149))&amp;#10;idx = list(map(lambda x: str(x)[1:], idx))&amp;#10;idx_list = {}&amp;#10;for i in range(len(non_target_classes)):&amp;#10;    idx_list[non_target_classes[i]] = random.sample(idx, len(idx))&amp;#10;idx_list[target_class] = random.sample(idx, len(idx))&amp;#10;&amp;#10;reps = 0" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="target_class = &quot;cat&quot;;&amp;#10;non_target_classes = [&quot;dog&quot;, &quot;elephant&quot;, &quot;tiger&quot;, &quot;rabbit&quot;, &quot;kangaroo&quot;, &quot;sheep&quot;, &quot;monkey&quot;, &quot;lion&quot;, &quot;bear&quot;, &quot;fox&quot;, &quot;pig&quot;, &quot;otter&quot;];&amp;#10;&amp;#10;ans_keys_list = [[&quot;b&quot;, &quot;a&quot;, &quot;c&quot;, &quot;d&quot;], [&quot;f&quot;, &quot;e&quot;, &quot;g&quot;, &quot;h&quot;], [&quot;j&quot;, &quot;i&quot;, &quot;k&quot;, &quot;l&quot;]];&amp;#10;key_to_pos = {};&amp;#10;for (var i = 0, _pj_a = ans_keys_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    for (var j = 0, _pj_b = ans_keys_list[i].length; (j &lt; _pj_b); j += 1) {&amp;#10;        key_to_pos[ans_keys_list[i][j]] = [i, j];&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;hw_rate = win.size[1] / win.size[0];&amp;#10;&amp;#10;idx = range(101, 148);&amp;#10;idx = idx.map(x =&gt; x.toString().slice(1));&amp;#10;idx_list = {};&amp;#10;for (var i = 0, _pj_a = non_target_classes.length; (i &lt; _pj_a); i += 1) {&amp;#10;    idx_list[non_target_classes[i]] = shuffle(idx)&amp;#10;}&amp;#10;idx_list[target_class] = shuffle(idx)&amp;#10;&amp;#10;&amp;#10;count = 0&amp;#10;reps = 0" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="hw_rate = win.size[1] / win.size[0];" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="hw_rate = win.size[1] / win.size[0]" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="set_variables" valType="code"/>
       </CodeComponent>
       <CodeComponent name="calc_ecc">
         <Param name="Before Experiment" updates="constant" val="import math" valType="extendedCode"/>
@@ -729,128 +729,6 @@
         <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
       </KeyboardComponent>
     </Routine>
-    <Routine name="show_stim">
-      <CodeComponent name="change_nontarget">
-        <Param name="Before Experiment" updates="constant" val="import random&amp;#10;from PIL import Image" valType="extendedCode"/>
-        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="_non_target_classes = shuffle(non_target_classes);&amp;#10;for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    image_path = &quot;imagenet/&quot; + _non_target_classes[i] + &quot;/image&quot; + (Math.floor(Math.random() * (151 - 101)) + 101).toString().slice(1) + &quot;.png&quot;;&amp;#10;    image_list[i].setImage(image_path);&amp;#10;    // image_list[i].setImage(&quot;imagenet/cat/image01.png&quot;)&amp;#10;&amp;#10;    thisExp.addData(_non_target_classes[i], image_path);&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="_non_target_classes = random.sample(non_target_classes, len(non_target_classes))&amp;#10;for i in range(len(image_list)):&amp;#10;    image_path = 'html/resources/imagenet/' + _non_target_classes[i] + '/image' + str(random.randrange(101, 151))[1:] + '.png'&amp;#10;    image_list[i].image = Image.open(image_path)&amp;#10;&amp;#10;    thisExp.addData(_non_target_classes[i], image_path)&amp;#10;" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Both" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="change_nontarget" valType="code"/>
-      </CodeComponent>
-      <CodeComponent name="change_target">
-        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="image_path = &quot;imagenet/&quot; + target_class + &quot;/image&quot; + (Math.floor(Math.random() * (151 - 101)) + 101).toString().slice(1) + &quot;.png&quot;;&amp;#10;image_list[4 * pos + ori].setImage(image_path);&amp;#10;&amp;#10;thisExp.addData(target_class, image_path);&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="image_path = 'html/resources/imagenet/' + target_class + '/image' + str(random.randrange(101, 151))[1:] + '.png'&amp;#10;image_list[4 * thisPracticeTrial['pos'] + thisPracticeTrial['ori']].image = Image.open(image_path)&amp;#10;&amp;#10;thisExp.addData(target_class, image_path)&amp;#10;" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Both" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="change_target" valType="code"/>
-      </CodeComponent>
-      <CodeComponent name="change_size_rate">
-        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    image_list[i].size = [size * deg2norm, size * deg2norm];&amp;#10;    if (((4 &lt;= i) &amp;&amp; (i &lt; 8))) {&amp;#10;        image_list[i].size = [rate * image_list[i].size[0], rate * image_list[i].size[1]];&amp;#10;    } else {&amp;#10;        if ((i &gt;= 8)) {&amp;#10;            image_list[i].size = [Math.pow(rate, 2) * image_list[i].size[0], Math.pow(rate, 2) * image_list[i].size[1]];&amp;#10;        }&amp;#10;    }&amp;#10;    image_list[i].size[0] *= hw_rate;&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="for i in range(len(image_list)):&amp;#10;    image_list[i].size = (thisPracticeTrial['size'] * deg2norm, thisPracticeTrial['size'] * deg2norm)&amp;#10;    if 4 &lt;= i &lt; 8:&amp;#10;        image_list[i].size = (thisPracticeTrial['rate'] * image_list[i].size[0], thisPracticeTrial['rate'] * image_list[i].size[1])&amp;#10;    elif i &gt;= 8:&amp;#10;        image_list[i].size = ((thisPracticeTrial['rate'] ** 2) * image_list[i].size[0], (thisPracticeTrial['rate'] ** 2) * image_list[i].size[1])&amp;#10;    image_list[i].size[0] *= hw_rate&amp;#10;" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Both" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="change_size_rate" valType="code"/>
-      </CodeComponent>
-      <CodeComponent name="draw_and_flip">
-        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="fixation_point.setAutoDraw(true);" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Both" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="fixation_point.draw()&amp;#10;&amp;#10;if show_stimClock.getTime() &gt; 1:&amp;#10;    for i in range(len(image_list)):&amp;#10;        image_list[i].draw()&amp;#10;" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="if ((show_stimClock.getTime() &gt; 1)) {&amp;#10;    for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;        image_list[i].setAutoDraw(true);&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="fixation_point.setAutoDraw(false);&amp;#10;&amp;#10;for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    image_list[i].setAutoDraw(false);&amp;#10;}" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="draw_and_flip" valType="code"/>
-      </CodeComponent>
-      <KeyboardComponent name="show_stim_key_resp">
-        <Param name="allowedKeys" updates="constant" val="" valType="list"/>
-        <Param name="correctAns" updates="constant" val="" valType="str"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="num"/>
-        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
-        <Param name="name" updates="None" val="show_stim_key_resp" valType="code"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="startEstim" updates="None" val="" valType="num"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="1.0" valType="num"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="num"/>
-        <Param name="store" updates="constant" val="nothing" valType="str"/>
-        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
-      </KeyboardComponent>
-      <CodeComponent name="store_rt">
-        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="thisExp.addData(&quot;reactionTime&quot;, (show_stimClock.getTime() - 1));&amp;#10;" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="thisExp.addData('reactionTime', show_stimClock.getTime() - 1)" valType="extendedCode"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="store_rt" valType="code"/>
-      </CodeComponent>
-      <CodeComponent name="force_change">
-        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Code Type" updates="None" val="Both" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="if show_stimClock.getTime() &gt; 7:&amp;#10;    continueRoutine=False&amp;#10;" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="if (show_stimClock.getTime() &gt; 7) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="name" updates="None" val="force_change" valType="code"/>
-      </CodeComponent>
-    </Routine>
     <Routine name="ask_question">
       <ImageComponent name="stimuli_arrangement">
         <Param name="color" updates="constant" val="$[1,1,1]" valType="color"/>
@@ -959,7 +837,7 @@
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -1288,7 +1166,7 @@
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="if ((key_to_pos[key_ans.keys][0] === pos) &amp;&amp; (key_to_pos[key_ans.keys][1] === ori)) {&amp;#10;    feedback_text.text = &quot;Your answer is correct!&quot;;&amp;#10;    thisExp.addData(&quot;TF&quot;, &quot;True&quot;);&amp;#10;} else {&amp;#10;    feedback_text.text = &quot;Your answer is incorrect.&quot;;&amp;#10;    thisExp.addData(&quot;TF&quot;, &quot;False&quot;);&amp;#10;}&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="if key_to_pos[key_ans.keys][0] == thisPracticeTrial['pos'] and key_to_pos[key_ans.keys][1] == thisPracticeTrial['ori']:&amp;#10;    feedback_text.text = 'Your answer is correct!'&amp;#10;    thisExp.addData('TF', 'True')&amp;#10;else:&amp;#10;    feedback_text.text = 'Your answer is incorrect.'&amp;#10;    thisExp.addData('TF', 'False')&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if key_to_pos[key_ans.keys][0] == pos and key_to_pos[key_ans.keys][1] == ori:&amp;#10;    feedback_text.text = 'Your answer is correct!'&amp;#10;    thisExp.addData('TF', 'True')&amp;#10;else:&amp;#10;    feedback_text.text = 'Your answer is incorrect.'&amp;#10;    thisExp.addData('TF', 'False')&amp;#10;" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="if show_feedbackClock.getTime() &gt; 1:&amp;#10;    continueRoutine=False&amp;#10;" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="if (show_feedbackClock.getTime() &gt; 1) {&amp;#10;    continueRoutine = false;&amp;#10;}" valType="extendedCode"/>
@@ -1333,7 +1211,7 @@
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
@@ -1448,17 +1326,139 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="if (count != 47) {&amp;#10;    count += 1;&amp;#10;    continueRoutine = false;&amp;#10;}" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="if ActualTrials.thisTrialN != 47:&amp;#10;    continueRoutine=False&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="if ((count != 47) || (reps == 3)) {&amp;#10;    count += 1;&amp;#10;    continueRoutine = false;&amp;#10;} else {&amp;#10;    count = 0&amp;#10;    reps += 1&amp;#10;    for (var i = 0, _pj_a = non_target_classes.length; (i &lt; _pj_a); i += 1) {&amp;#10;        idx_list[non_target_classes[i]] = shuffle(idx)&amp;#10;    }&amp;#10;    idx_list[target_class] = shuffle(idx)&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if ActualTrials.thisTrialN != 47 or reps == 3:&amp;#10;    continueRoutine=False&amp;#10;else:&amp;#10;    reps += 1&amp;#10;    for i in range(len(non_target_classes)):&amp;#10;        idx_list[non_target_classes[i]] = random.sample(idx, len(idx))&amp;#10;    idx_list[target_class] = random.sample(idx, len(idx))&amp;#10;" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="if take_breakClock.getTime() &gt; 30:&amp;#10;    continueRoutine=False&amp;#10;" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="if ((take_breakClock.getTime() &gt; 30)) {&amp;#10;    count = 0&amp;#10;    reps += 1&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="if ((take_breakClock.getTime() &gt; 30)) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="show_break_text" valType="code"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="show_stim">
+      <CodeComponent name="change_nontarget">
+        <Param name="Before Experiment" updates="constant" val="from PIL import Image" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="_non_target_classes = shuffle(non_target_classes);&amp;#10;for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    if (currentLoop.name == &quot;PracticeTrials&quot;) {&amp;#10;        image_path = &quot;imagenet/&quot; + _non_target_classes[i] + &quot;/image&quot; + (Math.floor(Math.random() * (151 - 101)) + 101).toString().slice(1) + &quot;.png&quot;;&amp;#10;    } else {&amp;#10;        image_path = &quot;imagenet/&quot; + _non_target_classes[i] + &quot;/image&quot; + idx_list[_non_target_classes[i]][count] + &quot;.png&quot;;&amp;#10;    }&amp;#10;    image_list[i].setImage(image_path);&amp;#10;&amp;#10;    thisExp.addData(_non_target_classes[i], image_path);&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="_non_target_classes = random.sample(non_target_classes, len(non_target_classes))&amp;#10;for i in range(len(image_list)):&amp;#10;    if currentLoop.name == 'PracticeTrials':&amp;#10;        image_path = 'html/resources/imagenet/' + _non_target_classes[i] + '/image' + str(random.randrange(101, 151))[1:] + '.png'&amp;#10;    else:&amp;#10;        image_path = 'html/resources/imagenet/' + _non_target_classes[i] + '/image' + idx_list[_non_target_classes[i]][ActualTrials.thisTrialN] + '.png'&amp;#10;    image_list[i].image = Image.open(image_path)&amp;#10;&amp;#10;    thisExp.addData(_non_target_classes[i], image_path)&amp;#10;" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="change_nontarget" valType="code"/>
+      </CodeComponent>
+      <CodeComponent name="change_target">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="if (currentLoop.name == &quot;PracticeTrials&quot;) {&amp;#10;    image_path = &quot;imagenet/&quot; + target_class + &quot;/image&quot; + (Math.floor(Math.random() * (151 - 101)) + 101).toString().slice(1) + &quot;.png&quot;;&amp;#10;} else {&amp;#10;    image_path = &quot;imagenet/&quot; + target_class + &quot;/image&quot; + idx_list[target_class][count] + &quot;.png&quot;;&amp;#10;}&amp;#10;image_list[4 * pos + ori].setImage(image_path);&amp;#10;&amp;#10;thisExp.addData(target_class, image_path);&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="if currentLoop.name == 'PracticeTrials':&amp;#10;    image_path = 'html/resources/imagenet/' + target_class + '/image' + str(random.randrange(101, 151))[1:] + '.png'&amp;#10;else:&amp;#10;    image_path = 'html/resources/imagenet/' + target_class + '/image' + idx_list[target_class][ActualTrials.thisTrialN] + '.png'&amp;#10;image_list[4 * pos + ori].image = Image.open(image_path)&amp;#10;&amp;#10;thisExp.addData(target_class, image_path)&amp;#10;" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="change_target" valType="code"/>
+      </CodeComponent>
+      <CodeComponent name="change_size_rate">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    image_list[i].size = [size * deg2norm, size * deg2norm];&amp;#10;    if ((4 &lt;= i) &amp;&amp; (i &lt; 8)) {&amp;#10;        image_list[i].size = [rate * image_list[i].size[0], rate * image_list[i].size[1]];&amp;#10;    } else {&amp;#10;        if (i &gt;= 8) {&amp;#10;            image_list[i].size = [Math.pow(rate, 2) * image_list[i].size[0], Math.pow(rate, 2) * image_list[i].size[1]];&amp;#10;        }&amp;#10;    }&amp;#10;    image_list[i].size[0] *= hw_rate;&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="for i in range(len(image_list)):&amp;#10;    image_list[i].size = (size * deg2norm, size * deg2norm)&amp;#10;    if 4 &lt;= i &lt; 8:&amp;#10;        image_list[i].size = (rate * image_list[i].size[0], rate * image_list[i].size[1])&amp;#10;    elif i &gt;= 8:&amp;#10;        image_list[i].size = ((rate ** 2) * image_list[i].size[0], (rate ** 2) * image_list[i].size[1])&amp;#10;    image_list[i].size[0] *= hw_rate&amp;#10;" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="change_size_rate" valType="code"/>
+      </CodeComponent>
+      <CodeComponent name="draw_and_flip">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="fixation_point.setAutoDraw(true);" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="fixation_point.draw()&amp;#10;&amp;#10;if show_stimClock.getTime() &gt; 1:&amp;#10;    for i in range(len(image_list)):&amp;#10;        image_list[i].draw()&amp;#10;" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="if (show_stimClock.getTime() &gt; 1) {&amp;#10;    for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;        image_list[i].setAutoDraw(true);&amp;#10;    }&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="fixation_point.setAutoDraw(false);&amp;#10;&amp;#10;for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    image_list[i].setAutoDraw(false);&amp;#10;}" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="draw_and_flip" valType="code"/>
+      </CodeComponent>
+      <KeyboardComponent name="show_stim_key_resp">
+        <Param name="allowedKeys" updates="constant" val="" valType="list"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="num"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="show_stim_key_resp" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="num"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="1.0" valType="num"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="num"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+      <CodeComponent name="store_rt">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="thisExp.addData(&quot;reactionTime&quot;, (show_stimClock.getTime() - 1));&amp;#10;" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="thisExp.addData('reactionTime', show_stimClock.getTime() - 1)" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="store_rt" valType="code"/>
+      </CodeComponent>
+      <CodeComponent name="force_change">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="if show_stimClock.getTime() &gt; 7:&amp;#10;    continueRoutine=False&amp;#10;" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="if ((show_stimClock.getTime() &gt; 7)) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="force_change" valType="code"/>
       </CodeComponent>
     </Routine>
   </Routines>

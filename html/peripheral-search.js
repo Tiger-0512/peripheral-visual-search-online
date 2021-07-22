@@ -140,6 +140,8 @@ var non_target_classes;
 var ans_keys_list;
 var key_to_pos;
 var hw_rate;
+var idx;
+var idx_list;
 var count;
 var reps;
 var eccentricity_level_0;
@@ -168,6 +170,7 @@ var introduction_text_p;
 var practice_info_key_resp;
 var gitterClock;
 var exp_start;
+var test;
 var show_stimClock;
 var show_stim_key_resp;
 var ask_questionClock;
@@ -300,9 +303,17 @@ function experimentInit() {
   
   hw_rate = win.size[1] / win.size[0];
   
+  idx = range(101, 148);
+  idx = idx.map(x => x.toString().slice(1));
+  idx_list = {};
+  for (var i = 0, _pj_a = non_target_classes.length; (i < _pj_a); i += 1) {
+      idx_list[non_target_classes[i]] = shuffle(idx)
+  }
+  idx_list[target_class] = shuffle(idx)
+  
+  
   count = 0
   reps = 0
-  
   eccentricity_level_0 = Math.round(Math.sqrt(2) * 100) / 100;
   eccentricity_level_1 = Math.round((1 + Math.sqrt(8)) * 100) / 100;
   eccentricity_level_2 = Math.round(((Math.sqrt(2) + 4 + Math.sqrt(Math.pow((Math.sqrt(2) + 4), 2) - 4 * (4 * Math.sqrt(2) - 27))) / 2) * 100) / 100;
@@ -458,6 +469,17 @@ function experimentInit() {
   // Initialize components for Routine "gitter"
   gitterClock = new util.Clock();
   exp_start = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
+  test = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'test',
+    text: 'Any text',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -3.0 
+  });
   
   // Initialize components for Routine "show_stim"
   show_stimClock = new util.Clock();
@@ -652,6 +674,17 @@ function experimentInit() {
   // Initialize components for Routine "gitter"
   gitterClock = new util.Clock();
   exp_start = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
+  test = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'test',
+    text: 'Any text',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -3.0 
+  });
   
   // Initialize components for Routine "show_stim"
   show_stimClock = new util.Clock();
@@ -1152,7 +1185,6 @@ function exp_introRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
     hw_rate = win.size[1] / win.size[0];
-    
     VA = Math.round(360 / Math.PI * Math.atan2(screen_height, (2 * 57)));
     deg2norm = 2 / VA
     image_0_0.setSize([(deg2norm * hw_rate), deg2norm]);
@@ -1658,6 +1690,7 @@ function gitterRoutineBegin(snapshot) {
     // keep track of which components have finished
     gitterComponents = [];
     gitterComponents.push(exp_start);
+    gitterComponents.push(test);
     
     for (const thisComponent of gitterComponents)
       if ('status' in thisComponent)
@@ -1697,6 +1730,18 @@ function gitterRoutineEachFrame(snapshot) {
         continueRoutine = false;
       }
     }
+    
+    
+    // *test* updates
+    if (t >= 0.0 && test.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      test.tStart = t;  // (not accounting for frame time here)
+      test.frameNStart = frameN;  // exact frame index
+      
+      test.setAutoDraw(true);
+    }
+
+    test.text = idx_list;
     
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
@@ -1766,24 +1811,31 @@ function show_stimRoutineBegin(snapshot) {
     // update component parameters for each repeat
     _non_target_classes = shuffle(non_target_classes);
     for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
-        image_path = "imagenet/" + _non_target_classes[i] + "/image" + (Math.floor(Math.random() * (151 - 101)) + 101).toString().slice(1) + ".png";
+        if (currentLoop.name == "PracticeTrials") {
+            image_path = "imagenet/" + _non_target_classes[i] + "/image" + (Math.floor(Math.random() * (151 - 101)) + 101).toString().slice(1) + ".png";
+        } else {
+            image_path = "imagenet/" + _non_target_classes[i] + "/image" + idx_list[_non_target_classes[i]][count] + ".png";
+        }
         image_list[i].setImage(image_path);
-        // image_list[i].setImage("imagenet/cat/image01.png")
     
         thisExp.addData(_non_target_classes[i], image_path);
     }
     
-    image_path = "imagenet/" + target_class + "/image" + (Math.floor(Math.random() * (151 - 101)) + 101).toString().slice(1) + ".png";
+    if (currentLoop.name == "PracticeTrials") {
+        image_path = "imagenet/" + target_class + "/image" + (Math.floor(Math.random() * (151 - 101)) + 101).toString().slice(1) + ".png";
+    } else {
+        image_path = "imagenet/" + target_class + "/image" + idx_list[target_class][count] + ".png";
+    }
     image_list[4 * pos + ori].setImage(image_path);
     
     thisExp.addData(target_class, image_path);
     
     for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
         image_list[i].size = [size * deg2norm, size * deg2norm];
-        if (((4 <= i) && (i < 8))) {
+        if ((4 <= i) && (i < 8)) {
             image_list[i].size = [rate * image_list[i].size[0], rate * image_list[i].size[1]];
         } else {
-            if ((i >= 8)) {
+            if (i >= 8) {
                 image_list[i].size = [Math.pow(rate, 2) * image_list[i].size[0], Math.pow(rate, 2) * image_list[i].size[1]];
             }
         }
@@ -1813,7 +1865,7 @@ function show_stimRoutineEachFrame(snapshot) {
     t = show_stimClock.getTime();
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
-    if ((show_stimClock.getTime() > 1)) {
+    if (show_stimClock.getTime() > 1) {
         for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
             image_list[i].setAutoDraw(true);
         }
@@ -1843,7 +1895,7 @@ function show_stimRoutineEachFrame(snapshot) {
       }
     }
     
-    if (show_stimClock.getTime() > 7) {
+    if ((show_stimClock.getTime() > 7)) {
         continueRoutine = false;
     }
     
@@ -2428,10 +2480,18 @@ function take_breakRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    if (count != 47) {
+    if ((count != 47) || (reps == 3)) {
         count += 1;
         continueRoutine = false;
+    } else {
+        count = 0
+        reps += 1
+        for (var i = 0, _pj_a = non_target_classes.length; (i < _pj_a); i += 1) {
+            idx_list[non_target_classes[i]] = shuffle(idx)
+        }
+        idx_list[target_class] = shuffle(idx)
     }
+    
     // keep track of which components have finished
     take_breakComponents = [];
     take_breakComponents.push(break_text);
@@ -2462,8 +2522,6 @@ function take_breakRoutineEachFrame(snapshot) {
     }
 
     if ((take_breakClock.getTime() > 30)) {
-        count = 0
-        reps += 1
         continueRoutine = false;
     }
     
@@ -2546,6 +2604,8 @@ function quitPsychoJS(message, isCompleted) {
   if (psychoJS.experiment.isEntryEmpty()) {
     psychoJS.experiment.nextEntry();
   }
+  
+  
   
   
   
