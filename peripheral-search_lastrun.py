@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on Thu Jul 22 14:51:24 2021
+    on Sun Jul 25 23:38:03 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -325,13 +325,6 @@ practice_info_key_resp = keyboard.Keyboard()
 # Initialize components for Routine "gitter"
 gitterClock = core.Clock()
 exp_start = keyboard.Keyboard()
-test = visual.TextStim(win=win, name='test',
-    text='Any text',
-    font='Open Sans',
-    pos=(0, 0), height=deg2norm, wrapWidth=None, ori=0.0, 
-    color='white', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=-3.0);
 
 # Initialize components for Routine "show_stim"
 show_stimClock = core.Clock()
@@ -465,13 +458,6 @@ actual_intro_key_resp = keyboard.Keyboard()
 # Initialize components for Routine "gitter"
 gitterClock = core.Clock()
 exp_start = keyboard.Keyboard()
-test = visual.TextStim(win=win, name='test',
-    text='Any text',
-    font='Open Sans',
-    pos=(0, 0), height=deg2norm, wrapWidth=None, ori=0.0, 
-    color='white', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=-3.0);
 
 # Initialize components for Routine "show_stim"
 show_stimClock = core.Clock()
@@ -1152,7 +1138,7 @@ routineTimer.reset()
 # set up handler to look after randomisation of conditions etc
 PracticeTrials = data.TrialHandler(nReps=1.0, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('practiceConditions.xlsx'),
+    trialList=data.importConditions('conditions/practiceConditions.xlsx'),
     seed=None, name='PracticeTrials')
 thisExp.addLoop(PracticeTrials)  # add the loop to the experiment
 thisPracticeTrial = PracticeTrials.trialList[0]  # so we can initialise stimuli with some values
@@ -1178,7 +1164,7 @@ for thisPracticeTrial in PracticeTrials:
     exp_start.rt = []
     _exp_start_allKeys = []
     # keep track of which components have finished
-    gitterComponents = [exp_start, test]
+    gitterComponents = [exp_start]
     for thisComponent in gitterComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1224,16 +1210,6 @@ for thisPracticeTrial in PracticeTrials:
                 # a response ends the routine
                 continueRoutine = False
         
-        # *test* updates
-        if test.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            test.frameNStart = frameN  # exact frame index
-            test.tStart = t  # local t and not account for scr refresh
-            test.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(test, 'tStartRefresh')  # time at next scr refresh
-            test.setAutoDraw(True)
-        test.text = idx_list
-        
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
@@ -1265,8 +1241,6 @@ for thisPracticeTrial in PracticeTrials:
     PracticeTrials.addData('exp_start.stopped', exp_start.tStopRefresh)
     fixation_point.fillColor = (0.5059, 0.5059, 0.5059)
     fixation_point.lineColor = (0.5059, 0.5059, 0.5059)
-    PracticeTrials.addData('test.started', test.tStartRefresh)
-    PracticeTrials.addData('test.stopped', test.tStopRefresh)
     # the Routine "gitter" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -1276,7 +1250,7 @@ for thisPracticeTrial in PracticeTrials:
     _non_target_classes = random.sample(non_target_classes, len(non_target_classes))
     for i in range(len(image_list)):
         if currentLoop.name == 'PracticeTrials':
-            image_path = 'html/resources/imagenet/' + _non_target_classes[i] + '/image' + str(random.randrange(101, 151))[1:] + '.png'
+            image_path = 'html/resources/imagenet/' + _non_target_classes[i] + '/image' + str(random.randrange(101, 149))[1:] + '.png'
         else:
             image_path = 'html/resources/imagenet/' + _non_target_classes[i] + '/image' + idx_list[_non_target_classes[i]][ActualTrials.thisTrialN] + '.png'
         image_list[i].image = Image.open(image_path)
@@ -1284,7 +1258,7 @@ for thisPracticeTrial in PracticeTrials:
         thisExp.addData(_non_target_classes[i], image_path)
     
     if currentLoop.name == 'PracticeTrials':
-        image_path = 'html/resources/imagenet/' + target_class + '/image' + str(random.randrange(101, 151))[1:] + '.png'
+        image_path = 'html/resources/imagenet/' + target_class + '/image' + str(random.randrange(101, 149))[1:] + '.png'
     else:
         image_path = 'html/resources/imagenet/' + target_class + '/image' + idx_list[target_class][ActualTrials.thisTrialN] + '.png'
     image_list[4 * pos + ori].image = Image.open(image_path)
@@ -1617,8 +1591,6 @@ for thisPracticeTrial in PracticeTrials:
     for thisComponent in ask_questionComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    PracticeTrials.addData('text_A.started', text_A.tStartRefresh)
-    PracticeTrials.addData('text_A.stopped', text_A.tStopRefresh)
     # check responses
     if key_ans.keys in ['', [], None]:  # No response was made
         key_ans.keys = None
@@ -1811,15 +1783,13 @@ while continueRoutine:
 for thisComponent in actual_introComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-thisExp.addData('introduction_text_a.started', introduction_text_a.tStartRefresh)
-thisExp.addData('introduction_text_a.stopped', introduction_text_a.tStopRefresh)
 # the Routine "actual_intro" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
 ActualTrials = data.TrialHandler(nReps=4.0, method='random', 
     extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('expConditions.xlsx'),
+    trialList=data.importConditions('conditions/expConditions.xlsx'),
     seed=None, name='ActualTrials')
 thisExp.addLoop(ActualTrials)  # add the loop to the experiment
 thisActualTrial = ActualTrials.trialList[0]  # so we can initialise stimuli with some values
@@ -1845,7 +1815,7 @@ for thisActualTrial in ActualTrials:
     exp_start.rt = []
     _exp_start_allKeys = []
     # keep track of which components have finished
-    gitterComponents = [exp_start, test]
+    gitterComponents = [exp_start]
     for thisComponent in gitterComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
@@ -1891,16 +1861,6 @@ for thisActualTrial in ActualTrials:
                 # a response ends the routine
                 continueRoutine = False
         
-        # *test* updates
-        if test.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            test.frameNStart = frameN  # exact frame index
-            test.tStart = t  # local t and not account for scr refresh
-            test.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(test, 'tStartRefresh')  # time at next scr refresh
-            test.setAutoDraw(True)
-        test.text = idx_list
-        
         # check for quit (typically the Esc key)
         if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
             core.quit()
@@ -1932,8 +1892,6 @@ for thisActualTrial in ActualTrials:
     ActualTrials.addData('exp_start.stopped', exp_start.tStopRefresh)
     fixation_point.fillColor = (0.5059, 0.5059, 0.5059)
     fixation_point.lineColor = (0.5059, 0.5059, 0.5059)
-    ActualTrials.addData('test.started', test.tStartRefresh)
-    ActualTrials.addData('test.stopped', test.tStopRefresh)
     # the Routine "gitter" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
@@ -1943,7 +1901,7 @@ for thisActualTrial in ActualTrials:
     _non_target_classes = random.sample(non_target_classes, len(non_target_classes))
     for i in range(len(image_list)):
         if currentLoop.name == 'PracticeTrials':
-            image_path = 'html/resources/imagenet/' + _non_target_classes[i] + '/image' + str(random.randrange(101, 151))[1:] + '.png'
+            image_path = 'html/resources/imagenet/' + _non_target_classes[i] + '/image' + str(random.randrange(101, 149))[1:] + '.png'
         else:
             image_path = 'html/resources/imagenet/' + _non_target_classes[i] + '/image' + idx_list[_non_target_classes[i]][ActualTrials.thisTrialN] + '.png'
         image_list[i].image = Image.open(image_path)
@@ -1951,7 +1909,7 @@ for thisActualTrial in ActualTrials:
         thisExp.addData(_non_target_classes[i], image_path)
     
     if currentLoop.name == 'PracticeTrials':
-        image_path = 'html/resources/imagenet/' + target_class + '/image' + str(random.randrange(101, 151))[1:] + '.png'
+        image_path = 'html/resources/imagenet/' + target_class + '/image' + str(random.randrange(101, 149))[1:] + '.png'
     else:
         image_path = 'html/resources/imagenet/' + target_class + '/image' + idx_list[target_class][ActualTrials.thisTrialN] + '.png'
     image_list[4 * pos + ori].image = Image.open(image_path)
@@ -2284,8 +2242,6 @@ for thisActualTrial in ActualTrials:
     for thisComponent in ask_questionComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    ActualTrials.addData('text_A.started', text_A.tStartRefresh)
-    ActualTrials.addData('text_A.stopped', text_A.tStopRefresh)
     # check responses
     if key_ans.keys in ['', [], None]:  # No response was made
         key_ans.keys = None
@@ -2399,8 +2355,9 @@ for thisActualTrial in ActualTrials:
         continueRoutine=False
     else:
         reps += 1
-        for i in range(len(idx_list)):
-            idx_list[i] = random.sample(idx_list[i], len(idx_list[i]))
+        for i in range(len(non_target_classes)):
+            idx_list[non_target_classes[i]] = random.sample(idx, len(idx))
+        idx_list[target_class] = random.sample(idx, len(idx))
     
     # keep track of which components have finished
     take_breakComponents = [break_text]

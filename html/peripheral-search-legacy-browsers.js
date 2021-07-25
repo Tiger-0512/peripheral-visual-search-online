@@ -159,7 +159,6 @@ var introduction_text_p;
 var practice_info_key_resp;
 var gitterClock;
 var exp_start;
-var test;
 var show_stimClock;
 var show_stim_key_resp;
 var ask_questionClock;
@@ -459,17 +458,6 @@ function experimentInit() {
   gitterClock = new util.Clock();
   exp_start = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
-  test = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'test',
-    text: 'Any text',
-    font: 'Open Sans',
-    units: undefined, 
-    pos: [0, 0], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
-    color: new util.Color('white'),  opacity: undefined,
-    depth: -3.0 
-  });
-  
   // Initialize components for Routine "show_stim"
   show_stimClock = new util.Clock();
   show_stim_key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
@@ -663,17 +651,6 @@ function experimentInit() {
   // Initialize components for Routine "gitter"
   gitterClock = new util.Clock();
   exp_start = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
-  
-  test = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'test',
-    text: 'Any text',
-    font: 'Open Sans',
-    units: undefined, 
-    pos: [0, 0], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
-    color: new util.Color('white'),  opacity: undefined,
-    depth: -3.0 
-  });
   
   // Initialize components for Routine "show_stim"
   show_stimClock = new util.Clock();
@@ -1582,7 +1559,7 @@ function PracticeTrialsLoopBegin(PracticeTrialsLoopScheduler) {
     psychoJS: psychoJS,
     nReps: 1, method: TrialHandler.Method.RANDOM,
     extraInfo: expInfo, originPath: undefined,
-    trialList: 'practiceConditions.xlsx',
+    trialList: 'conditions/practiceConditions.xlsx',
     seed: undefined, name: 'PracticeTrials'
   });
   psychoJS.experiment.addLoop(PracticeTrials); // add the loop to the experiment
@@ -1626,7 +1603,7 @@ function ActualTrialsLoopBegin(ActualTrialsLoopScheduler) {
     psychoJS: psychoJS,
     nReps: 4, method: TrialHandler.Method.RANDOM,
     extraInfo: expInfo, originPath: undefined,
-    trialList: 'expConditions.xlsx',
+    trialList: 'conditions/expConditions.xlsx',
     seed: undefined, name: 'ActualTrials'
   });
   psychoJS.experiment.addLoop(ActualTrials); // add the loop to the experiment
@@ -1685,7 +1662,6 @@ function gitterRoutineBegin(snapshot) {
     // keep track of which components have finished
     gitterComponents = [];
     gitterComponents.push(exp_start);
-    gitterComponents.push(test);
     
     gitterComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -1726,18 +1702,6 @@ function gitterRoutineEachFrame(snapshot) {
         continueRoutine = false;
       }
     }
-    
-    
-    // *test* updates
-    if (t >= 0.0 && test.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      test.tStart = t;  // (not accounting for frame time here)
-      test.frameNStart = frameN;  // exact frame index
-      
-      test.setAutoDraw(true);
-    }
-
-    test.text = idx_list;
     
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
@@ -1808,7 +1772,7 @@ function show_stimRoutineBegin(snapshot) {
     _non_target_classes = shuffle(non_target_classes);
     for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
         if (currentLoop.name == "PracticeTrials") {
-            image_path = "imagenet/" + _non_target_classes[i] + "/image" + (Math.floor(Math.random() * (151 - 101)) + 101).toString().slice(1) + ".png";
+            image_path = "imagenet/" + _non_target_classes[i] + "/image" + (Math.floor(Math.random() * (149 - 101)) + 101).toString().slice(1) + ".png";
         } else {
             image_path = "imagenet/" + _non_target_classes[i] + "/image" + idx_list[_non_target_classes[i]][count] + ".png";
         }
@@ -1818,7 +1782,7 @@ function show_stimRoutineBegin(snapshot) {
     }
     
     if (currentLoop.name == "PracticeTrials") {
-        image_path = "imagenet/" + target_class + "/image" + (Math.floor(Math.random() * (151 - 101)) + 101).toString().slice(1) + ".png";
+        image_path = "imagenet/" + target_class + "/image" + (Math.floor(Math.random() * (149 - 101)) + 101).toString().slice(1) + ".png";
     } else {
         image_path = "imagenet/" + target_class + "/image" + idx_list[target_class][count] + ".png";
     }
@@ -2605,8 +2569,6 @@ function quitPsychoJS(message, isCompleted) {
   if (psychoJS.experiment.isEntryEmpty()) {
     psychoJS.experiment.nextEntry();
   }
-  
-  
   
   
   
