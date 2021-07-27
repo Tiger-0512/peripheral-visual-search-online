@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on Sun Jul 25 23:38:03 2021
+    on Tue Jul 27 11:17:18 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -184,6 +184,7 @@ for i in range(len(non_target_classes)):
     idx_list[non_target_classes[i]] = random.sample(idx, len(idx))
 idx_list[target_class] = random.sample(idx, len(idx))
 
+intro_state = -1
 reps = 0
 eccentricity_level_0 = round(math.sqrt(2), 2)
 eccentricity_level_1 = round(1 + math.sqrt(8), 2)
@@ -205,7 +206,7 @@ image_0_0 = visual.ImageStim(
     name='image_0_0', units='norm', 
     image='html/resources/imagenet/bear/image01.png', mask=None,
     ori=0.0, pos=(0, 0), size=1.0,
-    color=[1,1,1], colorSpace='rgb', opacity=None,
+    color=[1,1,1], colorSpace='rgb', opacity=0.0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-4.0)
 image_0_1 = visual.ImageStim(
@@ -213,7 +214,7 @@ image_0_1 = visual.ImageStim(
     name='image_0_1', units='norm', 
     image='html/resources/imagenet/cat/image01.png', mask=None,
     ori=0.0, pos=(0, 0), size=1.0,
-    color=[1,1,1], colorSpace='rgb', opacity=None,
+    color=[1,1,1], colorSpace='rgb', opacity=0.0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-5.0)
 image_0_2 = visual.ImageStim(
@@ -221,7 +222,7 @@ image_0_2 = visual.ImageStim(
     name='image_0_2', units='norm', 
     image='html/resources/imagenet/dog/image01.png', mask=None,
     ori=0.0, pos=(0, 0), size=1.0,
-    color=[1,1,1], colorSpace='rgb', opacity=None,
+    color=[1,1,1], colorSpace='rgb', opacity=0.0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-6.0)
 image_0_3 = visual.ImageStim(
@@ -229,7 +230,7 @@ image_0_3 = visual.ImageStim(
     name='image_0_3', units='norm', 
     image='html/resources/imagenet/elephant/image01.png', mask=None,
     ori=0.0, pos=(0, 0), size=1.0,
-    color=[1,1,1], colorSpace='rgb', opacity=None,
+    color=[1,1,1], colorSpace='rgb', opacity=0.0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-7.0)
 image_1_0 = visual.ImageStim(
@@ -237,7 +238,7 @@ image_1_0 = visual.ImageStim(
     name='image_1_0', units='norm', 
     image='html/resources/imagenet/fox/image01.png', mask=None,
     ori=0.0, pos=(0, 0), size=1.0,
-    color=[1,1,1], colorSpace='rgb', opacity=None,
+    color=[1,1,1], colorSpace='rgb', opacity=0.0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-8.0)
 image_1_1 = visual.ImageStim(
@@ -245,7 +246,7 @@ image_1_1 = visual.ImageStim(
     name='image_1_1', units='norm', 
     image='html/resources/imagenet/kangaroo/image01.png', mask=None,
     ori=0.0, pos=(0, 0), size=1.0,
-    color=[1,1,1], colorSpace='rgb', opacity=None,
+    color=[1,1,1], colorSpace='rgb', opacity=0.0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-9.0)
 image_1_2 = visual.ImageStim(
@@ -253,7 +254,7 @@ image_1_2 = visual.ImageStim(
     name='image_1_2', units='norm', 
     image='html/resources/imagenet/lion/image01.png', mask=None,
     ori=0.0, pos=(0, 0), size=1.0,
-    color=[1,1,1], colorSpace='rgb', opacity=None,
+    color=[1,1,1], colorSpace='rgb', opacity=0.0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-10.0)
 image_1_3 = visual.ImageStim(
@@ -261,7 +262,7 @@ image_1_3 = visual.ImageStim(
     name='image_1_3', units='norm', 
     image='html/resources/imagenet/monkey/image01.png', mask=None,
     ori=0.0, pos=(0, 0), size=1.0,
-    color=[1,1,1], colorSpace='rgb', opacity=None,
+    color=[1,1,1], colorSpace='rgb', opacity=0.0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-11.0)
 image_2_0 = visual.ImageStim(
@@ -269,7 +270,7 @@ image_2_0 = visual.ImageStim(
     name='image_2_0', units='norm', 
     image='html/resources/imagenet/otter/image01.png', mask=None,
     ori=0.0, pos=(0, 0), size=1.0,
-    color=[1,1,1], colorSpace='rgb', opacity=None,
+    color=[1,1,1], colorSpace='rgb', opacity=0.0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-12.0)
 image_2_1 = visual.ImageStim(
@@ -277,7 +278,7 @@ image_2_1 = visual.ImageStim(
     name='image_2_1', units='norm', 
     image='html/resources/imagenet/pig/image01.png', mask=None,
     ori=0.0, pos=(0, 0), size=1.0,
-    color=[1,1,1], colorSpace='rgb', opacity=None,
+    color=[1,1,1], colorSpace='rgb', opacity=0.0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-13.0)
 image_2_2 = visual.ImageStim(
@@ -285,7 +286,7 @@ image_2_2 = visual.ImageStim(
     name='image_2_2', units='norm', 
     image='html/resources/imagenet/rabbit/image01.png', mask=None,
     ori=0.0, pos=(0, 0), size=1.0,
-    color=[1,1,1], colorSpace='rgb', opacity=None,
+    color=[1,1,1], colorSpace='rgb', opacity=0.0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-14.0)
 image_2_3 = visual.ImageStim(
@@ -293,7 +294,7 @@ image_2_3 = visual.ImageStim(
     name='image_2_3', units='norm', 
     image='html/resources/imagenet/sheep/image01.png', mask=None,
     ori=0.0, pos=(0, 0), size=1.0,
-    color=[1,1,1], colorSpace='rgb', opacity=None,
+    color=[1,1,1], colorSpace='rgb', opacity=0.0,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-15.0)
 fixation_point = visual.Polygon(
@@ -301,20 +302,26 @@ fixation_point = visual.Polygon(
     edges=100, size=[1.0, 1.0],
     ori=0.0, pos=(0, 0),
     lineWidth=1.0,     colorSpace='rgb',  lineColor=(0.5059, 0.5059, 0.5059), fillColor=(0.5059, 0.5059, 0.5059),
-    opacity=None, depth=-17.0, interpolate=True)
+    opacity=1.0, depth=-17.0, interpolate=True)
 introduction_text = visual.TextStim(win=win, name='introduction_text',
-    text='',
+    text=None,
     font='Open Sans',
-    units='norm', pos=(0.6, 0.3), height=deg2norm * 0.3, wrapWidth=None, ori=0.0, 
+    units='norm', pos=(0, 0), height=deg2norm, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-18.0);
-exp_info_key_resp = keyboard.Keyboard()
+back_text = visual.TextStim(win=win, name='back_text',
+    text='',
+    font='Open Sans',
+    units='norm', pos=(-0.6, -0.6), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=-19.0);
 
 # Initialize components for Routine "practice_intro"
 practice_introClock = core.Clock()
 introduction_text_p = visual.TextStim(win=win, name='introduction_text_p',
-    text="Let's practice with some stimuli.\n\nHit a Key when ready.",
+    text="Let's practice with some images.\n\nHit a space key when ready.",
     font='Open Sans',
     units='norm', pos=(0, 0), height=deg2norm * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -800,6 +807,7 @@ routineTimer.reset()
 continueRoutine = True
 # update component parameters for each repeat
 hw_rate = win.size[1] / win.size[0]
+
 # Online
 VA = round(360 / pi * math.atan2(screen_height, 2 * 57))
 
@@ -848,12 +856,10 @@ for i in range(len(image_list)):
             deg2norm * eccentricities[2] * math.sin(math.radians(i % 4 * 90 + 45))
         )
 
+fixation_point.setOpacity(0.0)
 fixation_point.setSize((deg2norm / 5 * hw_rate, deg2norm / 5))
-exp_info_key_resp.keys = []
-exp_info_key_resp.rt = []
-_exp_info_key_resp_allKeys = []
 # keep track of which components have finished
-exp_introComponents = [image_0_0, image_0_1, image_0_2, image_0_3, image_1_0, image_1_1, image_1_2, image_1_3, image_2_0, image_2_1, image_2_2, image_2_3, fixation_point, introduction_text, exp_info_key_resp]
+exp_introComponents = [image_0_0, image_0_1, image_0_2, image_0_3, image_1_0, image_1_1, image_1_2, image_1_3, image_2_0, image_2_1, image_2_2, image_2_3, fixation_point, introduction_text, back_text]
 for thisComponent in exp_introComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -1001,30 +1007,48 @@ while continueRoutine:
         introduction_text.tStartRefresh = tThisFlipGlobal  # on global time
         win.timeOnFlip(introduction_text, 'tStartRefresh')  # time at next scr refresh
         introduction_text.setAutoDraw(True)
-    if introduction_text.status == STARTED:  # only update if drawing
-        introduction_text.setText("This is the example of the stimuli.\n\nBefore the stimuli presented,\nthe fixation point is shown.\n\nWhen you hit 'space' Key,\nstimuli are presented.\n\nAfter that, you can move your eye.\n\nWhen you find the 'cat',\nhit a Key and answer the question,\n'Where was the cat?'\n\nYou answer with the keyboard.\n\nNotice:\n- When the stimuli are presented,\nfocus on the center of the display.\n- Constantly look at the display from 57cm away.")
     
-    # *exp_info_key_resp* updates
-    waitOnFlip = False
-    if exp_info_key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+    # *back_text* updates
+    if back_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
         # keep track of start time/frame for later
-        exp_info_key_resp.frameNStart = frameN  # exact frame index
-        exp_info_key_resp.tStart = t  # local t and not account for scr refresh
-        exp_info_key_resp.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(exp_info_key_resp, 'tStartRefresh')  # time at next scr refresh
-        exp_info_key_resp.status = STARTED
-        # keyboard checking is just starting
-        waitOnFlip = True
-        win.callOnFlip(exp_info_key_resp.clock.reset)  # t=0 on next screen flip
-        win.callOnFlip(exp_info_key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
-    if exp_info_key_resp.status == STARTED and not waitOnFlip:
-        theseKeys = exp_info_key_resp.getKeys(keyList=None, waitRelease=False)
-        _exp_info_key_resp_allKeys.extend(theseKeys)
-        if len(_exp_info_key_resp_allKeys):
-            exp_info_key_resp.keys = _exp_info_key_resp_allKeys[-1].name  # just the last key pressed
-            exp_info_key_resp.rt = _exp_info_key_resp_allKeys[-1].rt
-            # a response ends the routine
-            continueRoutine = False
+        back_text.frameNStart = frameN  # exact frame index
+        back_text.tStart = t  # local t and not account for scr refresh
+        back_text.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(back_text, 'tStartRefresh')  # time at next scr refresh
+        back_text.setAutoDraw(True)
+    if back_text.status == STARTED:  # only update if drawing
+        back_text.setText('Next: “Space” Key\nBack: “b” Key')
+    keys = [""]
+    keys += event.getKeys(keyList=["space", "b"])
+    
+    if keys[-1] == "space":
+        intro_state += 1
+    if keys[-1] == "b":
+        intro_state -= 1
+    if intro_state < 0:
+        intro_state = 0
+    
+    if intro_state == 0:
+        introduction_text.text = 'Throughout this experiment, \n maintain a viewing distance of 57cm.'
+    if intro_state == 1:
+        introduction_text.text = 'The task of this experiment is \n "To find a cat from some images \n as soon as possible." \n\n The time limit is 5 sec.'
+        introduction_text.height = deg2norm
+        introduction_text.pos = (0, 0)
+        fixation_point.opacity = 0.0
+    if intro_state == 2:
+        introduction_text.text = 'Gaze at the center of the display. \n\n Then, hit "Space" key to display a lineup of images.'
+        introduction_text.height = deg2norm * 0.5
+        introduction_text.pos = (0, 0.3)
+        fixation_point.opacity = 1.0
+        for i in range(len(image_list)):
+            image_list[i].opacity = 0.0
+    if intro_state == 3:
+        introduction_text.text = 'When you find a cat, \n hit "Space" key as soon as possible \n and answer where the cat was.'
+        introduction_text.pos = (0.6, 0)
+        for i in range(len(image_list)):
+            image_list[i].opacity = 1.0
+    if intro_state == 4:
+        continueRoutine = False
     
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1047,6 +1071,8 @@ while continueRoutine:
 for thisComponent in exp_introComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
+thisExp.addData('back_text.started', back_text.tStartRefresh)
+thisExp.addData('back_text.stopped', back_text.tStopRefresh)
 # the Routine "exp_intro" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -1103,7 +1129,7 @@ while continueRoutine:
         win.callOnFlip(practice_info_key_resp.clock.reset)  # t=0 on next screen flip
         win.callOnFlip(practice_info_key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
     if practice_info_key_resp.status == STARTED and not waitOnFlip:
-        theseKeys = practice_info_key_resp.getKeys(keyList=None, waitRelease=False)
+        theseKeys = practice_info_key_resp.getKeys(keyList=['space'], waitRelease=False)
         _practice_info_key_resp_allKeys.extend(theseKeys)
         if len(_practice_info_key_resp_allKeys):
             practice_info_key_resp.keys = _practice_info_key_resp_allKeys[-1].name  # just the last key pressed
@@ -1327,8 +1353,8 @@ for thisPracticeTrial in PracticeTrials:
                 show_stim_key_resp.rt = _show_stim_key_resp_allKeys[-1].rt
                 # a response ends the routine
                 continueRoutine = False
-        if show_stimClock.getTime() > 7:
-            continueRoutine=False
+        if show_stimClock.getTime() > 6:
+            continueRoutine = False
         
         
         # check for quit (typically the Esc key)
@@ -1978,8 +2004,8 @@ for thisActualTrial in ActualTrials:
                 show_stim_key_resp.rt = _show_stim_key_resp_allKeys[-1].rt
                 # a response ends the routine
                 continueRoutine = False
-        if show_stimClock.getTime() > 7:
-            continueRoutine=False
+        if show_stimClock.getTime() > 6:
+            continueRoutine = False
         
         
         # check for quit (typically the Esc key)
@@ -2392,7 +2418,7 @@ for thisActualTrial in ActualTrials:
             win.timeOnFlip(break_text, 'tStartRefresh')  # time at next scr refresh
             break_text.setAutoDraw(True)
         if take_breakClock.getTime() > 30:
-            continueRoutine=False
+            continueRoutine = False
         
         
         # check for quit (typically the Esc key)

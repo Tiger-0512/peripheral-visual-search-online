@@ -238,10 +238,10 @@
       <CodeComponent name="set_variables">
         <Param name="Before Experiment" updates="constant" val="import random" valType="extendedCode"/>
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin Experiment" updates="constant" val="target_class = 'cat'&amp;#10;non_target_classes = [&amp;#10;    'dog',&amp;#10;    'elephant',&amp;#10;    'tiger',&amp;#10;    'rabbit',&amp;#10;    'kangaroo',&amp;#10;    'sheep',&amp;#10;    'monkey',&amp;#10;    'lion',&amp;#10;    'bear',&amp;#10;    'fox',&amp;#10;    'pig',&amp;#10;    'otter',&amp;#10;]&amp;#10;&amp;#10;ans_keys_list = [['b', 'a', 'c', 'd'], ['f', 'e', 'g', 'h'], ['j', 'i', 'k', 'l']]&amp;#10;key_to_pos = {}&amp;#10;for i in range(len(ans_keys_list)):&amp;#10;    for j in range(len(ans_keys_list[i])):&amp;#10;        key_to_pos[ans_keys_list[i][j]] = [i, j]&amp;#10;&amp;#10;hw_rate = win.size[1] / win.size[0]&amp;#10;&amp;#10;idx = list(range(101, 149))&amp;#10;idx = list(map(lambda x: str(x)[1:], idx))&amp;#10;idx_list = {}&amp;#10;for i in range(len(non_target_classes)):&amp;#10;    idx_list[non_target_classes[i]] = random.sample(idx, len(idx))&amp;#10;idx_list[target_class] = random.sample(idx, len(idx))&amp;#10;&amp;#10;reps = 0" valType="extendedCode"/>
-        <Param name="Begin JS Experiment" updates="constant" val="target_class = &quot;cat&quot;;&amp;#10;non_target_classes = [&quot;dog&quot;, &quot;elephant&quot;, &quot;tiger&quot;, &quot;rabbit&quot;, &quot;kangaroo&quot;, &quot;sheep&quot;, &quot;monkey&quot;, &quot;lion&quot;, &quot;bear&quot;, &quot;fox&quot;, &quot;pig&quot;, &quot;otter&quot;];&amp;#10;&amp;#10;ans_keys_list = [[&quot;b&quot;, &quot;a&quot;, &quot;c&quot;, &quot;d&quot;], [&quot;f&quot;, &quot;e&quot;, &quot;g&quot;, &quot;h&quot;], [&quot;j&quot;, &quot;i&quot;, &quot;k&quot;, &quot;l&quot;]];&amp;#10;key_to_pos = {};&amp;#10;for (var i = 0, _pj_a = ans_keys_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    for (var j = 0, _pj_b = ans_keys_list[i].length; (j &lt; _pj_b); j += 1) {&amp;#10;        key_to_pos[ans_keys_list[i][j]] = [i, j];&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;hw_rate = win.size[1] / win.size[0];&amp;#10;&amp;#10;idx = range(101, 148);&amp;#10;idx = idx.map(x =&gt; x.toString().slice(1));&amp;#10;idx_list = {};&amp;#10;for (var i = 0, _pj_a = non_target_classes.length; (i &lt; _pj_a); i += 1) {&amp;#10;    idx_list[non_target_classes[i]] = shuffle(idx)&amp;#10;}&amp;#10;idx_list[target_class] = shuffle(idx)&amp;#10;&amp;#10;&amp;#10;count = 0&amp;#10;reps = 0" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="hw_rate = win.size[1] / win.size[0];" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="hw_rate = win.size[1] / win.size[0]" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="target_class = 'cat'&amp;#10;non_target_classes = [&amp;#10;    'dog',&amp;#10;    'elephant',&amp;#10;    'tiger',&amp;#10;    'rabbit',&amp;#10;    'kangaroo',&amp;#10;    'sheep',&amp;#10;    'monkey',&amp;#10;    'lion',&amp;#10;    'bear',&amp;#10;    'fox',&amp;#10;    'pig',&amp;#10;    'otter',&amp;#10;]&amp;#10;&amp;#10;ans_keys_list = [['b', 'a', 'c', 'd'], ['f', 'e', 'g', 'h'], ['j', 'i', 'k', 'l']]&amp;#10;key_to_pos = {}&amp;#10;for i in range(len(ans_keys_list)):&amp;#10;    for j in range(len(ans_keys_list[i])):&amp;#10;        key_to_pos[ans_keys_list[i][j]] = [i, j]&amp;#10;&amp;#10;hw_rate = win.size[1] / win.size[0]&amp;#10;&amp;#10;idx = list(range(101, 149))&amp;#10;idx = list(map(lambda x: str(x)[1:], idx))&amp;#10;idx_list = {}&amp;#10;for i in range(len(non_target_classes)):&amp;#10;    idx_list[non_target_classes[i]] = random.sample(idx, len(idx))&amp;#10;idx_list[target_class] = random.sample(idx, len(idx))&amp;#10;&amp;#10;intro_state = -1&amp;#10;reps = 0" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="target_class = &quot;cat&quot;;&amp;#10;non_target_classes = [&quot;dog&quot;, &quot;elephant&quot;, &quot;tiger&quot;, &quot;rabbit&quot;, &quot;kangaroo&quot;, &quot;sheep&quot;, &quot;monkey&quot;, &quot;lion&quot;, &quot;bear&quot;, &quot;fox&quot;, &quot;pig&quot;, &quot;otter&quot;];&amp;#10;&amp;#10;ans_keys_list = [[&quot;b&quot;, &quot;a&quot;, &quot;c&quot;, &quot;d&quot;], [&quot;f&quot;, &quot;e&quot;, &quot;g&quot;, &quot;h&quot;], [&quot;j&quot;, &quot;i&quot;, &quot;k&quot;, &quot;l&quot;]];&amp;#10;key_to_pos = {};&amp;#10;for (var i = 0, _pj_a = ans_keys_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;    for (var j = 0, _pj_b = ans_keys_list[i].length; (j &lt; _pj_b); j += 1) {&amp;#10;        key_to_pos[ans_keys_list[i][j]] = [i, j];&amp;#10;    }&amp;#10;}&amp;#10;&amp;#10;hw_rate = win.size[1] / win.size[0];&amp;#10;&amp;#10;idx = range(101, 148);&amp;#10;idx = idx.map(x =&gt; x.toString().slice(1));&amp;#10;idx_list = {};&amp;#10;for (var i = 0, _pj_a = non_target_classes.length; (i &lt; _pj_a); i += 1) {&amp;#10;    idx_list[non_target_classes[i]] = shuffle(idx)&amp;#10;}&amp;#10;idx_list[target_class] = shuffle(idx)&amp;#10;&amp;#10;intro_state = -1&amp;#10;count = 0&amp;#10;reps = 0" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="hw_rate = win.size[1] / win.size[0];&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="hw_rate = win.size[1] / win.size[0]&amp;#10;" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -298,7 +298,7 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="image_0_0" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="opacity" updates="constant" val="0.0" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
@@ -324,7 +324,7 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="image_0_1" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="opacity" updates="constant" val="0.0" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
@@ -350,7 +350,7 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="image_0_2" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="opacity" updates="constant" val="0.0" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
@@ -376,7 +376,7 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="image_0_3" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="opacity" updates="constant" val="0.0" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
@@ -402,7 +402,7 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="image_1_0" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="opacity" updates="constant" val="0.0" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
@@ -428,7 +428,7 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="image_1_1" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="opacity" updates="constant" val="0.0" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
@@ -454,7 +454,7 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="image_1_2" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="opacity" updates="constant" val="0.0" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
@@ -480,7 +480,7 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="image_1_3" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="opacity" updates="constant" val="0.0" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
@@ -506,7 +506,7 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="image_2_0" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="opacity" updates="constant" val="0.0" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
@@ -532,7 +532,7 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="image_2_1" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="opacity" updates="constant" val="0.0" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
@@ -558,7 +558,7 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="image_2_2" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="opacity" updates="constant" val="0.0" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
@@ -584,7 +584,7 @@
         <Param name="interpolate" updates="constant" val="linear" valType="str"/>
         <Param name="mask" updates="constant" val="" valType="str"/>
         <Param name="name" updates="None" val="image_2_3" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="opacity" updates="constant" val="0.0" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
@@ -626,7 +626,7 @@
         <Param name="lineWidth" updates="constant" val="1" valType="num"/>
         <Param name="nVertices" updates="constant" val="100" valType="int"/>
         <Param name="name" updates="None" val="fixation_point" valType="code"/>
-        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="opacity" updates="set every repeat" val="0.0" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
         <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
@@ -649,11 +649,11 @@
         <Param name="flip" updates="constant" val="None" valType="str"/>
         <Param name="font" updates="constant" val="Open Sans" valType="str"/>
         <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
-        <Param name="letterHeight" updates="constant" val="deg2norm * 0.3" valType="num"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm" valType="num"/>
         <Param name="name" updates="None" val="introduction_text" valType="code"/>
         <Param name="opacity" updates="constant" val="" valType="num"/>
         <Param name="ori" updates="constant" val="0" valType="num"/>
-        <Param name="pos" updates="constant" val="(0.6, 0.3)" valType="list"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
         <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
@@ -661,28 +661,52 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="num"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="set every frame" val="This is the example of the stimuli.&amp;#10;&amp;#10;Before the stimuli presented,&amp;#10;the fixation point is shown.&amp;#10;&amp;#10;When you hit 'space' Key,&amp;#10;stimuli are presented.&amp;#10;&amp;#10;After that, you can move your eye.&amp;#10;&amp;#10;When you find the 'cat',&amp;#10;hit a Key and answer the question,&amp;#10;'Where was the cat?'&amp;#10;&amp;#10;You answer with the keyboard.&amp;#10;&amp;#10;Notice:&amp;#10;- When the stimuli are presented,&amp;#10;focus on the center of the display.&amp;#10;- Constantly look at the display from 57cm away." valType="str"/>
+        <Param name="text" updates="constant" val="" valType="str"/>
         <Param name="units" updates="None" val="norm" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
-      <KeyboardComponent name="exp_info_key_resp">
-        <Param name="allowedKeys" updates="constant" val="" valType="list"/>
-        <Param name="correctAns" updates="constant" val="" valType="str"/>
+      <TextComponent name="back_text">
+        <Param name="color" updates="constant" val="white" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="num"/>
-        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
-        <Param name="name" updates="None" val="exp_info_key_resp" valType="code"/>
-        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="flip" updates="constant" val="None" valType="str"/>
+        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="deg2norm * 0.5" valType="num"/>
+        <Param name="name" updates="None" val="back_text" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(-0.6, -0.6)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="num"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="num"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="num"/>
-        <Param name="store" updates="constant" val="nothing" valType="str"/>
-        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
-      </KeyboardComponent>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="set every frame" val="$intro_state" valType="str"/>
+        <Param name="units" updates="None" val="norm" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="num"/>
+      </TextComponent>
+      <CodeComponent name="change_state">
+        <Param name="Before Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Both" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="keys = [&quot;&quot;]&amp;#10;keys += event.getKeys(keyList=[&quot;space&quot;, &quot;b&quot;])&amp;#10;&amp;#10;if keys[-1] == &quot;space&quot;:&amp;#10;    intro_state += 1&amp;#10;if keys[-1] == &quot;b&quot;:&amp;#10;    intro_state -= 1&amp;#10;if intro_state &lt; 0:&amp;#10;    intro_state = 0&amp;#10;&amp;#10;if intro_state == 0:&amp;#10;    introduction_text.text = 'Throughout this experiment, \n maintain a viewing distance of 57cm.'&amp;#10;if intro_state == 1:&amp;#10;    introduction_text.text = 'The task of this experiment is \n &quot;To find a cat from some images \n as soon as possible.&quot; \n\n The time limit is 5 sec.'&amp;#10;    introduction_text.height = deg2norm&amp;#10;    introduction_text.pos = (0, 0)&amp;#10;    fixation_point.opacity = 0.0&amp;#10;if intro_state == 2:&amp;#10;    introduction_text.text = 'Gaze at the center of the display. \n\n Then, hit &quot;Space&quot; key to display a lineup of images.'&amp;#10;    introduction_text.height = deg2norm * 0.5&amp;#10;    introduction_text.pos = (0, 0.3)&amp;#10;    fixation_point.opacity = 1.0&amp;#10;    for i in range(len(image_list)):&amp;#10;        image_list[i].opacity = 0.0&amp;#10;if intro_state == 3:&amp;#10;    introduction_text.text = 'When you find a cat, \n hit &quot;Space&quot; key as soon as possible \n and answer where the cat was.'&amp;#10;    introduction_text.pos = (0.6, 0)&amp;#10;    for i in range(len(image_list)):&amp;#10;        image_list[i].opacity = 1.0&amp;#10;if intro_state == 4:&amp;#10;    continueRoutine = False" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="keys = psychoJS.eventManager.getKeys({&quot;keyList&quot;: [&quot;space&quot;, &quot;b&quot;]});&amp;#10;if (keys.slice(-1)[0] === &quot;space&quot;) {&amp;#10;    intro_state += 1;&amp;#10;}&amp;#10;if (keys.slice(-1)[0] === &quot;b&quot;) {&amp;#10;    intro_state -= 1;&amp;#10;}&amp;#10;if (intro_state &lt; 0) {&amp;#10;    intro_state = 0;&amp;#10;}&amp;#10;if (intro_state === 0) {&amp;#10;    introduction_text.text = &quot;Throughout this experiment, \n maintain a viewing distance of 57cm.&quot;;&amp;#10;}&amp;#10;if (intro_state === 1) {&amp;#10;    introduction_text.text = &quot;The task of this experiment is \n \&quot;To find a cat from some images \n as soon as possible.\&quot; \n\n The time limit is 5 sec.&quot;;&amp;#10;    introduction_text.height = deg2norm;&amp;#10;    introduction_text.pos = [0, 0];&amp;#10;    fixation_point.opacity = 0.0;&amp;#10;}&amp;#10;if (intro_state === 2) {&amp;#10;    introduction_text.text = &quot;Gaze at the center of the display. \n\n Then, hit \&quot;Space\&quot; key to display a lineup of images.&quot;;&amp;#10;    introduction_text.height = (deg2norm * 0.5);&amp;#10;    introduction_text.pos = [0, 0.3];&amp;#10;    fixation_point.opacity = 1.0;&amp;#10;    for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;        image_list[i].opacity = 0.0;&amp;#10;    }&amp;#10;}&amp;#10;if (intro_state === 3) {&amp;#10;    introduction_text.text = &quot;When you find a cat, \n hit \&quot;Space\&quot; key as soon as possible \n and answer where the cat was.&quot;;&amp;#10;    introduction_text.pos = [0.6, 0];&amp;#10;    for (var i = 0, _pj_a = image_list.length; (i &lt; _pj_a); i += 1) {&amp;#10;        image_list[i].opacity = 1.0;&amp;#10;    }&amp;#10;}&amp;#10;if (intro_state === 4) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="change_state" valType="code"/>
+      </CodeComponent>
     </Routine>
     <Routine name="practice_intro">
       <TextComponent name="introduction_text_p">
@@ -706,12 +730,12 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="num"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="Let's practice with some stimuli.&amp;#10;&amp;#10;Hit a Key when ready." valType="str"/>
+        <Param name="text" updates="constant" val="Let's practice with some images.&amp;#10;&amp;#10;Hit a space key when ready." valType="str"/>
         <Param name="units" updates="None" val="norm" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="" valType="num"/>
       </TextComponent>
       <KeyboardComponent name="practice_info_key_resp">
-        <Param name="allowedKeys" updates="constant" val="" valType="list"/>
+        <Param name="allowedKeys" updates="constant" val="['space']" valType="list"/>
         <Param name="correctAns" updates="constant" val="" valType="str"/>
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="discard previous" updates="constant" val="True" valType="bool"/>
@@ -1329,7 +1353,7 @@
         <Param name="Begin JS Routine" updates="constant" val="if ((count != 47) || (reps == 3)) {&amp;#10;    count += 1;&amp;#10;    continueRoutine = false;&amp;#10;} else {&amp;#10;    count = 0&amp;#10;    reps += 1&amp;#10;    for (var i = 0, _pj_a = non_target_classes.length; (i &lt; _pj_a); i += 1) {&amp;#10;        idx_list[non_target_classes[i]] = shuffle(idx)&amp;#10;    }&amp;#10;    idx_list[target_class] = shuffle(idx)&amp;#10;}&amp;#10;" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="if ActualTrials.thisTrialN != 47 or reps == 3:&amp;#10;    continueRoutine=False&amp;#10;else:&amp;#10;    reps += 1&amp;#10;    for i in range(len(non_target_classes)):&amp;#10;        idx_list[non_target_classes[i]] = random.sample(idx, len(idx))&amp;#10;    idx_list[target_class] = random.sample(idx, len(idx))&amp;#10;" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Both" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="if take_breakClock.getTime() &gt; 30:&amp;#10;    continueRoutine=False&amp;#10;" valType="extendedCode"/>
+        <Param name="Each Frame" updates="constant" val="if take_breakClock.getTime() &gt; 30:&amp;#10;    continueRoutine = False&amp;#10;" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="if ((take_breakClock.getTime() &gt; 30)) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
@@ -1451,8 +1475,8 @@
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Auto-&gt;JS" valType="str"/>
-        <Param name="Each Frame" updates="constant" val="if show_stimClock.getTime() &gt; 7:&amp;#10;    continueRoutine=False&amp;#10;" valType="extendedCode"/>
-        <Param name="Each JS Frame" updates="constant" val="if ((show_stimClock.getTime() &gt; 7)) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode"/>
+        <Param name="Each Frame" updates="constant" val="if show_stimClock.getTime() &gt; 6:&amp;#10;    continueRoutine = False&amp;#10;" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="if ((show_stimClock.getTime() &gt; 6)) {&amp;#10;    continueRoutine = false;&amp;#10;}&amp;#10;" valType="extendedCode"/>
         <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
@@ -1460,6 +1484,51 @@
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="force_change" valType="code"/>
       </CodeComponent>
+    </Routine>
+    <Routine name="notice">
+      <TextComponent name="notice_text">
+        <Param name="color" updates="constant" val="white" valType="color"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="contrast" updates="constant" val="1" valType="num"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="num"/>
+        <Param name="flip" updates="constant" val="None" valType="str"/>
+        <Param name="font" updates="constant" val="Open Sans" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.1" valType="num"/>
+        <Param name="name" updates="None" val="notice_text" valType="code"/>
+        <Param name="opacity" updates="constant" val="" valType="num"/>
+        <Param name="ori" updates="constant" val="0" valType="num"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="list"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="num"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="num"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="num"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="Throughout this experiment, &amp;#10;maintain a viewing distance of 57cm." valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="num"/>
+      </TextComponent>
+      <KeyboardComponent name="notice_key_resp">
+        <Param name="allowedKeys" updates="constant" val="['space']" valType="list"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="num"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="notice_key_resp" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="num"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="num"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="num"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
     </Routine>
   </Routines>
   <Flow>

@@ -142,6 +142,7 @@ var key_to_pos;
 var hw_rate;
 var idx;
 var idx_list;
+var intro_state;
 var count;
 var reps;
 var eccentricity_level_0;
@@ -164,7 +165,7 @@ var image_2_2;
 var image_2_3;
 var fixation_point;
 var introduction_text;
-var exp_info_key_resp;
+var back_text;
 var practice_introClock;
 var introduction_text_p;
 var practice_info_key_resp;
@@ -310,7 +311,7 @@ function experimentInit() {
   }
   idx_list[target_class] = shuffle(idx)
   
-  
+  intro_state = -1
   count = 0
   reps = 0
   eccentricity_level_0 = Math.round(Math.sqrt(2) * 100) / 100;
@@ -325,7 +326,7 @@ function experimentInit() {
     name : 'image_0_0', units : 'norm', 
     image : 'html/resources/imagenet/bear/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
-    color : new util.Color([1, 1, 1]), opacity : undefined,
+    color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -4.0 
   });
@@ -334,7 +335,7 @@ function experimentInit() {
     name : 'image_0_1', units : 'norm', 
     image : 'html/resources/imagenet/cat/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
-    color : new util.Color([1, 1, 1]), opacity : undefined,
+    color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -5.0 
   });
@@ -343,7 +344,7 @@ function experimentInit() {
     name : 'image_0_2', units : 'norm', 
     image : 'html/resources/imagenet/dog/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
-    color : new util.Color([1, 1, 1]), opacity : undefined,
+    color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -6.0 
   });
@@ -352,7 +353,7 @@ function experimentInit() {
     name : 'image_0_3', units : 'norm', 
     image : 'html/resources/imagenet/elephant/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
-    color : new util.Color([1, 1, 1]), opacity : undefined,
+    color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -7.0 
   });
@@ -361,7 +362,7 @@ function experimentInit() {
     name : 'image_1_0', units : 'norm', 
     image : 'html/resources/imagenet/fox/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
-    color : new util.Color([1, 1, 1]), opacity : undefined,
+    color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -8.0 
   });
@@ -370,7 +371,7 @@ function experimentInit() {
     name : 'image_1_1', units : 'norm', 
     image : 'html/resources/imagenet/kangaroo/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
-    color : new util.Color([1, 1, 1]), opacity : undefined,
+    color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -9.0 
   });
@@ -379,7 +380,7 @@ function experimentInit() {
     name : 'image_1_2', units : 'norm', 
     image : 'html/resources/imagenet/lion/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
-    color : new util.Color([1, 1, 1]), opacity : undefined,
+    color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -10.0 
   });
@@ -388,7 +389,7 @@ function experimentInit() {
     name : 'image_1_3', units : 'norm', 
     image : 'html/resources/imagenet/monkey/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
-    color : new util.Color([1, 1, 1]), opacity : undefined,
+    color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -11.0 
   });
@@ -397,7 +398,7 @@ function experimentInit() {
     name : 'image_2_0', units : 'norm', 
     image : 'html/resources/imagenet/otter/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
-    color : new util.Color([1, 1, 1]), opacity : undefined,
+    color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -12.0 
   });
@@ -406,7 +407,7 @@ function experimentInit() {
     name : 'image_2_1', units : 'norm', 
     image : 'html/resources/imagenet/pig/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
-    color : new util.Color([1, 1, 1]), opacity : undefined,
+    color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -13.0 
   });
@@ -415,7 +416,7 @@ function experimentInit() {
     name : 'image_2_2', units : 'norm', 
     image : 'html/resources/imagenet/rabbit/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
-    color : new util.Color([1, 1, 1]), opacity : undefined,
+    color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -14.0 
   });
@@ -424,7 +425,7 @@ function experimentInit() {
     name : 'image_2_3', units : 'norm', 
     image : 'html/resources/imagenet/sheep/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
-    color : new util.Color([1, 1, 1]), opacity : undefined,
+    color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -15.0 
   });
@@ -434,7 +435,7 @@ function experimentInit() {
     ori: 0.0, pos: [0, 0],
     lineWidth: 1.0, lineColor: new util.Color([0.5059, 0.5059, 0.5059]),
     fillColor: new util.Color([0.5059, 0.5059, 0.5059]),
-    opacity: undefined, depth: -17, interpolate: true,
+    opacity: 1.0, depth: -17, interpolate: true,
   });
   
   introduction_text = new visual.TextStim({
@@ -443,19 +444,28 @@ function experimentInit() {
     text: '',
     font: 'Open Sans',
     units: 'norm', 
-    pos: [0.6, 0.3], height: deg2norm * 0.3,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -18.0 
   });
   
-  exp_info_key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  back_text = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'back_text',
+    text: '',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [(- 0.6), (- 0.6)], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -19.0 
+  });
   
   // Initialize components for Routine "practice_intro"
   practice_introClock = new util.Clock();
   introduction_text_p = new visual.TextStim({
     win: psychoJS.window,
     name: 'introduction_text_p',
-    text: "Let's practice with some stimuli.\n\nHit a Key when ready.",
+    text: "Let's practice with some images.\n\nHit a space key when ready.",
     font: 'Open Sans',
     units: 'norm', 
     pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
@@ -1151,7 +1161,6 @@ function rectangleRoutineEnd(snapshot) {
 
 
 var image_list;
-var _exp_info_key_resp_allKeys;
 var exp_introComponents;
 function exp_introRoutineBegin(snapshot) {
   return function () {
@@ -1162,6 +1171,7 @@ function exp_introRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
     hw_rate = win.size[1] / win.size[0];
+    
     VA = Math.round(360 / Math.PI * Math.atan2(screen_height, (2 * 57)));
     deg2norm = 2 / VA
     image_0_0.setSize([(deg2norm * hw_rate), deg2norm]);
@@ -1198,10 +1208,8 @@ function exp_introRoutineBegin(snapshot) {
         }
     }
     
+    fixation_point.setOpacity(0.0);
     fixation_point.setSize([((deg2norm / 5) * hw_rate), (deg2norm / 5)]);
-    exp_info_key_resp.keys = undefined;
-    exp_info_key_resp.rt = undefined;
-    _exp_info_key_resp_allKeys = [];
     // keep track of which components have finished
     exp_introComponents = [];
     exp_introComponents.push(image_0_0);
@@ -1218,7 +1226,7 @@ function exp_introRoutineBegin(snapshot) {
     exp_introComponents.push(image_2_3);
     exp_introComponents.push(fixation_point);
     exp_introComponents.push(introduction_text);
-    exp_introComponents.push(exp_info_key_resp);
+    exp_introComponents.push(back_text);
     
     for (const thisComponent of exp_introComponents)
       if ('status' in thisComponent)
@@ -1376,31 +1384,56 @@ function exp_introRoutineEachFrame(snapshot) {
     }
 
     
-    if (introduction_text.status === PsychoJS.Status.STARTED){ // only update if being drawn
-      introduction_text.setText("This is the example of the stimuli.\n\nBefore the stimuli presented,\nthe fixation point is shown.\n\nWhen you hit 'space' Key,\nstimuli are presented.\n\nAfter that, you can move your eye.\n\nWhen you find the 'cat',\nhit a Key and answer the question,\n'Where was the cat?'\n\nYou answer with the keyboard.\n\nNotice:\n- When the stimuli are presented,\nfocus on the center of the display.\n- Constantly look at the display from 57cm away.", false);
-    }
-    
-    // *exp_info_key_resp* updates
-    if (t >= 0.0 && exp_info_key_resp.status === PsychoJS.Status.NOT_STARTED) {
+    // *back_text* updates
+    if (t >= 0.0 && back_text.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
-      exp_info_key_resp.tStart = t;  // (not accounting for frame time here)
-      exp_info_key_resp.frameNStart = frameN;  // exact frame index
+      back_text.tStart = t;  // (not accounting for frame time here)
+      back_text.frameNStart = frameN;  // exact frame index
       
-      // keyboard checking is just starting
-      psychoJS.window.callOnFlip(function() { exp_info_key_resp.clock.reset(); });  // t=0 on next screen flip
-      psychoJS.window.callOnFlip(function() { exp_info_key_resp.start(); }); // start on screen flip
-      psychoJS.window.callOnFlip(function() { exp_info_key_resp.clearEvents(); });
+      back_text.setAutoDraw(true);
     }
 
-    if (exp_info_key_resp.status === PsychoJS.Status.STARTED) {
-      let theseKeys = exp_info_key_resp.getKeys({keyList: [], waitRelease: false});
-      _exp_info_key_resp_allKeys = _exp_info_key_resp_allKeys.concat(theseKeys);
-      if (_exp_info_key_resp_allKeys.length > 0) {
-        exp_info_key_resp.keys = _exp_info_key_resp_allKeys[_exp_info_key_resp_allKeys.length - 1].name;  // just the last key pressed
-        exp_info_key_resp.rt = _exp_info_key_resp_allKeys[_exp_info_key_resp_allKeys.length - 1].rt;
-        // a response ends the routine
+    
+    if (back_text.status === PsychoJS.Status.STARTED){ // only update if being drawn
+      back_text.setText(intro_state, false);
+    }
+    keys = psychoJS.eventManager.getKeys({"keyList": ["space", "b"]});
+    if (keys.slice(-1)[0] === "space") {
+        intro_state += 1;
+    }
+    if (keys.slice(-1)[0] === "b") {
+        intro_state -= 1;
+    }
+    if (intro_state < 0) {
+        intro_state = 0;
+    }
+    if (intro_state === 0) {
+        introduction_text.text = "Throughout this experiment, \n maintain a viewing distance of 57cm.";
+    }
+    if (intro_state === 1) {
+        introduction_text.text = "The task of this experiment is \n \"To find a cat from some images \n as soon as possible.\" \n\n The time limit is 5 sec.";
+        introduction_text.height = deg2norm;
+        introduction_text.pos = [0, 0];
+        fixation_point.opacity = 0.0;
+    }
+    if (intro_state === 2) {
+        introduction_text.text = "Gaze at the center of the display. \n\n Then, hit \"Space\" key to display a lineup of images.";
+        introduction_text.height = (deg2norm * 0.5);
+        introduction_text.pos = [0, 0.3];
+        fixation_point.opacity = 1.0;
+        for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
+            image_list[i].opacity = 0.0;
+        }
+    }
+    if (intro_state === 3) {
+        introduction_text.text = "When you find a cat, \n hit \"Space\" key as soon as possible \n and answer where the cat was.";
+        introduction_text.pos = [0.6, 0];
+        for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
+            image_list[i].opacity = 1.0;
+        }
+    }
+    if (intro_state === 4) {
         continueRoutine = false;
-      }
     }
     
     // check for quit (typically the Esc key)
@@ -1438,7 +1471,6 @@ function exp_introRoutineEnd(snapshot) {
         thisComponent.setAutoDraw(false);
       }
     }
-    exp_info_key_resp.stop();
     // the Routine "exp_intro" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -1504,7 +1536,7 @@ function practice_introRoutineEachFrame(snapshot) {
     }
 
     if (practice_info_key_resp.status === PsychoJS.Status.STARTED) {
-      let theseKeys = practice_info_key_resp.getKeys({keyList: [], waitRelease: false});
+      let theseKeys = practice_info_key_resp.getKeys({keyList: ['space'], waitRelease: false});
       _practice_info_key_resp_allKeys = _practice_info_key_resp_allKeys.concat(theseKeys);
       if (_practice_info_key_resp_allKeys.length > 0) {
         practice_info_key_resp.keys = _practice_info_key_resp_allKeys[_practice_info_key_resp_allKeys.length - 1].name;  // just the last key pressed
@@ -1859,7 +1891,7 @@ function show_stimRoutineEachFrame(snapshot) {
       }
     }
     
-    if ((show_stimClock.getTime() > 7)) {
+    if ((show_stimClock.getTime() > 6)) {
         continueRoutine = false;
     }
     
@@ -2568,6 +2600,8 @@ function quitPsychoJS(message, isCompleted) {
   if (psychoJS.experiment.isEntryEmpty()) {
     psychoJS.experiment.nextEntry();
   }
+  
+  
   
   
   
