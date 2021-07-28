@@ -11,7 +11,7 @@ const psychoJS = new PsychoJS({
 psychoJS.openWindow({
   fullscr: true,
   color: new util.Color([0, 0, 0]),
-  units: 'pix',
+  units: 'norm',
   waitBlanking: true
 });
 
@@ -49,6 +49,9 @@ flowScheduler.add(experimentInit);
 flowScheduler.add(screen_scaleRoutineBegin());
 flowScheduler.add(screen_scaleRoutineEachFrame());
 flowScheduler.add(screen_scaleRoutineEnd());
+flowScheduler.add(rectangleRoutineBegin());
+flowScheduler.add(rectangleRoutineEachFrame());
+flowScheduler.add(rectangleRoutineEnd());
 flowScheduler.add(exp_introRoutineBegin());
 flowScheduler.add(exp_introRoutineEachFrame());
 flowScheduler.add(exp_introRoutineEnd());
@@ -113,10 +116,13 @@ var y_scale;
 var dbase;
 var unittext;
 var vsize;
-var an2pix;
 var text_top;
 var text_bottom;
 var ccimage;
+var rectangleClock;
+var text;
+var polygon;
+var rectangle_key_resp;
 var exp_introClock;
 var target_class;
 var non_target_classes;
@@ -132,6 +138,8 @@ var eccentricity_level_0;
 var eccentricity_level_1;
 var eccentricity_level_2;
 var eccentricities;
+var VA;
+var deg2norm;
 var image_0_0;
 var image_0_1;
 var image_0_2;
@@ -145,7 +153,6 @@ var image_2_1;
 var image_2_2;
 var image_2_3;
 var fixation_point;
-var stimuli_arrangement;
 var introduction_text;
 var back_text;
 var practice_introClock;
@@ -153,11 +160,23 @@ var introduction_text_p;
 var practice_info_key_resp;
 var gitterClock;
 var exp_start;
-var gitter_text;
 var show_stimClock;
 var show_stim_key_resp;
 var ask_questionClock;
+var stimuli_arrangement;
 var question_text;
+var text_B;
+var text_A;
+var text_C;
+var text_D;
+var text_F;
+var text_E;
+var text_G;
+var text_H;
+var text_J;
+var text_I;
+var text_K;
+var text_L;
 var key_ans;
 var show_feedbackClock;
 var feedback_text;
@@ -189,8 +208,8 @@ function experimentInit() {
       vsize = 2;
   } else {
       if ((win.units === "pix")) {
-          x_scale = 50;
-          y_scale = 50;
+          x_scale = 60;
+          y_scale = 40;
           dbase = 0.1;
           unittext = " pixels";
           vsize = win.size[1];
@@ -202,7 +221,6 @@ function experimentInit() {
           vsize = 1;
       }
   }
-  an2pix = 50;
   
   text_top = new visual.TextStim({
     win: psychoJS.window,
@@ -218,7 +236,7 @@ function experimentInit() {
   text_bottom = new visual.TextStim({
     win: psychoJS.window,
     name: 'text_bottom',
-    text: '',
+    text: 'Press the space bar when done',
     font: 'Arial',
     units: 'norm', 
     pos: [0, (- 0.6)], height: 0.07,  wrapWidth: 1.5, ori: 0,
@@ -235,12 +253,36 @@ function experimentInit() {
     flipHoriz : false, flipVert : false,
     texRes : 512, interpolate : true, depth : -4.0 
   });
+  // Initialize components for Routine "rectangle"
+  rectangleClock = new util.Clock();
+  text = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text',
+    text: 'This shape should be a 10 cm square.\nComponent size  (10*x_scale, 10*y_scale) set every repeat.\nPress space to continue',
+    font: 'Arial',
+    units: 'norm', 
+    pos: [0, (- 0.7)], height: 0.07,  wrapWidth: 1.5, ori: 0,
+    color: new util.Color('white'),  opacity: 1,
+    depth: 0.0 
+  });
+  
+  polygon = new visual.Rect ({
+    win: psychoJS.window, name: 'polygon', 
+    width: [1.0, 1.0][0], height: [1.0, 1.0][1],
+    ori: 0, pos: [0, 0],
+    lineWidth: 1, lineColor: new util.Color([1, 1, 1]),
+    fillColor: new util.Color([1, 1, 1]),
+    opacity: 1, depth: -1, interpolate: true,
+  });
+  
+  rectangle_key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
+  
   // Initialize components for Routine "exp_intro"
   exp_introClock = new util.Clock();
   target_class = "cat";
   non_target_classes = ["dog", "elephant", "tiger", "rabbit", "kangaroo", "sheep", "monkey", "lion", "bear", "fox", "pig", "otter"];
   
-  ans_keys_list = [["b", "a", "c", "d"], ["g", "e", "f", "h"], ["j", "i", "k", "l"]];
+  ans_keys_list = [["b", "a", "c", "d"], ["f", "e", "g", "h"], ["j", "i", "k", "l"]];
   key_to_pos = {};
   for (var i = 0, _pj_a = ans_keys_list.length; (i < _pj_a); i += 1) {
       for (var j = 0, _pj_b = ans_keys_list[i].length; (j < _pj_b); j += 1) {
@@ -266,152 +308,145 @@ function experimentInit() {
   eccentricity_level_2 = Math.round(((Math.sqrt(2) + 4 + Math.sqrt(Math.pow((Math.sqrt(2) + 4), 2) - 4 * (4 * Math.sqrt(2) - 27))) / 2) * 100) / 100;
   eccentricities = [eccentricity_level_0, eccentricity_level_1, eccentricity_level_2];
   
+  VA = Math.round(360 / Math.PI * Math.atan2(17.9, (2 * 57)));
+  deg2norm = 2 / VA
   image_0_0 = new visual.ImageStim({
     win : psychoJS.window,
-    name : 'image_0_0', units : undefined, 
+    name : 'image_0_0', units : 'norm', 
     image : 'html/resources/imagenet/bear/image01.png', mask : undefined,
-    ori : 0.0, pos : [0, 0], size : 1.0,
-    color : new util.Color([1, 1, 1]), opacity : 0.0,
-    flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -3.0 
-  });
-  image_0_1 = new visual.ImageStim({
-    win : psychoJS.window,
-    name : 'image_0_1', units : undefined, 
-    image : 'html/resources/imagenet/cat/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -4.0 
   });
-  image_0_2 = new visual.ImageStim({
+  image_0_1 = new visual.ImageStim({
     win : psychoJS.window,
-    name : 'image_0_2', units : undefined, 
-    image : 'html/resources/imagenet/dog/image01.png', mask : undefined,
+    name : 'image_0_1', units : 'norm', 
+    image : 'html/resources/imagenet/cat/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -5.0 
   });
-  image_0_3 = new visual.ImageStim({
+  image_0_2 = new visual.ImageStim({
     win : psychoJS.window,
-    name : 'image_0_3', units : undefined, 
-    image : 'html/resources/imagenet/elephant/image01.png', mask : undefined,
+    name : 'image_0_2', units : 'norm', 
+    image : 'html/resources/imagenet/dog/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -6.0 
   });
-  image_1_0 = new visual.ImageStim({
+  image_0_3 = new visual.ImageStim({
     win : psychoJS.window,
-    name : 'image_1_0', units : undefined, 
-    image : 'html/resources/imagenet/fox/image01.png', mask : undefined,
+    name : 'image_0_3', units : 'norm', 
+    image : 'html/resources/imagenet/elephant/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -7.0 
   });
-  image_1_1 = new visual.ImageStim({
+  image_1_0 = new visual.ImageStim({
     win : psychoJS.window,
-    name : 'image_1_1', units : undefined, 
-    image : 'html/resources/imagenet/kangaroo/image01.png', mask : undefined,
+    name : 'image_1_0', units : 'norm', 
+    image : 'html/resources/imagenet/fox/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -8.0 
   });
-  image_1_2 = new visual.ImageStim({
+  image_1_1 = new visual.ImageStim({
     win : psychoJS.window,
-    name : 'image_1_2', units : undefined, 
-    image : 'html/resources/imagenet/lion/image01.png', mask : undefined,
+    name : 'image_1_1', units : 'norm', 
+    image : 'html/resources/imagenet/kangaroo/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -9.0 
   });
-  image_1_3 = new visual.ImageStim({
+  image_1_2 = new visual.ImageStim({
     win : psychoJS.window,
-    name : 'image_1_3', units : undefined, 
-    image : 'html/resources/imagenet/monkey/image01.png', mask : undefined,
+    name : 'image_1_2', units : 'norm', 
+    image : 'html/resources/imagenet/lion/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -10.0 
   });
-  image_2_0 = new visual.ImageStim({
+  image_1_3 = new visual.ImageStim({
     win : psychoJS.window,
-    name : 'image_2_0', units : undefined, 
-    image : 'html/resources/imagenet/otter/image01.png', mask : undefined,
+    name : 'image_1_3', units : 'norm', 
+    image : 'html/resources/imagenet/monkey/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -11.0 
   });
-  image_2_1 = new visual.ImageStim({
+  image_2_0 = new visual.ImageStim({
     win : psychoJS.window,
-    name : 'image_2_1', units : undefined, 
-    image : 'html/resources/imagenet/pig/image01.png', mask : undefined,
+    name : 'image_2_0', units : 'norm', 
+    image : 'html/resources/imagenet/otter/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -12.0 
   });
-  image_2_2 = new visual.ImageStim({
+  image_2_1 = new visual.ImageStim({
     win : psychoJS.window,
-    name : 'image_2_2', units : undefined, 
-    image : 'html/resources/imagenet/rabbit/image01.png', mask : undefined,
+    name : 'image_2_1', units : 'norm', 
+    image : 'html/resources/imagenet/pig/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -13.0 
   });
-  image_2_3 = new visual.ImageStim({
+  image_2_2 = new visual.ImageStim({
     win : psychoJS.window,
-    name : 'image_2_3', units : undefined, 
-    image : 'html/resources/imagenet/sheep/image01.png', mask : undefined,
+    name : 'image_2_2', units : 'norm', 
+    image : 'html/resources/imagenet/rabbit/image01.png', mask : undefined,
     ori : 0.0, pos : [0, 0], size : 1.0,
     color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -14.0 
   });
+  image_2_3 = new visual.ImageStim({
+    win : psychoJS.window,
+    name : 'image_2_3', units : 'norm', 
+    image : 'html/resources/imagenet/sheep/image01.png', mask : undefined,
+    ori : 0.0, pos : [0, 0], size : 1.0,
+    color : new util.Color([1, 1, 1]), opacity : 0.0,
+    flipHoriz : false, flipVert : false,
+    texRes : 128.0, interpolate : true, depth : -15.0 
+  });
   fixation_point = new visual.Polygon ({
-    win: psychoJS.window, name: 'fixation_point', 
+    win: psychoJS.window, name: 'fixation_point', units : 'norm', 
     edges: 100, size:[1.0, 1.0],
     ori: 0.0, pos: [0, 0],
     lineWidth: 1.0, lineColor: new util.Color([0.5059, 0.5059, 0.5059]),
     fillColor: new util.Color([0.5059, 0.5059, 0.5059]),
-    opacity: 1.0, depth: -16, interpolate: true,
+    opacity: 1.0, depth: -17, interpolate: true,
   });
   
-  stimuli_arrangement = new visual.ImageStim({
-    win : psychoJS.window,
-    name : 'stimuli_arrangement', units : undefined, 
-    image : 'html/resources/stimuli_arrangement.png', mask : undefined,
-    ori : 0.0, pos : [0, 0], size : [an2pix, an2pix],
-    color : new util.Color([1, 1, 1]), opacity : 0.0,
-    flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -17.0 
-  });
   introduction_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'introduction_text',
     text: '',
     font: 'Open Sans',
-    units: undefined, 
-    pos: [0, (2 * an2pix)], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
-    depth: -19.0 
+    depth: -18.0 
   });
   
   back_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'back_text',
-    text: 'Next: “Space” Key\nBack: “b” Key',
+    text: '',
     font: 'Open Sans',
-    units: undefined, 
-    pos: [0, ((- 2) * an2pix)], height: an2pix * 0.5,  wrapWidth: undefined, ori: 0.0,
+    units: 'norm', 
+    pos: [(- 0.6), (- 0.6)], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
-    depth: -20.0 
+    depth: -19.0 
   });
   
   // Initialize components for Routine "practice_intro"
@@ -419,10 +454,10 @@ function experimentInit() {
   introduction_text_p = new visual.TextStim({
     win: psychoJS.window,
     name: 'introduction_text_p',
-    text: "Let's practice with sample images.\n\nHit a “Space” key when ready.",
+    text: "Let's practice with some images.\n\nHit a space key when ready.",
     font: 'Open Sans',
-    units: undefined, 
-    pos: [0, 0], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
@@ -433,32 +468,162 @@ function experimentInit() {
   gitterClock = new util.Clock();
   exp_start = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
-  gitter_text = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'gitter_text',
-    text: 'Press “Space” key to start.',
-    font: 'Open Sans',
-    units: undefined, 
-    pos: [0, ((- an2pix) * 1.5)], height: an2pix * 0.7,  wrapWidth: undefined, ori: 0.0,
-    color: new util.Color('white'),  opacity: undefined,
-    depth: -3.0 
-  });
-  
   // Initialize components for Routine "show_stim"
   show_stimClock = new util.Clock();
   show_stim_key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   // Initialize components for Routine "ask_question"
   ask_questionClock = new util.Clock();
+  stimuli_arrangement = new visual.ImageStim({
+    win : psychoJS.window,
+    name : 'stimuli_arrangement', units : 'norm', 
+    image : 'html/resources/stimuli_arrangement.png', mask : undefined,
+    ori : 0.0, pos : [0, 0], size : [deg2norm, deg2norm],
+    color : new util.Color([1, 1, 1]), opacity : undefined,
+    flipHoriz : false, flipVert : false,
+    texRes : 128.0, interpolate : true, depth : 0.0 
+  });
   question_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'question_text',
-    text: 'Where was the cat?\nPlease press the key.',
+    text: 'Where Was the cat?\nPlease press the Key\ncorresponding to the position.',
     font: 'Open Sans',
-    units: undefined, 
-    pos: [(10 * an2pix), 0], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
+    units: 'norm', 
+    pos: [0.6, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
-    depth: 0.0 
+    depth: -2.0 
+  });
+  
+  text_B = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_B',
+    text: 'B',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -3.0 
+  });
+  
+  text_A = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_A',
+    text: 'A',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -4.0 
+  });
+  
+  text_C = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_C',
+    text: 'C',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -5.0 
+  });
+  
+  text_D = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_D',
+    text: 'D',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -6.0 
+  });
+  
+  text_F = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_F',
+    text: 'F',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -7.0 
+  });
+  
+  text_E = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_E',
+    text: 'E',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -8.0 
+  });
+  
+  text_G = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_G',
+    text: 'G',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -9.0 
+  });
+  
+  text_H = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_H',
+    text: 'H',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -10.0 
+  });
+  
+  text_J = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_J',
+    text: 'J',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -11.0 
+  });
+  
+  text_I = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_I',
+    text: 'I',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -12.0 
+  });
+  
+  text_K = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_K',
+    text: 'K',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -13.0 
+  });
+  
+  text_L = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_L',
+    text: 'L',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -14.0 
   });
   
   key_ans = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
@@ -470,8 +635,8 @@ function experimentInit() {
     name: 'feedback_text',
     text: 'feedback text',
     font: 'Open Sans',
-    units: undefined, 
-    pos: [0, 0], height: an2pix * 0.7,  wrapWidth: undefined, ori: 0.0,
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
@@ -485,8 +650,8 @@ function experimentInit() {
     name: 'introduction_text_a',
     text: "Practice part has finished.\n\nNext part is the experiment.\nHit 's' Key when ready.",
     font: 'Open Sans',
-    units: undefined, 
-    pos: [0, 0], height: an2pix * 0.7,  wrapWidth: undefined, ori: 0.0,
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
@@ -497,32 +662,162 @@ function experimentInit() {
   gitterClock = new util.Clock();
   exp_start = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
-  gitter_text = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'gitter_text',
-    text: 'Press “Space” key to start.',
-    font: 'Open Sans',
-    units: undefined, 
-    pos: [0, ((- an2pix) * 1.5)], height: an2pix * 0.7,  wrapWidth: undefined, ori: 0.0,
-    color: new util.Color('white'),  opacity: undefined,
-    depth: -3.0 
-  });
-  
   // Initialize components for Routine "show_stim"
   show_stimClock = new util.Clock();
   show_stim_key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   // Initialize components for Routine "ask_question"
   ask_questionClock = new util.Clock();
+  stimuli_arrangement = new visual.ImageStim({
+    win : psychoJS.window,
+    name : 'stimuli_arrangement', units : 'norm', 
+    image : 'html/resources/stimuli_arrangement.png', mask : undefined,
+    ori : 0.0, pos : [0, 0], size : [deg2norm, deg2norm],
+    color : new util.Color([1, 1, 1]), opacity : undefined,
+    flipHoriz : false, flipVert : false,
+    texRes : 128.0, interpolate : true, depth : 0.0 
+  });
   question_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'question_text',
-    text: 'Where was the cat?\nPlease press the key.',
+    text: 'Where Was the cat?\nPlease press the Key\ncorresponding to the position.',
     font: 'Open Sans',
-    units: undefined, 
-    pos: [(10 * an2pix), 0], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
+    units: 'norm', 
+    pos: [0.6, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
-    depth: 0.0 
+    depth: -2.0 
+  });
+  
+  text_B = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_B',
+    text: 'B',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -3.0 
+  });
+  
+  text_A = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_A',
+    text: 'A',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -4.0 
+  });
+  
+  text_C = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_C',
+    text: 'C',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -5.0 
+  });
+  
+  text_D = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_D',
+    text: 'D',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -6.0 
+  });
+  
+  text_F = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_F',
+    text: 'F',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -7.0 
+  });
+  
+  text_E = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_E',
+    text: 'E',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -8.0 
+  });
+  
+  text_G = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_G',
+    text: 'G',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -9.0 
+  });
+  
+  text_H = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_H',
+    text: 'H',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -10.0 
+  });
+  
+  text_J = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_J',
+    text: 'J',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -11.0 
+  });
+  
+  text_I = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_I',
+    text: 'I',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -12.0 
+  });
+  
+  text_K = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_K',
+    text: 'K',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -13.0 
+  });
+  
+  text_L = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_L',
+    text: 'L',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -14.0 
   });
   
   key_ans = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
@@ -534,8 +829,8 @@ function experimentInit() {
     name: 'feedback_text',
     text: 'feedback text',
     font: 'Open Sans',
-    units: undefined, 
-    pos: [0, 0], height: an2pix * 0.7,  wrapWidth: undefined, ori: 0.0,
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
@@ -549,8 +844,8 @@ function experimentInit() {
     name: 'break_text',
     text: 'Please take a short break.\n\nIf the experiment is ready, \nthe window will change to the fixation point.',
     font: 'Open Sans',
-    units: undefined, 
-    pos: [0, 0], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
+    units: 'norm', 
+    pos: [0, 0], height: deg2norm * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
@@ -566,8 +861,6 @@ function experimentInit() {
 var t;
 var frameN;
 var continueRoutine;
-var resz;
-var distance;
 var screen_scaleComponents;
 function screen_scaleRoutineBegin(snapshot) {
   return function () {
@@ -578,9 +871,6 @@ function screen_scaleRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
     event.clearEvents();
-    resz = (an2pix / ((x_scale + y_scale) / 2));
-    distance = Number.parseInt((resz / (2 * Math.tan((Math.PI / 360)))));
-    text_bottom.text = (("Throughout this experiment, \n maintain a viewing distance at " + distance.toString()) + "cm \n\n Press the space bar when done.");
     
     // keep track of which components have finished
     screen_scaleComponents = [];
@@ -654,12 +944,10 @@ function screen_scaleRoutineEachFrame(snapshot) {
             }
         }
         if ((win.units === "pix")) {
-            vsize = (win.size[1] / 2);
+            vsize = win.size[1];
         }
         screen_height = (round(((vsize * 10) / y_scale)) / 10);
-        resz = (an2pix / ((x_scale + y_scale) / 2));
-        distance = Number.parseInt((resz / (2 * Math.tan((Math.PI / 360)))));
-        text_bottom.text = (("Throughout this experiment, \n maintain a viewing distance at " + distance.toString()) + "cm \n\n Press the space bar when done.");
+        text_bottom.text = (((((((("X Scale = " + x_scale.toString()) + unittext) + " per cm, Y Scale = ") + y_scale.toString()) + unittext) + " per cm\nScreen height = ") + screen_height.toString()) + " cm\n\nPress the space bar when done");
         ccimage.size = [(x_size * x_scale), (y_size * y_scale)];
     }
     
@@ -739,6 +1027,130 @@ function screen_scaleRoutineEnd(snapshot) {
 }
 
 
+var _rectangle_key_resp_allKeys;
+var rectangleComponents;
+function rectangleRoutineBegin(snapshot) {
+  return function () {
+    //------Prepare to start Routine 'rectangle'-------
+    t = 0;
+    rectangleClock.reset(); // clock
+    frameN = -1;
+    continueRoutine = true; // until we're told otherwise
+    // update component parameters for each repeat
+    polygon.setSize([(10 * x_scale), (10 * y_scale)]);
+    rectangle_key_resp.keys = undefined;
+    rectangle_key_resp.rt = undefined;
+    _rectangle_key_resp_allKeys = [];
+    // keep track of which components have finished
+    rectangleComponents = [];
+    rectangleComponents.push(text);
+    rectangleComponents.push(polygon);
+    rectangleComponents.push(rectangle_key_resp);
+    
+    rectangleComponents.forEach( function(thisComponent) {
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+function rectangleRoutineEachFrame(snapshot) {
+  return function () {
+    //------Loop for each frame of Routine 'rectangle'-------
+    // get current time
+    t = rectangleClock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    
+    // *text* updates
+    if (t >= 0.0 && text.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text.tStart = t;  // (not accounting for frame time here)
+      text.frameNStart = frameN;  // exact frame index
+      
+      text.setAutoDraw(true);
+    }
+
+    
+    // *polygon* updates
+    if (t >= 0.0 && polygon.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      polygon.tStart = t;  // (not accounting for frame time here)
+      polygon.frameNStart = frameN;  // exact frame index
+      
+      polygon.setAutoDraw(true);
+    }
+
+    
+    // *rectangle_key_resp* updates
+    if (t >= 0.0 && rectangle_key_resp.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      rectangle_key_resp.tStart = t;  // (not accounting for frame time here)
+      rectangle_key_resp.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { rectangle_key_resp.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { rectangle_key_resp.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { rectangle_key_resp.clearEvents(); });
+    }
+
+    if (rectangle_key_resp.status === PsychoJS.Status.STARTED) {
+      let theseKeys = rectangle_key_resp.getKeys({keyList: ['space'], waitRelease: false});
+      _rectangle_key_resp_allKeys = _rectangle_key_resp_allKeys.concat(theseKeys);
+      if (_rectangle_key_resp_allKeys.length > 0) {
+        rectangle_key_resp.keys = _rectangle_key_resp_allKeys[_rectangle_key_resp_allKeys.length - 1].name;  // just the last key pressed
+        rectangle_key_resp.rt = _rectangle_key_resp_allKeys[_rectangle_key_resp_allKeys.length - 1].rt;
+        // a response ends the routine
+        continueRoutine = false;
+      }
+    }
+    
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    rectangleComponents.forEach( function(thisComponent) {
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+      }
+    });
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+function rectangleRoutineEnd(snapshot) {
+  return function () {
+    //------Ending Routine 'rectangle'-------
+    rectangleComponents.forEach( function(thisComponent) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    });
+    rectangle_key_resp.stop();
+    // the Routine "rectangle" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
+    return Scheduler.Event.NEXT;
+  };
+}
+
+
 var image_list;
 var exp_introComponents;
 function exp_introRoutineBegin(snapshot) {
@@ -751,47 +1163,44 @@ function exp_introRoutineBegin(snapshot) {
     // update component parameters for each repeat
     hw_rate = win.size[1] / win.size[0];
     
-    image_0_0.setSize([an2pix, an2pix]);
-    image_0_1.setSize([an2pix, an2pix]);
-    image_0_2.setSize([an2pix, an2pix]);
-    image_0_3.setSize([an2pix, an2pix]);
-    image_1_0.setSize([(2 * an2pix), (2 * an2pix)]);
-    image_1_1.setSize([(2 * an2pix), (2 * an2pix)]);
-    image_1_2.setSize([(2 * an2pix), (2 * an2pix)]);
-    image_1_3.setSize([(2 * an2pix), (2 * an2pix)]);
-    image_2_0.setSize([((2 * 2) * an2pix), ((2 * 2) * an2pix)]);
-    image_2_1.setSize([((2 * 2) * an2pix), ((2 * 2) * an2pix)]);
-    image_2_2.setSize([((2 * 2) * an2pix), ((2 * 2) * an2pix)]);
-    image_2_3.setSize([((2 * 2) * an2pix), ((2 * 2) * an2pix)]);
+    VA = Math.round(360 / Math.PI * Math.atan2(screen_height, (2 * 57)));
+    deg2norm = 2 / VA
+    image_0_0.setSize([(deg2norm * hw_rate), deg2norm]);
+    image_0_1.setSize([(deg2norm * hw_rate), deg2norm]);
+    image_0_2.setSize([(deg2norm * hw_rate), deg2norm]);
+    image_0_3.setSize([(deg2norm * hw_rate), deg2norm]);
+    image_1_0.setSize([((2 * deg2norm) * hw_rate), (2 * deg2norm)]);
+    image_1_1.setSize([((2 * deg2norm) * hw_rate), (2 * deg2norm)]);
+    image_1_2.setSize([((2 * deg2norm) * hw_rate), (2 * deg2norm)]);
+    image_1_3.setSize([((2 * deg2norm) * hw_rate), (2 * deg2norm)]);
+    image_2_0.setSize([(((2 * 2) * deg2norm) * hw_rate), ((2 * 2) * deg2norm)]);
+    image_2_1.setSize([(((2 * 2) * deg2norm) * hw_rate), ((2 * 2) * deg2norm)]);
+    image_2_2.setSize([(((2 * 2) * deg2norm) * hw_rate), ((2 * 2) * deg2norm)]);
+    image_2_3.setSize([(((2 * 2) * deg2norm) * hw_rate), ((2 * 2) * deg2norm)]);
     image_list = [image_0_0, image_0_1, image_0_2, image_0_3, image_1_0, image_1_1, image_1_2, image_1_3, image_2_0, image_2_1, image_2_2, image_2_3];
     for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
         if (i < 4) {
             image_list[i].pos = [
-                an2pix * eccentricities[0] * Math.cos(calcRad((i % 4) * 90 + 45)),
-                an2pix * eccentricities[0] * Math.sin(calcRad((i % 4) * 90 + 45))
+                hw_rate * deg2norm * eccentricities[0] * Math.cos(calcRad((i % 4) * 90 + 45)),
+                deg2norm * eccentricities[0] * Math.sin(calcRad((i % 4) * 90 + 45))
             ];
         } else {
             if ((4 <= i) && (i < 8)) {
                 image_list[i].pos = [
-                    an2pix * eccentricities[1] * Math.cos(calcRad((i % 4) * 90)),
-                    an2pix * eccentricities[1] * Math.sin(calcRad((i % 4) * 90))
+                    hw_rate * deg2norm * eccentricities[1] * Math.cos(calcRad((i % 4) * 90)),
+                    deg2norm * eccentricities[1] * Math.sin(calcRad((i % 4) * 90))
                 ];
             } else {
                 image_list[i].pos = [
-                    an2pix * eccentricities[2] * Math.cos(calcRad((i % 4) * 90 + 45)),
-                    an2pix * eccentricities[2] * Math.sin(calcRad((i % 4) * 90 + 45))
+                    hw_rate * deg2norm * eccentricities[2] * Math.cos(calcRad((i % 4) * 90 + 45)),
+                    deg2norm * eccentricities[2] * Math.sin(calcRad((i % 4) * 90 + 45))
                 ];
             }
         }
     }
     
     fixation_point.setOpacity(0.0);
-    fixation_point.setSize([(an2pix / 5), (an2pix / 5)]);
-    stimuli_arrangement.size = [
-        an2pix * (2 * eccentricities[2] / Math.sqrt(2) + 8),
-        an2pix * (2 * eccentricities[2] / Math.sqrt(2) + 8)
-    ];
-    
+    fixation_point.setSize([((deg2norm / 5) * hw_rate), (deg2norm / 5)]);
     // keep track of which components have finished
     exp_introComponents = [];
     exp_introComponents.push(image_0_0);
@@ -807,7 +1216,6 @@ function exp_introRoutineBegin(snapshot) {
     exp_introComponents.push(image_2_2);
     exp_introComponents.push(image_2_3);
     exp_introComponents.push(fixation_point);
-    exp_introComponents.push(stimuli_arrangement);
     exp_introComponents.push(introduction_text);
     exp_introComponents.push(back_text);
     
@@ -958,16 +1366,6 @@ function exp_introRoutineEachFrame(snapshot) {
     }
 
     
-    // *stimuli_arrangement* updates
-    if (t >= 0.0 && stimuli_arrangement.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      stimuli_arrangement.tStart = t;  // (not accounting for frame time here)
-      stimuli_arrangement.frameNStart = frameN;  // exact frame index
-      
-      stimuli_arrangement.setAutoDraw(true);
-    }
-
-    
     // *introduction_text* updates
     if (t >= 0.0 && introduction_text.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
@@ -978,10 +1376,6 @@ function exp_introRoutineEachFrame(snapshot) {
     }
 
     
-    if (introduction_text.status === PsychoJS.Status.STARTED){ // only update if being drawn
-      introduction_text.setText('', false);
-    }
-    
     // *back_text* updates
     if (t >= 0.0 && back_text.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
@@ -991,6 +1385,10 @@ function exp_introRoutineEachFrame(snapshot) {
       back_text.setAutoDraw(true);
     }
 
+    
+    if (back_text.status === PsychoJS.Status.STARTED){ // only update if being drawn
+      back_text.setText('Next: “Space” Key\nBack: “b” Key', false);
+    }
     keys = psychoJS.eventManager.getKeys({"keyList": ["space", "b"]});
     if (keys.slice(-1)[0] === "space") {
         intro_state += 1;
@@ -1001,40 +1399,32 @@ function exp_introRoutineEachFrame(snapshot) {
     if (intro_state < 0) {
         intro_state = 0;
     }
-    // if (intro_state === 0) {
-    //     introduction_text.text = "Throughout this experiment, \n maintain a viewing distance at " + distance.toString() + "cm.";
-    // }
     if (intro_state === 0) {
-        introduction_text.text = "The task is \n \"To find a cat from animal images as soon as possible.\" \n The time limit is 5 sec.";
-        introduction_text.pos = [0, 2 * an2pix];
-        back_text.pos = [0, -2 * an2pix];
-        fixation_point.opacity = 0.0;
+        introduction_text.text = "Throughout this experiment, \n maintain a viewing distance of 57cm.";
     }
     if (intro_state === 1) {
-        introduction_text.text = "Gaze at the center of the display. \n Then, hit \"Space\" key to display a lineup of images.";
-        introduction_text.pos = [0, 4.5 * an2pix];
-        back_text.pos = [0, -4.5 * an2pix];
+        introduction_text.text = "The task is \n \"To find a cat from some images \n as soon as possible.\" \n\n The time limit is 5 sec.";
+        introduction_text.height = deg2norm;
+        introduction_text.pos = [0, 0];
+        fixation_point.opacity = 0.0;
+    }
+    if (intro_state === 2) {
+        introduction_text.text = "Gaze at the center of the display. \n\n Then, hit \"Space\" key to display a lineup of images.";
+        introduction_text.height = (deg2norm * 0.5);
+        introduction_text.pos = [0, 0.3];
         fixation_point.opacity = 1.0;
         for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
             image_list[i].opacity = 0.0;
         }
     }
-    if (intro_state === 2) {
-        introduction_text.text = "Hit \"Space\" key \n as soon as you find a cat \n with your eye moving.";
-        introduction_text.pos = [9 * an2pix, 0];
-        back_text.pos = [-9 * an2pix, 0];
+    if (intro_state === 3) {
+        introduction_text.text = "When you find a cat, \n hit \"Space\" key as soon as possible \n and answer where the cat was.";
+        introduction_text.pos = [0.6, 0];
         for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
             image_list[i].opacity = 1.0;
         }
-        stimuli_arrangement.opacity = 0.0;
-    }
-    if (intro_state === 3) {
-        introduction_text.text = "Then, press the key \n corresponding to \n the position.";
-        fixation_point.opacity = 0.0;
-        stimuli_arrangement.opacity = 1.0;
     }
     if (intro_state === 4) {
-        fixation_point.opacity = 1.0;
         continueRoutine = false;
     }
     
@@ -1304,7 +1694,6 @@ function gitterRoutineBegin(snapshot) {
     // keep track of which components have finished
     gitterComponents = [];
     gitterComponents.push(exp_start);
-    gitterComponents.push(gitter_text);
     
     gitterComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -1336,7 +1725,7 @@ function gitterRoutineEachFrame(snapshot) {
     }
 
     if (exp_start.status === PsychoJS.Status.STARTED) {
-      let theseKeys = exp_start.getKeys({keyList: ['space'], waitRelease: false});
+      let theseKeys = exp_start.getKeys({keyList: [], waitRelease: false});
       _exp_start_allKeys = _exp_start_allKeys.concat(theseKeys);
       if (_exp_start_allKeys.length > 0) {
         exp_start.keys = _exp_start_allKeys[_exp_start_allKeys.length - 1].name;  // just the last key pressed
@@ -1346,16 +1735,6 @@ function gitterRoutineEachFrame(snapshot) {
       }
     }
     
-    
-    // *gitter_text* updates
-    if (t >= 0.0 && gitter_text.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      gitter_text.tStart = t;  // (not accounting for frame time here)
-      gitter_text.frameNStart = frameN;  // exact frame index
-      
-      gitter_text.setAutoDraw(true);
-    }
-
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -1444,7 +1823,7 @@ function show_stimRoutineBegin(snapshot) {
     thisExp.addData(target_class, image_path);
     
     for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
-        image_list[i].size = [size * an2pix, size * an2pix];
+        image_list[i].size = [size * deg2norm, size * deg2norm];
         if ((4 <= i) && (i < 8)) {
             image_list[i].size = [rate * image_list[i].size[0], rate * image_list[i].size[1]];
         } else {
@@ -1452,6 +1831,7 @@ function show_stimRoutineBegin(snapshot) {
                 image_list[i].size = [Math.pow(rate, 2) * image_list[i].size[0], Math.pow(rate, 2) * image_list[i].size[1]];
             }
         }
+        image_list[i].size[0] *= hw_rate;
     }
     
     fixation_point.setAutoDraw(true);
@@ -1498,7 +1878,7 @@ function show_stimRoutineEachFrame(snapshot) {
     }
 
     if (show_stim_key_resp.status === PsychoJS.Status.STARTED) {
-      let theseKeys = show_stim_key_resp.getKeys({keyList: ['space'], waitRelease: false});
+      let theseKeys = show_stim_key_resp.getKeys({keyList: [], waitRelease: false});
       _show_stim_key_resp_allKeys = _show_stim_key_resp_allKeys.concat(theseKeys);
       if (_show_stim_key_resp_allKeys.length > 0) {
         show_stim_key_resp.keys = _show_stim_key_resp_allKeys[_show_stim_key_resp_allKeys.length - 1].name;  // just the last key pressed
@@ -1563,6 +1943,7 @@ function show_stimRoutineEnd(snapshot) {
 }
 
 
+var alphabets_list;
 var _key_ans_allKeys;
 var ask_questionComponents;
 function ask_questionRoutineBegin(snapshot) {
@@ -1573,14 +1954,52 @@ function ask_questionRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    stimuli_arrangement.setAutoDraw(true);
+    stimuli_arrangement.size = [
+        hw_rate * (2 * eccentricities[2] / Math.sqrt(2) + 8) * deg2norm,
+        (2 * eccentricities[2] / Math.sqrt(2) + 8) * deg2norm
+    ];
+    
+    alphabets_list = [text_B, text_A, text_C, text_D, text_F, text_E, text_G, text_H, text_J, text_I, text_K, text_L];
+    for (var i = 0, _pj_a = alphabets_list.length; (i < _pj_a); i += 1) {
+        if ((i < 4)) {
+            alphabets_list[i].pos = [
+                hw_rate * deg2norm * eccentricities[0] * Math.cos(calcRad((i % 4) * 90 + 45)),
+                deg2norm * eccentricities[0] * Math.sin(calcRad((i % 4) * 90 + 45))
+            ];
+        } else {
+            if (((4 <= i) && (i < 8))) {
+                alphabets_list[i].pos = [
+                    hw_rate * deg2norm * eccentricities[1] * Math.cos(calcRad((i % 4) * 90)),
+                    deg2norm * eccentricities[1] * Math.sin(calcRad((i % 4) * 90))
+                ];
+            } else {
+                alphabets_list[i].pos = [
+                    hw_rate * deg2norm * eccentricities[2] * Math.cos(calcRad((i % 4) * 90 + 45)),
+                    deg2norm * eccentricities[2] * Math.sin(calcRad((i % 4) * 90 + 45))
+                ];
+            }
+        }
+    }
     
     key_ans.keys = undefined;
     key_ans.rt = undefined;
     _key_ans_allKeys = [];
     // keep track of which components have finished
     ask_questionComponents = [];
+    ask_questionComponents.push(stimuli_arrangement);
     ask_questionComponents.push(question_text);
+    ask_questionComponents.push(text_B);
+    ask_questionComponents.push(text_A);
+    ask_questionComponents.push(text_C);
+    ask_questionComponents.push(text_D);
+    ask_questionComponents.push(text_F);
+    ask_questionComponents.push(text_E);
+    ask_questionComponents.push(text_G);
+    ask_questionComponents.push(text_H);
+    ask_questionComponents.push(text_J);
+    ask_questionComponents.push(text_I);
+    ask_questionComponents.push(text_K);
+    ask_questionComponents.push(text_L);
     ask_questionComponents.push(key_ans);
     
     ask_questionComponents.forEach( function(thisComponent) {
@@ -1600,6 +2019,16 @@ function ask_questionRoutineEachFrame(snapshot) {
     frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
     // update/draw components on each frame
     
+    // *stimuli_arrangement* updates
+    if (t >= 0.0 && stimuli_arrangement.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      stimuli_arrangement.tStart = t;  // (not accounting for frame time here)
+      stimuli_arrangement.frameNStart = frameN;  // exact frame index
+      
+      stimuli_arrangement.setAutoDraw(true);
+    }
+
+    
     // *question_text* updates
     if (t >= 0.0 && question_text.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
@@ -1607,6 +2036,126 @@ function ask_questionRoutineEachFrame(snapshot) {
       question_text.frameNStart = frameN;  // exact frame index
       
       question_text.setAutoDraw(true);
+    }
+
+    
+    // *text_B* updates
+    if (t >= 0.0 && text_B.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_B.tStart = t;  // (not accounting for frame time here)
+      text_B.frameNStart = frameN;  // exact frame index
+      
+      text_B.setAutoDraw(true);
+    }
+
+    
+    // *text_A* updates
+    if (t >= 0.0 && text_A.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_A.tStart = t;  // (not accounting for frame time here)
+      text_A.frameNStart = frameN;  // exact frame index
+      
+      text_A.setAutoDraw(true);
+    }
+
+    
+    // *text_C* updates
+    if (t >= 0.0 && text_C.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_C.tStart = t;  // (not accounting for frame time here)
+      text_C.frameNStart = frameN;  // exact frame index
+      
+      text_C.setAutoDraw(true);
+    }
+
+    
+    // *text_D* updates
+    if (t >= 0.0 && text_D.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_D.tStart = t;  // (not accounting for frame time here)
+      text_D.frameNStart = frameN;  // exact frame index
+      
+      text_D.setAutoDraw(true);
+    }
+
+    
+    // *text_F* updates
+    if (t >= 0.0 && text_F.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_F.tStart = t;  // (not accounting for frame time here)
+      text_F.frameNStart = frameN;  // exact frame index
+      
+      text_F.setAutoDraw(true);
+    }
+
+    
+    // *text_E* updates
+    if (t >= 0.0 && text_E.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_E.tStart = t;  // (not accounting for frame time here)
+      text_E.frameNStart = frameN;  // exact frame index
+      
+      text_E.setAutoDraw(true);
+    }
+
+    
+    // *text_G* updates
+    if (t >= 0.0 && text_G.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_G.tStart = t;  // (not accounting for frame time here)
+      text_G.frameNStart = frameN;  // exact frame index
+      
+      text_G.setAutoDraw(true);
+    }
+
+    
+    // *text_H* updates
+    if (t >= 0.0 && text_H.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_H.tStart = t;  // (not accounting for frame time here)
+      text_H.frameNStart = frameN;  // exact frame index
+      
+      text_H.setAutoDraw(true);
+    }
+
+    
+    // *text_J* updates
+    if (t >= 0.0 && text_J.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_J.tStart = t;  // (not accounting for frame time here)
+      text_J.frameNStart = frameN;  // exact frame index
+      
+      text_J.setAutoDraw(true);
+    }
+
+    
+    // *text_I* updates
+    if (t >= 0.0 && text_I.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_I.tStart = t;  // (not accounting for frame time here)
+      text_I.frameNStart = frameN;  // exact frame index
+      
+      text_I.setAutoDraw(true);
+    }
+
+    
+    // *text_K* updates
+    if (t >= 0.0 && text_K.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_K.tStart = t;  // (not accounting for frame time here)
+      text_K.frameNStart = frameN;  // exact frame index
+      
+      text_K.setAutoDraw(true);
+    }
+
+    
+    // *text_L* updates
+    if (t >= 0.0 && text_L.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_L.tStart = t;  // (not accounting for frame time here)
+      text_L.frameNStart = frameN;  // exact frame index
+      
+      text_L.setAutoDraw(true);
     }
 
     
@@ -1668,8 +2217,6 @@ function ask_questionRoutineEnd(snapshot) {
         thisComponent.setAutoDraw(false);
       }
     });
-    stimuli_arrangement.setAutoDraw(false);
-    
     psychoJS.experiment.addData('key_ans.keys', key_ans.keys);
     if (typeof key_ans.keys !== 'undefined') {  // we had a response
         psychoJS.experiment.addData('key_ans.rt', key_ans.rt);
@@ -1754,7 +2301,7 @@ function show_feedbackRoutineEachFrame(snapshot) {
     }
 
     if (show_fb_key_resp.status === PsychoJS.Status.STARTED) {
-      let theseKeys = show_fb_key_resp.getKeys({keyList: ['space'], waitRelease: false});
+      let theseKeys = show_fb_key_resp.getKeys({keyList: [], waitRelease: false});
       _show_fb_key_resp_allKeys = _show_fb_key_resp_allKeys.concat(theseKeys);
       if (_show_fb_key_resp_allKeys.length > 0) {
         show_fb_key_resp.keys = _show_fb_key_resp_allKeys[_show_fb_key_resp_allKeys.length - 1].name;  // just the last key pressed
@@ -2054,6 +2601,8 @@ function quitPsychoJS(message, isCompleted) {
   if (psychoJS.experiment.isEntryEmpty()) {
     psychoJS.experiment.nextEntry();
   }
+  
+  
   
   
   
