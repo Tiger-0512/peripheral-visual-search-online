@@ -17,7 +17,7 @@ psychoJS.openWindow({
 
 // store info about the experiment session:
 let expName = 'peripheral-search';  // from the Builder filename that created this script
-let expInfo = {'participant': ''};
+let expInfo = {'WORKER ID': ''};
 
 // Start code blocks for 'Before Experiment'
 const range = (start, end) => [...Array((end - start) + 1)].map((_, i) => start + i);
@@ -66,6 +66,9 @@ const ActualTrialsLoopScheduler = new Scheduler(psychoJS);
 flowScheduler.add(ActualTrialsLoopBegin, ActualTrialsLoopScheduler);
 flowScheduler.add(ActualTrialsLoopScheduler);
 flowScheduler.add(ActualTrialsLoopEnd);
+flowScheduler.add(publish_surveycodeRoutineBegin());
+flowScheduler.add(publish_surveycodeRoutineEachFrame());
+flowScheduler.add(publish_surveycodeRoutineEnd());
 flowScheduler.add(quitPsychoJS, '', true);
 
 // quit if user presses Cancel in dialog box:
@@ -167,6 +170,8 @@ var introduction_text_a;
 var actual_intro_key_resp;
 var take_breakClock;
 var break_text;
+var publish_surveycodeClock;
+var show_thanks_and_code;
 var globalClock;
 var routineTimer;
 function experimentInit() {
@@ -406,7 +411,7 @@ function experimentInit() {
   back_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'back_text',
-    text: 'Next: “Space” Key\nBack: “b” Key',
+    text: '',
     font: 'Open Sans',
     units: undefined, 
     pos: [0, ((- 2) * an2pix)], height: an2pix * 0.5,  wrapWidth: undefined, ori: 0.0,
@@ -419,7 +424,7 @@ function experimentInit() {
   introduction_text_p = new visual.TextStim({
     win: psychoJS.window,
     name: 'introduction_text_p',
-    text: "Let's practice with sample images.\n\nHit a “Space” key when ready.",
+    text: "Let's practice with sample images.\n\nHit “Space” key when ready.",
     font: 'Open Sans',
     units: undefined, 
     pos: [0, 0], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
@@ -555,6 +560,19 @@ function experimentInit() {
     depth: 0.0 
   });
   
+  // Initialize components for Routine "publish_surveycode"
+  publish_surveycodeClock = new util.Clock();
+  show_thanks_and_code = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'show_thanks_and_code',
+    text: '',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: 0.0 
+  });
+  
   // Create some handy timers
   globalClock = new util.Clock();  // to track the time since experiment started
   routineTimer = new util.CountdownTimer();  // to track time remaining of each (non-slip) routine
@@ -580,7 +598,7 @@ function screen_scaleRoutineBegin(snapshot) {
     event.clearEvents();
     resz = (an2pix / ((x_scale + y_scale) / 2));
     distance = Number.parseInt((resz / (2 * Math.tan((Math.PI / 360)))));
-    text_bottom.text = (("Throughout this experiment, \n maintain a viewing distance at " + distance.toString()) + "cm \n\n Press the space bar when done.");
+    text_bottom.text = (("Press \"Space\" key when done. \n\n Throughout this experiment, \n please maintain a viewing distance at " + distance.toString()) + "cm.");
     
     // keep track of which components have finished
     screen_scaleComponents = [];
@@ -659,7 +677,7 @@ function screen_scaleRoutineEachFrame(snapshot) {
         screen_height = (round(((vsize * 10) / y_scale)) / 10);
         resz = (an2pix / ((x_scale + y_scale) / 2));
         distance = Number.parseInt((resz / (2 * Math.tan((Math.PI / 360)))));
-        text_bottom.text = (("Throughout this experiment, \n maintain a viewing distance at " + distance.toString()) + "cm \n\n Press the space bar when done.");
+        text_bottom.text = (("Press the space bar when done. \n\n Throughout this experiment, \n please maintain a viewing distance at " + distance.toString()) + "cm.");
         ccimage.size = [(x_size * x_scale), (y_size * y_scale)];
     }
     
@@ -1005,14 +1023,16 @@ function exp_introRoutineEachFrame(snapshot) {
     //     introduction_text.text = "Throughout this experiment, \n maintain a viewing distance at " + distance.toString() + "cm.";
     // }
     if (intro_state === 0) {
-        introduction_text.text = "The task is \n \"To find a cat from animal images as soon as possible.\" \n The time limit is 5 sec.";
+        introduction_text.text = "The task is \n \"To find a cat from animal images as soon as possible.\" \n The time limit is 5 sec on each trial.";
         introduction_text.pos = [0, 2 * an2pix];
+        back_text.text = "Next: \"Space\" Key";
         back_text.pos = [0, -2 * an2pix];
         fixation_point.opacity = 0.0;
     }
     if (intro_state === 1) {
         introduction_text.text = "Gaze at the center of the display. \n Then, hit \"Space\" key to display a lineup of images.";
         introduction_text.pos = [0, 4.5 * an2pix];
+        back_text.text = "Next: \"Space\" Key \n Back: \"b\" Key"
         back_text.pos = [0, -4.5 * an2pix];
         fixation_point.opacity = 1.0;
         for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
@@ -1029,7 +1049,7 @@ function exp_introRoutineEachFrame(snapshot) {
         stimuli_arrangement.opacity = 0.0;
     }
     if (intro_state === 3) {
-        introduction_text.text = "Then, press the key \n corresponding to \n the position.";
+        introduction_text.text = "press the key \n corresponding to \n the position.";
         fixation_point.opacity = 0.0;
         stimuli_arrangement.opacity = 1.0;
     }
@@ -2018,6 +2038,96 @@ function take_breakRoutineEnd(snapshot) {
 }
 
 
+var survey_code;
+var publish_surveycodeComponents;
+function publish_surveycodeRoutineBegin(snapshot) {
+  return function () {
+    //------Prepare to start Routine 'publish_surveycode'-------
+    t = 0;
+    publish_surveycodeClock.reset(); // clock
+    frameN = -1;
+    continueRoutine = true; // until we're told otherwise
+    // update component parameters for each repeat
+    survey_code = "";
+    for (var i = 0, _pj_a = 6; (i < _pj_a); i += 1) {
+        survey_code += (Math.floor(Math.random() * 10)).toString();
+    }
+    show_thanks_and_code.text = (("The experiment has finished. \n Thank you for your patience. \n\n Your survey code is " + survey_code) + ". \n\n Please type this code to this experiment page \n on amazon mturk.");
+    thisExp.addData("surveyCode", survey_code);
+    
+    // keep track of which components have finished
+    publish_surveycodeComponents = [];
+    publish_surveycodeComponents.push(show_thanks_and_code);
+    
+    publish_surveycodeComponents.forEach( function(thisComponent) {
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+       });
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+function publish_surveycodeRoutineEachFrame(snapshot) {
+  return function () {
+    //------Loop for each frame of Routine 'publish_surveycode'-------
+    // get current time
+    t = publish_surveycodeClock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    
+    // *show_thanks_and_code* updates
+    if (t >= 0.0 && show_thanks_and_code.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      show_thanks_and_code.tStart = t;  // (not accounting for frame time here)
+      show_thanks_and_code.frameNStart = frameN;  // exact frame index
+      
+      show_thanks_and_code.setAutoDraw(true);
+    }
+
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    publish_surveycodeComponents.forEach( function(thisComponent) {
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+      }
+    });
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+function publish_surveycodeRoutineEnd(snapshot) {
+  return function () {
+    //------Ending Routine 'publish_surveycode'-------
+    publish_surveycodeComponents.forEach( function(thisComponent) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    });
+    // the Routine "publish_surveycode" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
+    return Scheduler.Event.NEXT;
+  };
+}
+
+
 function endLoopIteration(scheduler, snapshot) {
   // ------Prepare for next entry------
   return function () {
@@ -2054,6 +2164,8 @@ function quitPsychoJS(message, isCompleted) {
   if (psychoJS.experiment.isEntryEmpty()) {
     psychoJS.experiment.nextEntry();
   }
+  
+  
   
   
   

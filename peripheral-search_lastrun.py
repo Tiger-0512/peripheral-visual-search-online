@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on Wed Jul 28 21:50:42 2021
+    on Thu Jul 29 21:00:17 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -41,7 +41,7 @@ os.chdir(_thisDir)
 # Store info about the experiment session
 psychopyVersion = '2021.1.4'
 expName = 'peripheral_visual_search'  # from the Builder filename that created this script
-expInfo = {'participant': ''}
+expInfo = {'WORKER ID': ''}
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
 if dlg.OK == False:
     core.quit()  # user pressed cancel
@@ -50,7 +50,7 @@ expInfo['expName'] = expName
 expInfo['psychopyVersion'] = psychopyVersion
 
 # Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
-filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])
+filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['WORKER ID'], expName, expInfo['date'])
 
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
@@ -295,7 +295,7 @@ introduction_text = visual.TextStim(win=win, name='introduction_text',
     languageStyle='LTR',
     depth=-19.0);
 back_text = visual.TextStim(win=win, name='back_text',
-    text='Next: “Space” Key\nBack: “b” Key',
+    text=None,
     font='Open Sans',
     pos=(0, -2 * an2pix), height=an2pix * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -305,7 +305,7 @@ back_text = visual.TextStim(win=win, name='back_text',
 # Initialize components for Routine "practice_intro"
 practice_introClock = core.Clock()
 introduction_text_p = visual.TextStim(win=win, name='introduction_text_p',
-    text="Let's practice with sample images.\n\nHit a “Space” key when ready.",
+    text="Let's practice with sample images.\n\nHit “Space” key when ready.",
     font='Open Sans',
     pos=(0, 0), height=an2pix * 0.7, wrapWidth=10000.0, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -408,6 +408,16 @@ break_text = visual.TextStim(win=win, name='break_text',
     languageStyle='LTR',
     depth=0.0);
 
+# Initialize components for Routine "publish_surveycode"
+publish_surveycodeClock = core.Clock()
+show_thanks_and_code = visual.TextStim(win=win, name='show_thanks_and_code',
+    text=None,
+    font='Open Sans',
+    pos=(0, 0), height=an2pix * 0.7, wrapWidth=10000.0, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
 routineTimer = core.CountdownTimer()  # to track time remaining of each (non-slip) routine 
@@ -419,7 +429,7 @@ event.clearEvents()
 
 resz = an2pix / ((x_scale + y_scale) / 2)
 distance = int(resz / (2 * math.tan(math.pi / 360)))
-text_bottom.text= 'Throughout this experiment, \n maintain a viewing distance at ' + str(distance) + 'cm \n\n Press the space bar when done.'
+text_bottom.text= 'Press "Space" key when done. \n\n Throughout this experiment, \n please maintain a viewing distance at ' + str(distance) + 'cm.'
 
 # keep track of which components have finished
 screen_scaleComponents = [text_top, text_bottom, ccimage]
@@ -472,7 +482,7 @@ while continueRoutine:
         resz = an2pix / ((x_scale + y_scale) / 2)
         distance = int(resz / (2 * math.tan(math.pi / 360)))
     
-        text_bottom.text= 'Throughout this experiment, \n maintain a viewing distance at ' + str(distance) + 'cm \n\n Press the space bar when done.'
+        text_bottom.text= 'Press the space bar when done. \n\n Throughout this experiment, \n please maintain a viewing distance at ' + str(distance) + 'cm.'
         ccimage.size=[x_size*x_scale, y_size*y_scale]
     
     
@@ -768,13 +778,15 @@ while continueRoutine:
     # if intro_state == 0:
     #     introduction_text.text = 'Throughout this experiment, \n maintain a viewing distance at {}cm.'.format(distance)
     if intro_state == 0:
-        introduction_text.text = 'The task is \n "To find a cat from animal images as soon as possible." \n\n The time limit is 5 sec.'
+        introduction_text.text = 'The task is \n "To find a cat from animal images as soon as possible." \n\n The time limit is 5 sec on each trial.'
         introduction_text.pos = (0, 2 * an2pix)
+        back_text.text = 'Next: "Space" Key'
         back_text.pos = (0, -2 * an2pix)
         fixation_point.opacity = 0.0
     if intro_state == 1:
         introduction_text.text = 'Gaze at the center of the display. \n\n Then, hit "Space" key to display a lineup of images.'
         introduction_text.pos = (0, 4.5 * an2pix)
+        back_text.text = 'Next: "Space" Key \n Back: "b" Key'
         back_text.pos = (0, -4.5 * an2pix)
         fixation_point.opacity = 1.0
         for i in range(len(image_list)):
@@ -1908,6 +1920,75 @@ for thisActualTrial in ActualTrials:
     
 # completed 4.0 repeats of 'ActualTrials'
 
+
+# ------Prepare to start Routine "publish_surveycode"-------
+continueRoutine = True
+# update component parameters for each repeat
+survey_code = ''
+for i in range(6):
+    survey_code += str(random.randrange(0, 10))
+
+show_thanks_and_code.text = 'The experiment has finished. \n Thank you for your patience. \n\n Your survey code is ' + survey_code + '. \n\n Please type this code to this experiment page \n on amazon mturk.'
+thisExp.addData('surveyCode',survey_code)
+
+# keep track of which components have finished
+publish_surveycodeComponents = [show_thanks_and_code]
+for thisComponent in publish_surveycodeComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+publish_surveycodeClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+frameN = -1
+
+# -------Run Routine "publish_surveycode"-------
+while continueRoutine:
+    # get current time
+    t = publish_surveycodeClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=publish_surveycodeClock)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *show_thanks_and_code* updates
+    if show_thanks_and_code.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        show_thanks_and_code.frameNStart = frameN  # exact frame index
+        show_thanks_and_code.tStart = t  # local t and not account for scr refresh
+        show_thanks_and_code.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(show_thanks_and_code, 'tStartRefresh')  # time at next scr refresh
+        show_thanks_and_code.setAutoDraw(True)
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in publish_surveycodeComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# -------Ending Routine "publish_surveycode"-------
+for thisComponent in publish_surveycodeComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+thisExp.addData('show_thanks_and_code.started', show_thanks_and_code.tStartRefresh)
+thisExp.addData('show_thanks_and_code.stopped', show_thanks_and_code.tStopRefresh)
+# the Routine "publish_surveycode" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
 
 # Flip one final time so any remaining win.callOnFlip() 
 # and win.timeOnFlip() tasks get executed before quitting
