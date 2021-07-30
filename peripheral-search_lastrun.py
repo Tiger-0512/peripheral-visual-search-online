@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on Thu Jul 29 21:00:17 2021
+    on Sat Jul 31 03:32:05 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -290,14 +290,14 @@ stimuli_arrangement = visual.ImageStim(
 introduction_text = visual.TextStim(win=win, name='introduction_text',
     text=None,
     font='Open Sans',
-    pos=(0, 2 * an2pix), height=an2pix * 0.7, wrapWidth=10000.0, ori=0.0, 
+    pos=(0, 2 * an2pix), height=an2pix * 0.5, wrapWidth=10000.0, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-19.0);
 back_text = visual.TextStim(win=win, name='back_text',
     text=None,
     font='Open Sans',
-    pos=(0, -2 * an2pix), height=an2pix * 0.5, wrapWidth=None, ori=0.0, 
+    pos=(0, -2 * an2pix), height=an2pix * 0.4, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-20.0);
@@ -344,7 +344,7 @@ show_feedbackClock = core.Clock()
 feedback_text = visual.TextStim(win=win, name='feedback_text',
     text='feedback text',
     font='Open Sans',
-    pos=(0, 0), height=an2pix * 0.7, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=an2pix, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -392,7 +392,7 @@ show_feedbackClock = core.Clock()
 feedback_text = visual.TextStim(win=win, name='feedback_text',
     text='feedback text',
     font='Open Sans',
-    pos=(0, 0), height=an2pix * 0.7, wrapWidth=None, ori=0.0, 
+    pos=(0, 0), height=an2pix, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
@@ -792,7 +792,7 @@ while continueRoutine:
         for i in range(len(image_list)):
             image_list[i].opacity = 0.0
     if intro_state == 2:
-        introduction_text.text = 'Hit "Space" key \n as soon as you find a cat \n with your eye moving.'
+        introduction_text.text = 'Hit "Space" key \n as soon as you find a cat. \n You can freely move your eyes \n on this screen.'
         introduction_text.pos = (9 * an2pix, 0)
         back_text.pos = (-9 * an2pix, 0)
         for i in range(len(image_list)):
@@ -1244,10 +1244,12 @@ for thisPracticeTrial in PracticeTrials:
     continueRoutine = True
     # update component parameters for each repeat
     if key_to_pos[key_ans.keys][0] == pos and key_to_pos[key_ans.keys][1] == ori:
-        feedback_text.text = 'Your answer is correct!'
+        feedback_text.text = 'Correct!'
+        feedback_text.color = 'springgreen'
         thisExp.addData('TF', 'True')
     else:
-        feedback_text.text = 'Your answer is incorrect.'
+        feedback_text.text = 'Wrong'
+        feedback_text.color = 'orangered'
         thisExp.addData('TF', 'False')
     
     show_fb_key_resp.keys = []
@@ -1753,10 +1755,12 @@ for thisActualTrial in ActualTrials:
     continueRoutine = True
     # update component parameters for each repeat
     if key_to_pos[key_ans.keys][0] == pos and key_to_pos[key_ans.keys][1] == ori:
-        feedback_text.text = 'Your answer is correct!'
+        feedback_text.text = 'Correct!'
+        feedback_text.color = 'springgreen'
         thisExp.addData('TF', 'True')
     else:
-        feedback_text.text = 'Your answer is incorrect.'
+        feedback_text.text = 'Wrong'
+        feedback_text.color = 'orangered'
         thisExp.addData('TF', 'False')
     
     show_fb_key_resp.keys = []

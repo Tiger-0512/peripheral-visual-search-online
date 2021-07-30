@@ -403,7 +403,7 @@ function experimentInit() {
     text: '',
     font: 'Open Sans',
     units: undefined, 
-    pos: [0, (2 * an2pix)], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
+    pos: [0, (2 * an2pix)], height: an2pix * 0.6,  wrapWidth: 10000.0, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: -19.0 
   });
@@ -476,7 +476,7 @@ function experimentInit() {
     text: 'feedback text',
     font: 'Open Sans',
     units: undefined, 
-    pos: [0, 0], height: an2pix * 0.7,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: an2pix,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
@@ -540,7 +540,7 @@ function experimentInit() {
     text: 'feedback text',
     font: 'Open Sans',
     units: undefined, 
-    pos: [0, 0], height: an2pix * 0.7,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], height: an2pix,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
@@ -1040,7 +1040,7 @@ function exp_introRoutineEachFrame(snapshot) {
         }
     }
     if (intro_state === 2) {
-        introduction_text.text = "Hit \"Space\" key \n as soon as you find a cat \n with your eye moving.";
+        introduction_text.text = "Hit \"Space\" key \n as soon as you find a cat. \n You can freely move your eyes \n on this screen.";
         introduction_text.pos = [9 * an2pix, 0];
         back_text.pos = [-9 * an2pix, 0];
         for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
@@ -1716,10 +1716,12 @@ function show_feedbackRoutineBegin(snapshot) {
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
     if ((key_to_pos[key_ans.keys][0] === pos) && (key_to_pos[key_ans.keys][1] === ori)) {
-        feedback_text.text = "Your answer is correct!";
+        feedback_text.text = "Correct!";
+        feedback_text.color = "springgreen";
         thisExp.addData("TF", "True");
     } else {
-        feedback_text.text = "Your answer is incorrect.";
+        feedback_text.text = "Wrong";
+        feedback_text.color = "orangered";
         thisExp.addData("TF", "False");
     }
     
