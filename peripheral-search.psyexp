@@ -1224,8 +1224,8 @@
         <Param name="Before JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
-        <Param name="Begin JS Routine" updates="constant" val="survey_code = &quot;&quot;;&amp;#10;for (var i = 0, _pj_a = 6; (i &lt; _pj_a); i += 1) {&amp;#10;    survey_code += (Math.floor(Math.random() * 10)).toString();&amp;#10;}&amp;#10;show_thanks_and_code.text = ((&quot;The experiment has finished. \n Thank you for your patience. \n\n Your survey code is &quot; + survey_code) + &quot;. \n\n Please type this code to this experiment page \n on amazon mturk.&quot;);&amp;#10;thisExp.addData(&quot;surveyCode&quot;, survey_code);&amp;#10;" valType="extendedCode"/>
-        <Param name="Begin Routine" updates="constant" val="survey_code = ''&amp;#10;for i in range(6):&amp;#10;    survey_code += str(random.randrange(0, 10))&amp;#10;&amp;#10;show_thanks_and_code.text = 'The experiment has finished. \n Thank you for your patience. \n\n Your survey code is ' + survey_code + '. \n\n Please type this code to this experiment page \n on amazon mturk.'&amp;#10;thisExp.addData('surveyCode',survey_code)&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="survey_code = &quot;&quot;;&amp;#10;for (var i = 0, _pj_a = 6; (i &lt; _pj_a); i += 1) {&amp;#10;    survey_code += (Math.floor(Math.random() * 10)).toString();&amp;#10;}&amp;#10;show_thanks_and_code.text = ((&quot;The experiment has finished. \n Thank you for your patience. \n\n Your survey code is &quot; + survey_code) + &quot;. \n\n Please type this code to this experiment page \n on amazon mturk. \n If you done, press \&quot;f\&quot; key to finish the experiment.&quot;);&amp;#10;thisExp.addData(&quot;surveyCode&quot;, survey_code);&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="survey_code = ''&amp;#10;for i in range(6):&amp;#10;    survey_code += str(random.randrange(0, 10))&amp;#10;&amp;#10;show_thanks_and_code.text = 'The experiment has finished. \n Thank you for your patience. \n\n Your survey code is ' + survey_code + '. \n\n Please type this code to this experiment page \n on amazon mturk. \n If you done, press &quot;f&quot; key to finish the experiment.'&amp;#10;thisExp.addData('surveyCode',survey_code)&amp;#10;" valType="extendedCode"/>
         <Param name="Code Type" updates="None" val="Both" valType="str"/>
         <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
         <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
@@ -1236,6 +1236,24 @@
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="create_code" valType="code"/>
       </CodeComponent>
+      <KeyboardComponent name="finish_key_resp">
+        <Param name="allowedKeys" updates="constant" val="'f'" valType="list"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="num"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="finish_key_resp" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="num"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="num"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="num"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
     </Routine>
   </Routines>
   <Flow>
@@ -1266,7 +1284,7 @@
       <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
       <Param name="isTrials" updates="None" val="True" valType="bool"/>
       <Param name="loopType" updates="None" val="random" valType="str"/>
-      <Param name="nReps" updates="None" val="4" valType="num"/>
+      <Param name="nReps" updates="None" val="2" valType="num"/>
       <Param name="name" updates="None" val="ActualTrials" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>

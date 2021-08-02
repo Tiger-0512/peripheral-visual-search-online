@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on Sat Jul 31 03:32:05 2021
+    on Mon Aug  2 21:25:07 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -55,7 +55,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['WORKER ID'], expName
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/tiger/Scripts_GoogleDrive/research/peripheral-visual-search-gitlab/peripheral-search_lastrun.py',
+    originPath='/Users/tiger/Scripts_GoogleDrive/research/peripheral-visual-search-ns/peripheral-search_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -290,14 +290,14 @@ stimuli_arrangement = visual.ImageStim(
 introduction_text = visual.TextStim(win=win, name='introduction_text',
     text=None,
     font='Open Sans',
-    pos=(0, 2 * an2pix), height=an2pix * 0.5, wrapWidth=10000.0, ori=0.0, 
+    pos=(0, 2 * an2pix), height=an2pix * 0.6, wrapWidth=10000.0, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-19.0);
 back_text = visual.TextStim(win=win, name='back_text',
     text=None,
     font='Open Sans',
-    pos=(0, -2 * an2pix), height=an2pix * 0.4, wrapWidth=None, ori=0.0, 
+    pos=(0, -2 * an2pix), height=an2pix * 0.5, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-20.0);
@@ -417,6 +417,7 @@ show_thanks_and_code = visual.TextStim(win=win, name='show_thanks_and_code',
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
+finish_key_resp = keyboard.Keyboard()
 
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
@@ -1427,7 +1428,7 @@ for thisComponent in actual_introComponents:
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-ActualTrials = data.TrialHandler(nReps=4.0, method='random', 
+ActualTrials = data.TrialHandler(nReps=2.0, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('conditions/expConditions.xlsx'),
     seed=None, name='ActualTrials')
@@ -1922,7 +1923,7 @@ for thisActualTrial in ActualTrials:
     routineTimer.reset()
     thisExp.nextEntry()
     
-# completed 4.0 repeats of 'ActualTrials'
+# completed 2.0 repeats of 'ActualTrials'
 
 
 # ------Prepare to start Routine "publish_surveycode"-------
@@ -1932,11 +1933,14 @@ survey_code = ''
 for i in range(6):
     survey_code += str(random.randrange(0, 10))
 
-show_thanks_and_code.text = 'The experiment has finished. \n Thank you for your patience. \n\n Your survey code is ' + survey_code + '. \n\n Please type this code to this experiment page \n on amazon mturk.'
+show_thanks_and_code.text = 'The experiment has finished. \n Thank you for your patience. \n\n Your survey code is ' + survey_code + '. \n\n Please type this code to this experiment page \n on amazon mturk. \n If you done, press "f" key to finish the experiment.'
 thisExp.addData('surveyCode',survey_code)
 
+finish_key_resp.keys = []
+finish_key_resp.rt = []
+_finish_key_resp_allKeys = []
 # keep track of which components have finished
-publish_surveycodeComponents = [show_thanks_and_code]
+publish_surveycodeComponents = [show_thanks_and_code, finish_key_resp]
 for thisComponent in publish_surveycodeComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -1967,6 +1971,28 @@ while continueRoutine:
         show_thanks_and_code.tStartRefresh = tThisFlipGlobal  # on global time
         win.timeOnFlip(show_thanks_and_code, 'tStartRefresh')  # time at next scr refresh
         show_thanks_and_code.setAutoDraw(True)
+    
+    # *finish_key_resp* updates
+    waitOnFlip = False
+    if finish_key_resp.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        finish_key_resp.frameNStart = frameN  # exact frame index
+        finish_key_resp.tStart = t  # local t and not account for scr refresh
+        finish_key_resp.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(finish_key_resp, 'tStartRefresh')  # time at next scr refresh
+        finish_key_resp.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(finish_key_resp.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(finish_key_resp.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if finish_key_resp.status == STARTED and not waitOnFlip:
+        theseKeys = finish_key_resp.getKeys(keyList=['f'], waitRelease=False)
+        _finish_key_resp_allKeys.extend(theseKeys)
+        if len(_finish_key_resp_allKeys):
+            finish_key_resp.keys = _finish_key_resp_allKeys[-1].name  # just the last key pressed
+            finish_key_resp.rt = _finish_key_resp_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
     
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):

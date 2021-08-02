@@ -172,6 +172,7 @@ var take_breakClock;
 var break_text;
 var publish_surveycodeClock;
 var show_thanks_and_code;
+var finish_key_resp;
 var globalClock;
 var routineTimer;
 function experimentInit() {
@@ -572,6 +573,8 @@ function experimentInit() {
     color: new util.Color('white'),  opacity: undefined,
     depth: 0.0 
   });
+  
+  finish_key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
   // Create some handy timers
   globalClock = new util.Clock();  // to track the time since experiment started
@@ -1263,7 +1266,7 @@ function ActualTrialsLoopBegin(ActualTrialsLoopScheduler) {
   // set up handler to look after randomisation of conditions etc
   ActualTrials = new TrialHandler({
     psychoJS: psychoJS,
-    nReps: 4, method: TrialHandler.Method.RANDOM,
+    nReps: 2, method: TrialHandler.Method.RANDOM,
     extraInfo: expInfo, originPath: undefined,
     trialList: 'conditions/expConditions.xlsx',
     seed: undefined, name: 'ActualTrials'
@@ -2041,6 +2044,7 @@ function take_breakRoutineEnd(snapshot) {
 
 
 var survey_code;
+var _finish_key_resp_allKeys;
 var publish_surveycodeComponents;
 function publish_surveycodeRoutineBegin(snapshot) {
   return function () {
@@ -2054,12 +2058,16 @@ function publish_surveycodeRoutineBegin(snapshot) {
     for (var i = 0, _pj_a = 6; (i < _pj_a); i += 1) {
         survey_code += (Math.floor(Math.random() * 10)).toString();
     }
-    show_thanks_and_code.text = (("The experiment has finished. \n Thank you for your patience. \n\n Your survey code is " + survey_code) + ". \n\n Please type this code to this experiment page \n on amazon mturk.");
+    show_thanks_and_code.text = (("The experiment has finished. \n Thank you for your patience. \n\n Your survey code is " + survey_code) + ". \n\n Please type this code to this experiment page \n on amazon mturk. \n If you done, press \"f\" key to finish the experiment.");
     thisExp.addData("surveyCode", survey_code);
     
+    finish_key_resp.keys = undefined;
+    finish_key_resp.rt = undefined;
+    _finish_key_resp_allKeys = [];
     // keep track of which components have finished
     publish_surveycodeComponents = [];
     publish_surveycodeComponents.push(show_thanks_and_code);
+    publish_surveycodeComponents.push(finish_key_resp);
     
     publish_surveycodeComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -2087,6 +2095,30 @@ function publish_surveycodeRoutineEachFrame(snapshot) {
       show_thanks_and_code.setAutoDraw(true);
     }
 
+    
+    // *finish_key_resp* updates
+    if (t >= 0.0 && finish_key_resp.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      finish_key_resp.tStart = t;  // (not accounting for frame time here)
+      finish_key_resp.frameNStart = frameN;  // exact frame index
+      
+      // keyboard checking is just starting
+      psychoJS.window.callOnFlip(function() { finish_key_resp.clock.reset(); });  // t=0 on next screen flip
+      psychoJS.window.callOnFlip(function() { finish_key_resp.start(); }); // start on screen flip
+      psychoJS.window.callOnFlip(function() { finish_key_resp.clearEvents(); });
+    }
+
+    if (finish_key_resp.status === PsychoJS.Status.STARTED) {
+      let theseKeys = finish_key_resp.getKeys({keyList: ['f'], waitRelease: false});
+      _finish_key_resp_allKeys = _finish_key_resp_allKeys.concat(theseKeys);
+      if (_finish_key_resp_allKeys.length > 0) {
+        finish_key_resp.keys = _finish_key_resp_allKeys[_finish_key_resp_allKeys.length - 1].name;  // just the last key pressed
+        finish_key_resp.rt = _finish_key_resp_allKeys[_finish_key_resp_allKeys.length - 1].rt;
+        // a response ends the routine
+        continueRoutine = false;
+      }
+    }
+    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -2122,6 +2154,7 @@ function publish_surveycodeRoutineEnd(snapshot) {
         thisComponent.setAutoDraw(false);
       }
     });
+    finish_key_resp.stop();
     // the Routine "publish_surveycode" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
