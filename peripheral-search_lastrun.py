@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on Mon Aug  2 21:25:07 2021
+    on Tue Aug  3 15:50:31 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -119,13 +119,20 @@ text_top = visual.TextStim(win=win, name='text_top',
     color='white', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
     depth=-2.0);
+text_middle = visual.TextStim(win=win, name='text_middle',
+    text='Press "Space" key when done.',
+    font='Open Sans',
+    units='norm', pos=(0, -0.5), height=0.07, wrapWidth=1.5, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=-3.0);
 text_bottom = visual.TextStim(win=win, name='text_bottom',
     text=None,
     font='Arial',
-    units='norm', pos=(0, -.6), height=0.07, wrapWidth=1.5, ori=0, 
-    color='white', colorSpace='rgb', opacity=1, 
+    units='norm', pos=(0, -0.7), height=0.07, wrapWidth=1.5, ori=0, 
+    color='springgreen', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=-3.0);
+    depth=-4.0);
 ccimage = visual.ImageStim(
     win=win,
     name='ccimage', 
@@ -133,7 +140,7 @@ ccimage = visual.ImageStim(
     ori=0, pos=(0, 0), size=(x_size*x_scale, y_size*y_scale),
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
-    texRes=512, interpolate=True, depth=-4.0)
+    texRes=512, interpolate=True, depth=-5.0)
 
 # Initialize components for Routine "exp_intro"
 exp_introClock = core.Clock()
@@ -430,10 +437,10 @@ event.clearEvents()
 
 resz = an2pix / ((x_scale + y_scale) / 2)
 distance = int(resz / (2 * math.tan(math.pi / 360)))
-text_bottom.text= 'Press "Space" key when done. \n\n Throughout this experiment, \n please maintain a viewing distance at ' + str(distance) + 'cm.'
+text_bottom.text= 'Throughout this experiment, \n please maintain a viewing distance at ' + str(distance) + 'cm.'
 
 # keep track of which components have finished
-screen_scaleComponents = [text_top, text_bottom, ccimage]
+screen_scaleComponents = [text_top, text_middle, text_bottom, ccimage]
 for thisComponent in screen_scaleComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -483,7 +490,7 @@ while continueRoutine:
         resz = an2pix / ((x_scale + y_scale) / 2)
         distance = int(resz / (2 * math.tan(math.pi / 360)))
     
-        text_bottom.text= 'Press the space bar when done. \n\n Throughout this experiment, \n please maintain a viewing distance at ' + str(distance) + 'cm.'
+        text_bottom.text= 'Throughout this experiment, \n please maintain a viewing distance at ' + str(distance) + 'cm.'
         ccimage.size=[x_size*x_scale, y_size*y_scale]
     
     
@@ -496,6 +503,15 @@ while continueRoutine:
         text_top.tStartRefresh = tThisFlipGlobal  # on global time
         win.timeOnFlip(text_top, 'tStartRefresh')  # time at next scr refresh
         text_top.setAutoDraw(True)
+    
+    # *text_middle* updates
+    if text_middle.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text_middle.frameNStart = frameN  # exact frame index
+        text_middle.tStart = t  # local t and not account for scr refresh
+        text_middle.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text_middle, 'tStartRefresh')  # time at next scr refresh
+        text_middle.setAutoDraw(True)
     
     # *text_bottom* updates
     if text_bottom.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
@@ -539,6 +555,8 @@ for thisComponent in screen_scaleComponents:
 thisExp.addData('X Scale',x_scale)
 thisExp.addData('Y Scale',y_scale)
 
+thisExp.addData('text_middle.started', text_middle.tStartRefresh)
+thisExp.addData('text_middle.stopped', text_middle.tStopRefresh)
 # the Routine "screen_scale" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
@@ -779,7 +797,7 @@ while continueRoutine:
     # if intro_state == 0:
     #     introduction_text.text = 'Throughout this experiment, \n maintain a viewing distance at {}cm.'.format(distance)
     if intro_state == 0:
-        introduction_text.text = 'The task is \n "To find a cat from animal images as soon as possible." \n\n The time limit is 5 sec on each trial.'
+        introduction_text.text = 'The task is \n "To find a cat from animal images as soon as possible." \n\n The time limit is 10 sec on each trial.'
         introduction_text.pos = (0, 2 * an2pix)
         back_text.text = 'Next: "Space" Key'
         back_text.pos = (0, -2 * an2pix)
@@ -1118,7 +1136,7 @@ for thisPracticeTrial in PracticeTrials:
                 show_stim_key_resp.rt = _show_stim_key_resp_allKeys[-1].rt
                 # a response ends the routine
                 continueRoutine = False
-        if show_stimClock.getTime() > 6:
+        if show_stimClock.getTime() > 11:
             continueRoutine = False
         
         
@@ -1629,7 +1647,7 @@ for thisActualTrial in ActualTrials:
                 show_stim_key_resp.rt = _show_stim_key_resp_allKeys[-1].rt
                 # a response ends the routine
                 continueRoutine = False
-        if show_stimClock.getTime() > 6:
+        if show_stimClock.getTime() > 11:
             continueRoutine = False
         
         
@@ -1852,7 +1870,7 @@ for thisActualTrial in ActualTrials:
     # ------Prepare to start Routine "take_break"-------
     continueRoutine = True
     # update component parameters for each repeat
-    if ActualTrials.thisTrialN != 47 or reps == 3:
+    if ActualTrials.thisTrialN != 47 or reps == 1:
         continueRoutine=False
     else:
         reps += 1

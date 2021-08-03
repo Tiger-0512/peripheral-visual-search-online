@@ -118,6 +118,7 @@ var unittext;
 var vsize;
 var an2pix;
 var text_top;
+var text_middle;
 var text_bottom;
 var ccimage;
 var exp_introClock;
@@ -221,15 +222,26 @@ function experimentInit() {
     depth: -2.0 
   });
   
+  text_middle = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_middle',
+    text: 'Press "Space" key when done.',
+    font: 'Open Sans',
+    units: 'norm', 
+    pos: [0, (- 0.5)], height: 0.07,  wrapWidth: 1.5, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -3.0 
+  });
+  
   text_bottom = new visual.TextStim({
     win: psychoJS.window,
     name: 'text_bottom',
     text: '',
     font: 'Arial',
     units: 'norm', 
-    pos: [0, (- 0.6)], height: 0.07,  wrapWidth: 1.5, ori: 0,
-    color: new util.Color('white'),  opacity: 1,
-    depth: -3.0 
+    pos: [0, (- 0.7)], height: 0.07,  wrapWidth: 1.5, ori: 0,
+    color: new util.Color('springgreen'),  opacity: 1,
+    depth: -4.0 
   });
   
   ccimage = new visual.ImageStim({
@@ -239,7 +251,7 @@ function experimentInit() {
     ori : 0, pos : [0, 0], size : [(x_size * x_scale), (y_size * y_scale)],
     color : new util.Color([1, 1, 1]), opacity : 1,
     flipHoriz : false, flipVert : false,
-    texRes : 512, interpolate : true, depth : -4.0 
+    texRes : 512, interpolate : true, depth : -5.0 
   });
   // Initialize components for Routine "exp_intro"
   exp_introClock = new util.Clock();
@@ -601,11 +613,12 @@ function screen_scaleRoutineBegin(snapshot) {
     event.clearEvents();
     resz = (an2pix / ((x_scale + y_scale) / 2));
     distance = Number.parseInt((resz / (2 * Math.tan((Math.PI / 360)))));
-    text_bottom.text = (("Press \"Space\" key when done. \n\n Throughout this experiment, \n please maintain a viewing distance at " + distance.toString()) + "cm.");
+    text_bottom.text = (("Throughout this experiment, \n please maintain a viewing distance at " + distance.toString()) + "cm.");
     
     // keep track of which components have finished
     screen_scaleComponents = [];
     screen_scaleComponents.push(text_top);
+    screen_scaleComponents.push(text_middle);
     screen_scaleComponents.push(text_bottom);
     screen_scaleComponents.push(ccimage);
     
@@ -680,7 +693,7 @@ function screen_scaleRoutineEachFrame(snapshot) {
         screen_height = (round(((vsize * 10) / y_scale)) / 10);
         resz = (an2pix / ((x_scale + y_scale) / 2));
         distance = Number.parseInt((resz / (2 * Math.tan((Math.PI / 360)))));
-        text_bottom.text = (("Press the space bar when done. \n\n Throughout this experiment, \n please maintain a viewing distance at " + distance.toString()) + "cm.");
+        text_bottom.text = (("Throughout this experiment, \n please maintain a viewing distance at " + distance.toString()) + "cm.");
         ccimage.size = [(x_size * x_scale), (y_size * y_scale)];
     }
     
@@ -692,6 +705,16 @@ function screen_scaleRoutineEachFrame(snapshot) {
       text_top.frameNStart = frameN;  // exact frame index
       
       text_top.setAutoDraw(true);
+    }
+
+    
+    // *text_middle* updates
+    if (t >= 0.0 && text_middle.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_middle.tStart = t;  // (not accounting for frame time here)
+      text_middle.frameNStart = frameN;  // exact frame index
+      
+      text_middle.setAutoDraw(true);
     }
 
     
@@ -1026,7 +1049,7 @@ function exp_introRoutineEachFrame(snapshot) {
     //     introduction_text.text = "Throughout this experiment, \n maintain a viewing distance at " + distance.toString() + "cm.";
     // }
     if (intro_state === 0) {
-        introduction_text.text = "The task is \n \"To find a cat from animal images as soon as possible.\" \n The time limit is 5 sec on each trial.";
+        introduction_text.text = "The task is \n \"To find a cat from animal images as soon as possible.\" \n The time limit is 10 sec on each trial.";
         introduction_text.pos = [0, 2 * an2pix];
         back_text.text = "Next: \"Space\" Key";
         back_text.pos = [0, -2 * an2pix];
@@ -1052,7 +1075,7 @@ function exp_introRoutineEachFrame(snapshot) {
         stimuli_arrangement.opacity = 0.0;
     }
     if (intro_state === 3) {
-        introduction_text.text = "press the key \n corresponding to \n the position.";
+        introduction_text.text = "Then, press the key \n corresponding to \n the position.";
         fixation_point.opacity = 0.0;
         stimuli_arrangement.opacity = 1.0;
     }
@@ -1531,7 +1554,7 @@ function show_stimRoutineEachFrame(snapshot) {
       }
     }
     
-    if ((show_stimClock.getTime() > 6)) {
+    if ((show_stimClock.getTime() > 11)) {
         continueRoutine = false;
     }
     
@@ -1954,7 +1977,7 @@ function take_breakRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    if ((count != 47) || (reps == 3)) {
+    if ((count != 47) || (reps == 1)) {
         count += 1;
         continueRoutine = false;
     } else {
