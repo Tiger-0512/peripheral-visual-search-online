@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on Mon Aug 16 15:13:30 2021
+    on Tue Aug 17 02:40:02 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -287,7 +287,7 @@ back_text = visual.TextStim(win=win, name='back_text',
 # Initialize components for Routine "practiceIntro"
 practiceIntroClock = core.Clock()
 introduction_text_p = visual.TextStim(win=win, name='introduction_text_p',
-    text="Let's practice with sample images.\n\nHit “Space” key when ready.",
+    text="Let's practice with sample images.\n\nHit “Space” key when ready.\n\n\n\n\n\nEye movement instruction:\n\nBefore each trial, gaze at the central fixation marker.\nAfter hitting “Space” key to display a lineup of alphabets,\nyou may freely move your eyes to find “N”.",
     font='Open Sans',
     pos=(0, 0), height=an2pix * 0.7, wrapWidth=10000.0, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -313,7 +313,7 @@ show_stim_key_resp = keyboard.Keyboard()
 # Initialize components for Routine "askQuestion"
 askQuestionClock = core.Clock()
 question_text = visual.TextStim(win=win, name='question_text',
-    text='Where was the cat?\nPlease press the key.',
+    text='Where was “N”?\nPlease press the key.',
     font='Open Sans',
     pos=(10 * an2pix, 0), height=an2pix * 0.7, wrapWidth=10000.0, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -361,7 +361,7 @@ show_stim_key_resp = keyboard.Keyboard()
 # Initialize components for Routine "askQuestion"
 askQuestionClock = core.Clock()
 question_text = visual.TextStim(win=win, name='question_text',
-    text='Where was the cat?\nPlease press the key.',
+    text='Where was “N”?\nPlease press the key.',
     font='Open Sans',
     pos=(10 * an2pix, 0), height=an2pix * 0.7, wrapWidth=10000.0, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 

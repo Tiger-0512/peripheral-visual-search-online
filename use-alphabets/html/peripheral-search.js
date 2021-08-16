@@ -472,7 +472,7 @@ function experimentInit() {
   introduction_text_p = new visual.TextStim({
     win: psychoJS.window,
     name: 'introduction_text_p',
-    text: "Let's practice with sample images.\n\nHit “Space” key when ready.",
+    text: "Let's practice with sample alphabets.\n\nHit “Space” key when ready.\n\n\n\n\nEye movement instruction:\nBefore each trial, gaze at the central fixation marker.\nAfter hitting “Space” key to display a lineup of alphabets,\nyou may freely move your eyes to find “N”.",
     font: 'Open Sans',
     units: undefined, 
     pos: [0, 0], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
@@ -506,7 +506,7 @@ function experimentInit() {
   question_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'question_text',
-    text: 'Where was the cat?\nPlease press the key.',
+    text: 'Where was “N”?\nPlease press the key.',
     font: 'Open Sans',
     units: undefined, 
     pos: [(10 * an2pix), 0], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
@@ -570,7 +570,7 @@ function experimentInit() {
   question_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'question_text',
-    text: 'Where was the cat?\nPlease press the key.',
+    text: 'Where was “N”?\nPlease press the key.',
     font: 'Open Sans',
     units: undefined, 
     pos: [(10 * an2pix), 0], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
