@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on Tue Aug  3 15:50:31 2021
+    on Mon Aug 16 12:03:03 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -55,7 +55,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['WORKER ID'], expName
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/tiger/Scripts_GoogleDrive/research/peripheral-visual-search-ns/peripheral-search_lastrun.py',
+    originPath='/Users/tiger/Scripts_GoogleDrive/research/peripheral-visual-search-pavlovia/peripheral-search_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 # save a log file for detail verbose info
@@ -84,8 +84,8 @@ else:
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard()
 
-# Initialize components for Routine "screen_scale"
-screen_scaleClock = core.Clock()
+# Initialize components for Routine "screenScale"
+screenScaleClock = core.Clock()
 oldt=0
 x_size=8.560
 y_size=5.398
@@ -136,14 +136,14 @@ text_bottom = visual.TextStim(win=win, name='text_bottom',
 ccimage = visual.ImageStim(
     win=win,
     name='ccimage', 
-    image='bank-1300155_640.png', mask=None,
+    image='html/resources/bank-1300155_640.png', mask=None,
     ori=0, pos=(0, 0), size=(x_size*x_scale, y_size*y_scale),
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
     texRes=512, interpolate=True, depth=-5.0)
 
-# Initialize components for Routine "exp_intro"
-exp_introClock = core.Clock()
+# Initialize components for Routine "expIntro"
+expIntroClock = core.Clock()
 target_class = 'cat'
 non_target_classes = [
     'dog',
@@ -309,8 +309,8 @@ back_text = visual.TextStim(win=win, name='back_text',
     languageStyle='LTR',
     depth=-20.0);
 
-# Initialize components for Routine "practice_intro"
-practice_introClock = core.Clock()
+# Initialize components for Routine "practiceIntro"
+practiceIntroClock = core.Clock()
 introduction_text_p = visual.TextStim(win=win, name='introduction_text_p',
     text="Let's practice with sample images.\n\nHit “Space” key when ready.",
     font='Open Sans',
@@ -331,12 +331,12 @@ gitter_text = visual.TextStim(win=win, name='gitter_text',
     languageStyle='LTR',
     depth=-3.0);
 
-# Initialize components for Routine "show_stim"
-show_stimClock = core.Clock()
+# Initialize components for Routine "showStim"
+showStimClock = core.Clock()
 show_stim_key_resp = keyboard.Keyboard()
 
-# Initialize components for Routine "ask_question"
-ask_questionClock = core.Clock()
+# Initialize components for Routine "askQuestion"
+askQuestionClock = core.Clock()
 question_text = visual.TextStim(win=win, name='question_text',
     text='Where was the cat?\nPlease press the key.',
     font='Open Sans',
@@ -346,8 +346,8 @@ question_text = visual.TextStim(win=win, name='question_text',
     depth=0.0);
 key_ans = keyboard.Keyboard()
 
-# Initialize components for Routine "show_feedback"
-show_feedbackClock = core.Clock()
+# Initialize components for Routine "showFeedback"
+showFeedbackClock = core.Clock()
 feedback_text = visual.TextStim(win=win, name='feedback_text',
     text='feedback text',
     font='Open Sans',
@@ -379,12 +379,12 @@ gitter_text = visual.TextStim(win=win, name='gitter_text',
     languageStyle='LTR',
     depth=-3.0);
 
-# Initialize components for Routine "show_stim"
-show_stimClock = core.Clock()
+# Initialize components for Routine "showStim"
+showStimClock = core.Clock()
 show_stim_key_resp = keyboard.Keyboard()
 
-# Initialize components for Routine "ask_question"
-ask_questionClock = core.Clock()
+# Initialize components for Routine "askQuestion"
+askQuestionClock = core.Clock()
 question_text = visual.TextStim(win=win, name='question_text',
     text='Where was the cat?\nPlease press the key.',
     font='Open Sans',
@@ -394,8 +394,8 @@ question_text = visual.TextStim(win=win, name='question_text',
     depth=0.0);
 key_ans = keyboard.Keyboard()
 
-# Initialize components for Routine "show_feedback"
-show_feedbackClock = core.Clock()
+# Initialize components for Routine "showFeedback"
+showFeedbackClock = core.Clock()
 feedback_text = visual.TextStim(win=win, name='feedback_text',
     text='feedback text',
     font='Open Sans',
@@ -405,8 +405,8 @@ feedback_text = visual.TextStim(win=win, name='feedback_text',
     depth=0.0);
 show_fb_key_resp = keyboard.Keyboard()
 
-# Initialize components for Routine "take_break"
-take_breakClock = core.Clock()
+# Initialize components for Routine "takeBreak"
+takeBreakClock = core.Clock()
 break_text = visual.TextStim(win=win, name='break_text',
     text='Please take a short break.\n\nIf the experiment is ready, \nthe window will change to the fixation point.',
     font='Open Sans',
@@ -415,8 +415,8 @@ break_text = visual.TextStim(win=win, name='break_text',
     languageStyle='LTR',
     depth=0.0);
 
-# Initialize components for Routine "publish_surveycode"
-publish_surveycodeClock = core.Clock()
+# Initialize components for Routine "publishSurveyCode"
+publishSurveyCodeClock = core.Clock()
 show_thanks_and_code = visual.TextStim(win=win, name='show_thanks_and_code',
     text=None,
     font='Open Sans',
@@ -430,7 +430,7 @@ finish_key_resp = keyboard.Keyboard()
 globalClock = core.Clock()  # to track the time since experiment started
 routineTimer = core.CountdownTimer()  # to track time remaining of each (non-slip) routine 
 
-# ------Prepare to start Routine "screen_scale"-------
+# ------Prepare to start Routine "screenScale"-------
 continueRoutine = True
 # update component parameters for each repeat
 event.clearEvents()
@@ -440,8 +440,8 @@ distance = int(resz / (2 * math.tan(math.pi / 360)))
 text_bottom.text= 'Throughout this experiment, \n please maintain a viewing distance at ' + str(distance) + 'cm.'
 
 # keep track of which components have finished
-screen_scaleComponents = [text_top, text_middle, text_bottom, ccimage]
-for thisComponent in screen_scaleComponents:
+screenScaleComponents = [text_top, text_middle, text_bottom, ccimage]
+for thisComponent in screenScaleComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
     thisComponent.tStartRefresh = None
@@ -451,14 +451,14 @@ for thisComponent in screen_scaleComponents:
 # reset timers
 t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-screen_scaleClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+screenScaleClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 
-# -------Run Routine "screen_scale"-------
+# -------Run Routine "screenScale"-------
 while continueRoutine:
     # get current time
-    t = screen_scaleClock.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=screen_scaleClock)
+    t = screenScaleClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=screenScaleClock)
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
@@ -539,7 +539,7 @@ while continueRoutine:
     if not continueRoutine:  # a component has requested a forced-end of Routine
         break
     continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in screen_scaleComponents:
+    for thisComponent in screenScaleComponents:
         if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
             continueRoutine = True
             break  # at least one component has not yet finished
@@ -548,8 +548,8 @@ while continueRoutine:
     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
         win.flip()
 
-# -------Ending Routine "screen_scale"-------
-for thisComponent in screen_scaleComponents:
+# -------Ending Routine "screenScale"-------
+for thisComponent in screenScaleComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 thisExp.addData('X Scale',x_scale)
@@ -557,10 +557,10 @@ thisExp.addData('Y Scale',y_scale)
 
 thisExp.addData('text_middle.started', text_middle.tStartRefresh)
 thisExp.addData('text_middle.stopped', text_middle.tStopRefresh)
-# the Routine "screen_scale" was not non-slip safe, so reset the non-slip timer
+# the Routine "screenScale" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
-# ------Prepare to start Routine "exp_intro"-------
+# ------Prepare to start Routine "expIntro"-------
 continueRoutine = True
 # update component parameters for each repeat
 hw_rate = win.size[1] / win.size[0]
@@ -616,8 +616,8 @@ stimuli_arrangement.size = (
     an2pix * (2 * eccentricities[2] / math.sqrt(2) + 8),
 )
 # keep track of which components have finished
-exp_introComponents = [image_0_0, image_0_1, image_0_2, image_0_3, image_1_0, image_1_1, image_1_2, image_1_3, image_2_0, image_2_1, image_2_2, image_2_3, fixation_point, stimuli_arrangement, introduction_text, back_text]
-for thisComponent in exp_introComponents:
+expIntroComponents = [image_0_0, image_0_1, image_0_2, image_0_3, image_1_0, image_1_1, image_1_2, image_1_3, image_2_0, image_2_1, image_2_2, image_2_3, fixation_point, stimuli_arrangement, introduction_text, back_text]
+for thisComponent in expIntroComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
     thisComponent.tStartRefresh = None
@@ -627,14 +627,14 @@ for thisComponent in exp_introComponents:
 # reset timers
 t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-exp_introClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+expIntroClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 
-# -------Run Routine "exp_intro"-------
+# -------Run Routine "expIntro"-------
 while continueRoutine:
     # get current time
-    t = exp_introClock.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=exp_introClock)
+    t = expIntroClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=expIntroClock)
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
@@ -833,7 +833,7 @@ while continueRoutine:
     if not continueRoutine:  # a component has requested a forced-end of Routine
         break
     continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in exp_introComponents:
+    for thisComponent in expIntroComponents:
         if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
             continueRoutine = True
             break  # at least one component has not yet finished
@@ -842,22 +842,22 @@ while continueRoutine:
     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
         win.flip()
 
-# -------Ending Routine "exp_intro"-------
-for thisComponent in exp_introComponents:
+# -------Ending Routine "expIntro"-------
+for thisComponent in expIntroComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# the Routine "exp_intro" was not non-slip safe, so reset the non-slip timer
+# the Routine "expIntro" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
-# ------Prepare to start Routine "practice_intro"-------
+# ------Prepare to start Routine "practiceIntro"-------
 continueRoutine = True
 # update component parameters for each repeat
 practice_info_key_resp.keys = []
 practice_info_key_resp.rt = []
 _practice_info_key_resp_allKeys = []
 # keep track of which components have finished
-practice_introComponents = [introduction_text_p, practice_info_key_resp]
-for thisComponent in practice_introComponents:
+practiceIntroComponents = [introduction_text_p, practice_info_key_resp]
+for thisComponent in practiceIntroComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
     thisComponent.tStartRefresh = None
@@ -867,14 +867,14 @@ for thisComponent in practice_introComponents:
 # reset timers
 t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-practice_introClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+practiceIntroClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 
-# -------Run Routine "practice_intro"-------
+# -------Run Routine "practiceIntro"-------
 while continueRoutine:
     # get current time
-    t = practice_introClock.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=practice_introClock)
+    t = practiceIntroClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=practiceIntroClock)
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
@@ -918,7 +918,7 @@ while continueRoutine:
     if not continueRoutine:  # a component has requested a forced-end of Routine
         break
     continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in practice_introComponents:
+    for thisComponent in practiceIntroComponents:
         if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
             continueRoutine = True
             break  # at least one component has not yet finished
@@ -927,11 +927,11 @@ while continueRoutine:
     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
         win.flip()
 
-# -------Ending Routine "practice_intro"-------
-for thisComponent in practice_introComponents:
+# -------Ending Routine "practiceIntro"-------
+for thisComponent in practiceIntroComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# the Routine "practice_intro" was not non-slip safe, so reset the non-slip timer
+# the Routine "practiceIntro" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
@@ -1054,7 +1054,7 @@ for thisPracticeTrial in PracticeTrials:
     # the Routine "gitter" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
-    # ------Prepare to start Routine "show_stim"-------
+    # ------Prepare to start Routine "showStim"-------
     continueRoutine = True
     # update component parameters for each repeat
     _non_target_classes = random.sample(non_target_classes, len(non_target_classes))
@@ -1086,8 +1086,8 @@ for thisPracticeTrial in PracticeTrials:
     show_stim_key_resp.rt = []
     _show_stim_key_resp_allKeys = []
     # keep track of which components have finished
-    show_stimComponents = [show_stim_key_resp]
-    for thisComponent in show_stimComponents:
+    showStimComponents = [show_stim_key_resp]
+    for thisComponent in showStimComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -1097,20 +1097,20 @@ for thisPracticeTrial in PracticeTrials:
     # reset timers
     t = 0
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    show_stimClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    showStimClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
     frameN = -1
     
-    # -------Run Routine "show_stim"-------
+    # -------Run Routine "showStim"-------
     while continueRoutine:
         # get current time
-        t = show_stimClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=show_stimClock)
+        t = showStimClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=showStimClock)
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         fixation_point.draw()
         
-        if show_stimClock.getTime() > 1:
+        if showStimClock.getTime() > 1:
             for i in range(len(image_list)):
                 image_list[i].draw()
         
@@ -1136,7 +1136,7 @@ for thisPracticeTrial in PracticeTrials:
                 show_stim_key_resp.rt = _show_stim_key_resp_allKeys[-1].rt
                 # a response ends the routine
                 continueRoutine = False
-        if show_stimClock.getTime() > 11:
+        if showStimClock.getTime() > 11:
             continueRoutine = False
         
         
@@ -1148,7 +1148,7 @@ for thisPracticeTrial in PracticeTrials:
         if not continueRoutine:  # a component has requested a forced-end of Routine
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in show_stimComponents:
+        for thisComponent in showStimComponents:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -1157,23 +1157,23 @@ for thisPracticeTrial in PracticeTrials:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # -------Ending Routine "show_stim"-------
-    for thisComponent in show_stimComponents:
+    # -------Ending Routine "showStim"-------
+    for thisComponent in showStimComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    thisExp.addData('reactionTime', show_stimClock.getTime() - 1)
-    # the Routine "show_stim" was not non-slip safe, so reset the non-slip timer
+    thisExp.addData('reactionTime', showStimClock.getTime() - 1)
+    # the Routine "showStim" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
-    # ------Prepare to start Routine "ask_question"-------
+    # ------Prepare to start Routine "askQuestion"-------
     continueRoutine = True
     # update component parameters for each repeat
     key_ans.keys = []
     key_ans.rt = []
     _key_ans_allKeys = []
     # keep track of which components have finished
-    ask_questionComponents = [question_text, key_ans]
-    for thisComponent in ask_questionComponents:
+    askQuestionComponents = [question_text, key_ans]
+    for thisComponent in askQuestionComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -1183,14 +1183,14 @@ for thisPracticeTrial in PracticeTrials:
     # reset timers
     t = 0
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    ask_questionClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    askQuestionClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
     frameN = -1
     
-    # -------Run Routine "ask_question"-------
+    # -------Run Routine "askQuestion"-------
     while continueRoutine:
         # get current time
-        t = ask_questionClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=ask_questionClock)
+        t = askQuestionClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=askQuestionClock)
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
@@ -1235,7 +1235,7 @@ for thisPracticeTrial in PracticeTrials:
         if not continueRoutine:  # a component has requested a forced-end of Routine
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in ask_questionComponents:
+        for thisComponent in askQuestionComponents:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -1244,8 +1244,8 @@ for thisPracticeTrial in PracticeTrials:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # -------Ending Routine "ask_question"-------
-    for thisComponent in ask_questionComponents:
+    # -------Ending Routine "askQuestion"-------
+    for thisComponent in askQuestionComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     # check responses
@@ -1256,10 +1256,10 @@ for thisPracticeTrial in PracticeTrials:
         PracticeTrials.addData('key_ans.rt', key_ans.rt)
     PracticeTrials.addData('key_ans.started', key_ans.tStartRefresh)
     PracticeTrials.addData('key_ans.stopped', key_ans.tStopRefresh)
-    # the Routine "ask_question" was not non-slip safe, so reset the non-slip timer
+    # the Routine "askQuestion" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
-    # ------Prepare to start Routine "show_feedback"-------
+    # ------Prepare to start Routine "showFeedback"-------
     continueRoutine = True
     # update component parameters for each repeat
     if key_to_pos[key_ans.keys][0] == pos and key_to_pos[key_ans.keys][1] == ori:
@@ -1275,8 +1275,8 @@ for thisPracticeTrial in PracticeTrials:
     show_fb_key_resp.rt = []
     _show_fb_key_resp_allKeys = []
     # keep track of which components have finished
-    show_feedbackComponents = [feedback_text, show_fb_key_resp]
-    for thisComponent in show_feedbackComponents:
+    showFeedbackComponents = [feedback_text, show_fb_key_resp]
+    for thisComponent in showFeedbackComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -1286,14 +1286,14 @@ for thisPracticeTrial in PracticeTrials:
     # reset timers
     t = 0
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    show_feedbackClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    showFeedbackClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
     frameN = -1
     
-    # -------Run Routine "show_feedback"-------
+    # -------Run Routine "showFeedback"-------
     while continueRoutine:
         # get current time
-        t = show_feedbackClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=show_feedbackClock)
+        t = showFeedbackClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=showFeedbackClock)
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
@@ -1306,7 +1306,7 @@ for thisPracticeTrial in PracticeTrials:
             feedback_text.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(feedback_text, 'tStartRefresh')  # time at next scr refresh
             feedback_text.setAutoDraw(True)
-        if show_feedbackClock.getTime() > 1:
+        if showFeedbackClock.getTime() > 1:
             continueRoutine=False
         
         
@@ -1340,7 +1340,7 @@ for thisPracticeTrial in PracticeTrials:
         if not continueRoutine:  # a component has requested a forced-end of Routine
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in show_feedbackComponents:
+        for thisComponent in showFeedbackComponents:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -1349,11 +1349,11 @@ for thisPracticeTrial in PracticeTrials:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # -------Ending Routine "show_feedback"-------
-    for thisComponent in show_feedbackComponents:
+    # -------Ending Routine "showFeedback"-------
+    for thisComponent in showFeedbackComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # the Routine "show_feedback" was not non-slip safe, so reset the non-slip timer
+    # the Routine "showFeedback" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
     
@@ -1565,7 +1565,7 @@ for thisActualTrial in ActualTrials:
     # the Routine "gitter" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
-    # ------Prepare to start Routine "show_stim"-------
+    # ------Prepare to start Routine "showStim"-------
     continueRoutine = True
     # update component parameters for each repeat
     _non_target_classes = random.sample(non_target_classes, len(non_target_classes))
@@ -1597,8 +1597,8 @@ for thisActualTrial in ActualTrials:
     show_stim_key_resp.rt = []
     _show_stim_key_resp_allKeys = []
     # keep track of which components have finished
-    show_stimComponents = [show_stim_key_resp]
-    for thisComponent in show_stimComponents:
+    showStimComponents = [show_stim_key_resp]
+    for thisComponent in showStimComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -1608,20 +1608,20 @@ for thisActualTrial in ActualTrials:
     # reset timers
     t = 0
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    show_stimClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    showStimClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
     frameN = -1
     
-    # -------Run Routine "show_stim"-------
+    # -------Run Routine "showStim"-------
     while continueRoutine:
         # get current time
-        t = show_stimClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=show_stimClock)
+        t = showStimClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=showStimClock)
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         fixation_point.draw()
         
-        if show_stimClock.getTime() > 1:
+        if showStimClock.getTime() > 1:
             for i in range(len(image_list)):
                 image_list[i].draw()
         
@@ -1647,7 +1647,7 @@ for thisActualTrial in ActualTrials:
                 show_stim_key_resp.rt = _show_stim_key_resp_allKeys[-1].rt
                 # a response ends the routine
                 continueRoutine = False
-        if show_stimClock.getTime() > 11:
+        if showStimClock.getTime() > 11:
             continueRoutine = False
         
         
@@ -1659,7 +1659,7 @@ for thisActualTrial in ActualTrials:
         if not continueRoutine:  # a component has requested a forced-end of Routine
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in show_stimComponents:
+        for thisComponent in showStimComponents:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -1668,23 +1668,23 @@ for thisActualTrial in ActualTrials:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # -------Ending Routine "show_stim"-------
-    for thisComponent in show_stimComponents:
+    # -------Ending Routine "showStim"-------
+    for thisComponent in showStimComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    thisExp.addData('reactionTime', show_stimClock.getTime() - 1)
-    # the Routine "show_stim" was not non-slip safe, so reset the non-slip timer
+    thisExp.addData('reactionTime', showStimClock.getTime() - 1)
+    # the Routine "showStim" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
-    # ------Prepare to start Routine "ask_question"-------
+    # ------Prepare to start Routine "askQuestion"-------
     continueRoutine = True
     # update component parameters for each repeat
     key_ans.keys = []
     key_ans.rt = []
     _key_ans_allKeys = []
     # keep track of which components have finished
-    ask_questionComponents = [question_text, key_ans]
-    for thisComponent in ask_questionComponents:
+    askQuestionComponents = [question_text, key_ans]
+    for thisComponent in askQuestionComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -1694,14 +1694,14 @@ for thisActualTrial in ActualTrials:
     # reset timers
     t = 0
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    ask_questionClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    askQuestionClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
     frameN = -1
     
-    # -------Run Routine "ask_question"-------
+    # -------Run Routine "askQuestion"-------
     while continueRoutine:
         # get current time
-        t = ask_questionClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=ask_questionClock)
+        t = askQuestionClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=askQuestionClock)
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
@@ -1746,7 +1746,7 @@ for thisActualTrial in ActualTrials:
         if not continueRoutine:  # a component has requested a forced-end of Routine
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in ask_questionComponents:
+        for thisComponent in askQuestionComponents:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -1755,8 +1755,8 @@ for thisActualTrial in ActualTrials:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # -------Ending Routine "ask_question"-------
-    for thisComponent in ask_questionComponents:
+    # -------Ending Routine "askQuestion"-------
+    for thisComponent in askQuestionComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     # check responses
@@ -1767,10 +1767,10 @@ for thisActualTrial in ActualTrials:
         ActualTrials.addData('key_ans.rt', key_ans.rt)
     ActualTrials.addData('key_ans.started', key_ans.tStartRefresh)
     ActualTrials.addData('key_ans.stopped', key_ans.tStopRefresh)
-    # the Routine "ask_question" was not non-slip safe, so reset the non-slip timer
+    # the Routine "askQuestion" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
-    # ------Prepare to start Routine "show_feedback"-------
+    # ------Prepare to start Routine "showFeedback"-------
     continueRoutine = True
     # update component parameters for each repeat
     if key_to_pos[key_ans.keys][0] == pos and key_to_pos[key_ans.keys][1] == ori:
@@ -1786,8 +1786,8 @@ for thisActualTrial in ActualTrials:
     show_fb_key_resp.rt = []
     _show_fb_key_resp_allKeys = []
     # keep track of which components have finished
-    show_feedbackComponents = [feedback_text, show_fb_key_resp]
-    for thisComponent in show_feedbackComponents:
+    showFeedbackComponents = [feedback_text, show_fb_key_resp]
+    for thisComponent in showFeedbackComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -1797,14 +1797,14 @@ for thisActualTrial in ActualTrials:
     # reset timers
     t = 0
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    show_feedbackClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    showFeedbackClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
     frameN = -1
     
-    # -------Run Routine "show_feedback"-------
+    # -------Run Routine "showFeedback"-------
     while continueRoutine:
         # get current time
-        t = show_feedbackClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=show_feedbackClock)
+        t = showFeedbackClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=showFeedbackClock)
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
@@ -1817,7 +1817,7 @@ for thisActualTrial in ActualTrials:
             feedback_text.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(feedback_text, 'tStartRefresh')  # time at next scr refresh
             feedback_text.setAutoDraw(True)
-        if show_feedbackClock.getTime() > 1:
+        if showFeedbackClock.getTime() > 1:
             continueRoutine=False
         
         
@@ -1851,7 +1851,7 @@ for thisActualTrial in ActualTrials:
         if not continueRoutine:  # a component has requested a forced-end of Routine
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in show_feedbackComponents:
+        for thisComponent in showFeedbackComponents:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -1860,15 +1860,16 @@ for thisActualTrial in ActualTrials:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # -------Ending Routine "show_feedback"-------
-    for thisComponent in show_feedbackComponents:
+    # -------Ending Routine "showFeedback"-------
+    for thisComponent in showFeedbackComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    # the Routine "show_feedback" was not non-slip safe, so reset the non-slip timer
+    # the Routine "showFeedback" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
-    # ------Prepare to start Routine "take_break"-------
+    # ------Prepare to start Routine "takeBreak"-------
     continueRoutine = True
+    routineTimer.add(30.000000)
     # update component parameters for each repeat
     if ActualTrials.thisTrialN != 47 or reps == 1:
         continueRoutine=False
@@ -1879,8 +1880,8 @@ for thisActualTrial in ActualTrials:
         idx_list[target_class] = random.sample(idx, len(idx))
     
     # keep track of which components have finished
-    take_breakComponents = [break_text]
-    for thisComponent in take_breakComponents:
+    takeBreakComponents = [break_text]
+    for thisComponent in takeBreakComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -1890,14 +1891,14 @@ for thisActualTrial in ActualTrials:
     # reset timers
     t = 0
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    take_breakClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+    takeBreakClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
     frameN = -1
     
-    # -------Run Routine "take_break"-------
-    while continueRoutine:
+    # -------Run Routine "takeBreak"-------
+    while continueRoutine and routineTimer.getTime() > 0:
         # get current time
-        t = take_breakClock.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=take_breakClock)
+        t = takeBreakClock.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=takeBreakClock)
         tThisFlipGlobal = win.getFutureFlipTime(clock=None)
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
@@ -1910,8 +1911,16 @@ for thisActualTrial in ActualTrials:
             break_text.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(break_text, 'tStartRefresh')  # time at next scr refresh
             break_text.setAutoDraw(True)
-        if take_breakClock.getTime() > 30:
-            continueRoutine = False
+        if break_text.status == STARTED:
+            # is it time to stop? (based on global clock, using actual start)
+            if tThisFlipGlobal > break_text.tStartRefresh + 30.0-frameTolerance:
+                # keep track of stop time/frame for later
+                break_text.tStop = t  # not accounting for scr refresh
+                break_text.frameNStop = frameN  # exact frame index
+                win.timeOnFlip(break_text, 'tStopRefresh')  # time at next scr refresh
+                break_text.setAutoDraw(False)
+        # if takeBreakClock.getTime() > 30:
+        #     continueRoutine = False
         
         
         # check for quit (typically the Esc key)
@@ -1922,7 +1931,7 @@ for thisActualTrial in ActualTrials:
         if not continueRoutine:  # a component has requested a forced-end of Routine
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in take_breakComponents:
+        for thisComponent in takeBreakComponents:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -1931,20 +1940,18 @@ for thisActualTrial in ActualTrials:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # -------Ending Routine "take_break"-------
-    for thisComponent in take_breakComponents:
+    # -------Ending Routine "takeBreak"-------
+    for thisComponent in takeBreakComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     ActualTrials.addData('break_text.started', break_text.tStartRefresh)
     ActualTrials.addData('break_text.stopped', break_text.tStopRefresh)
-    # the Routine "take_break" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
     thisExp.nextEntry()
     
 # completed 2.0 repeats of 'ActualTrials'
 
 
-# ------Prepare to start Routine "publish_surveycode"-------
+# ------Prepare to start Routine "publishSurveyCode"-------
 continueRoutine = True
 # update component parameters for each repeat
 survey_code = ''
@@ -1958,8 +1965,8 @@ finish_key_resp.keys = []
 finish_key_resp.rt = []
 _finish_key_resp_allKeys = []
 # keep track of which components have finished
-publish_surveycodeComponents = [show_thanks_and_code, finish_key_resp]
-for thisComponent in publish_surveycodeComponents:
+publishSurveyCodeComponents = [show_thanks_and_code, finish_key_resp]
+for thisComponent in publishSurveyCodeComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
     thisComponent.tStartRefresh = None
@@ -1969,14 +1976,14 @@ for thisComponent in publish_surveycodeComponents:
 # reset timers
 t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-publish_surveycodeClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
+publishSurveyCodeClock.reset(-_timeToFirstFrame)  # t0 is time of first possible flip
 frameN = -1
 
-# -------Run Routine "publish_surveycode"-------
+# -------Run Routine "publishSurveyCode"-------
 while continueRoutine:
     # get current time
-    t = publish_surveycodeClock.getTime()
-    tThisFlip = win.getFutureFlipTime(clock=publish_surveycodeClock)
+    t = publishSurveyCodeClock.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=publishSurveyCodeClock)
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
@@ -2020,7 +2027,7 @@ while continueRoutine:
     if not continueRoutine:  # a component has requested a forced-end of Routine
         break
     continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in publish_surveycodeComponents:
+    for thisComponent in publishSurveyCodeComponents:
         if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
             continueRoutine = True
             break  # at least one component has not yet finished
@@ -2029,13 +2036,13 @@ while continueRoutine:
     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
         win.flip()
 
-# -------Ending Routine "publish_surveycode"-------
-for thisComponent in publish_surveycodeComponents:
+# -------Ending Routine "publishSurveyCode"-------
+for thisComponent in publishSurveyCodeComponents:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 thisExp.addData('show_thanks_and_code.started', show_thanks_and_code.tStartRefresh)
 thisExp.addData('show_thanks_and_code.stopped', show_thanks_and_code.tStopRefresh)
-# the Routine "publish_surveycode" was not non-slip safe, so reset the non-slip timer
+# the Routine "publishSurveyCode" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # Flip one final time so any remaining win.callOnFlip() 
