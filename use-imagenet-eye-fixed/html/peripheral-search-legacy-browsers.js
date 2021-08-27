@@ -126,7 +126,7 @@ var target_class;
 var non_target_classes;
 var ans_keys_list;
 var key_to_pos;
-var hw_rate;
+var ans_text_list;
 var idx;
 var idx_list;
 var intro_state;
@@ -148,8 +148,20 @@ var image_2_0;
 var image_2_1;
 var image_2_2;
 var image_2_3;
-var fixation_point;
 var stimuli_arrangement;
+var ans_0_0;
+var ans_0_1;
+var ans_0_2;
+var ans_0_3;
+var ans_1_0;
+var ans_1_1;
+var ans_1_2;
+var ans_1_3;
+var ans_2_0;
+var ans_2_1;
+var ans_2_2;
+var ans_2_3;
+var fixation_point;
 var introduction_text;
 var back_text;
 var practiceIntroClock;
@@ -158,7 +170,6 @@ var practice_info_key_resp;
 var gitterClock;
 var gitter_text;
 var mouse;
-var exp_start;
 var showStimClock;
 var fake_key_resp;
 var brankClock;
@@ -166,6 +177,7 @@ var fake_key_resp_2;
 var askQuestionClock;
 var question_text;
 var key_ans;
+var ans_mouse;
 var showFeedbackClock;
 var feedback_text;
 var show_fb_key_resp;
@@ -269,7 +281,7 @@ function experimentInit() {
       }
   }
   
-  hw_rate = win.size[1] / win.size[0];
+  ans_text_list = ["2", "1", "3", "4", "7", "5", "6", "8", "10", "9", "11", "12"];
   
   idx = range(101, 148);
   idx = idx.map(x => x.toString().slice(1));
@@ -395,15 +407,6 @@ function experimentInit() {
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -14.0 
   });
-  fixation_point = new visual.Polygon ({
-    win: psychoJS.window, name: 'fixation_point', 
-    edges: 100, size:[1.0, 1.0],
-    ori: 0.0, pos: [0, 0],
-    lineWidth: 1.0, lineColor: new util.Color([0.5059, 0.5059, 0.5059]),
-    fillColor: new util.Color([0.5059, 0.5059, 0.5059]),
-    opacity: 1.0, depth: -16, interpolate: true,
-  });
-  
   stimuli_arrangement = new visual.ImageStim({
     win : psychoJS.window,
     name : 'stimuli_arrangement', units : undefined, 
@@ -411,8 +414,149 @@ function experimentInit() {
     ori : 0.0, pos : [0, 0], size : [an2pix, an2pix],
     color : new util.Color([1, 1, 1]), opacity : 0.0,
     flipHoriz : false, flipVert : false,
-    texRes : 128.0, interpolate : true, depth : -17.0 
+    texRes : 128.0, interpolate : true, depth : -16.0 
   });
+  ans_0_0 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'ans_0_0',
+    text: '',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: 2 * an2pix,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -18.0 
+  });
+  
+  ans_0_1 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'ans_0_1',
+    text: '',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: 2 * an2pix,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -19.0 
+  });
+  
+  ans_0_2 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'ans_0_2',
+    text: '',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: 2 * an2pix,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -20.0 
+  });
+  
+  ans_0_3 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'ans_0_3',
+    text: '',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: 2 * an2pix,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -21.0 
+  });
+  
+  ans_1_0 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'ans_1_0',
+    text: '',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: 2 * an2pix,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -22.0 
+  });
+  
+  ans_1_1 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'ans_1_1',
+    text: '',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: 2 * an2pix,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -23.0 
+  });
+  
+  ans_1_2 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'ans_1_2',
+    text: '',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: 2 * an2pix,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -24.0 
+  });
+  
+  ans_1_3 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'ans_1_3',
+    text: '',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: 2 * an2pix,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -25.0 
+  });
+  
+  ans_2_0 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'ans_2_0',
+    text: '',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: 2 * an2pix,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -26.0 
+  });
+  
+  ans_2_1 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'ans_2_1',
+    text: '',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: 2 * an2pix,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -27.0 
+  });
+  
+  ans_2_2 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'ans_2_2',
+    text: '',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: 2 * an2pix,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -28.0 
+  });
+  
+  ans_2_3 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'ans_2_3',
+    text: '',
+    font: 'Open Sans',
+    units: undefined, 
+    pos: [0, 0], height: 2 * an2pix,  wrapWidth: undefined, ori: 0.0,
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -29.0 
+  });
+  
+  fixation_point = new visual.Polygon ({
+    win: psychoJS.window, name: 'fixation_point', 
+    edges: 100, size:[1.0, 1.0],
+    ori: 0.0, pos: [0, 0],
+    lineWidth: 1.0, lineColor: new util.Color([0.5059, 0.5059, 0.5059]),
+    fillColor: new util.Color([0.5059, 0.5059, 0.5059]),
+    opacity: 1.0, depth: -32, interpolate: true,
+  });
+  
   introduction_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'introduction_text',
@@ -421,7 +565,7 @@ function experimentInit() {
     units: undefined, 
     pos: [0, (2 * an2pix)], height: an2pix * 0.6,  wrapWidth: 10000.0, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
-    depth: -19.0 
+    depth: -33.0 
   });
   
   back_text = new visual.TextStim({
@@ -432,7 +576,7 @@ function experimentInit() {
     units: undefined, 
     pos: [0, ((- 2) * an2pix)], height: an2pix * 0.5,  wrapWidth: undefined, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
-    depth: -20.0 
+    depth: -34.0 
   });
   
   // Initialize components for Routine "practiceIntro"
@@ -455,27 +599,18 @@ function experimentInit() {
   gitter_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'gitter_text',
-    text: 'Press “Space” key to start.',
+    text: 'Click the center circle to start.',
     font: 'Open Sans',
     units: undefined, 
-    pos: [0, ((- an2pix) * 1.5)], height: an2pix * 0.7,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, ((- an2pix) * 1.5)], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
-    depth: -2.0 
+    depth: -1.0 
   });
   
   mouse = new core.Mouse({
     win: psychoJS.window,
   });
   mouse.mouseClock = new util.Clock();
-  exp_start = new visual.Polygon ({
-    win: psychoJS.window, name: 'exp_start', 
-    edges: 100, size:[(an2pix / 3), (an2pix / 3)],
-    ori: 0.0, pos: [0, 0],
-    lineWidth: 1.0, lineColor: new util.Color('white'),
-    fillColor: new util.Color('white'),
-    opacity: undefined, depth: -4, interpolate: true,
-  });
-  
   // Initialize components for Routine "showStim"
   showStimClock = new util.Clock();
   fake_key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
@@ -489,7 +624,7 @@ function experimentInit() {
   question_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'question_text',
-    text: 'Where was the cat?\nPlease press the key.',
+    text: 'Where was the cat?\nPlease click the number.',
     font: 'Open Sans',
     units: undefined, 
     pos: [(10 * an2pix), 0], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
@@ -499,6 +634,10 @@ function experimentInit() {
   
   key_ans = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
+  ans_mouse = new core.Mouse({
+    win: psychoJS.window,
+  });
+  ans_mouse.mouseClock = new util.Clock();
   // Initialize components for Routine "showFeedback"
   showFeedbackClock = new util.Clock();
   feedback_text = new visual.TextStim({
@@ -534,27 +673,18 @@ function experimentInit() {
   gitter_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'gitter_text',
-    text: 'Press “Space” key to start.',
+    text: 'Click the center circle to start.',
     font: 'Open Sans',
     units: undefined, 
-    pos: [0, ((- an2pix) * 1.5)], height: an2pix * 0.7,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, ((- an2pix) * 1.5)], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
     color: new util.Color('white'),  opacity: undefined,
-    depth: -2.0 
+    depth: -1.0 
   });
   
   mouse = new core.Mouse({
     win: psychoJS.window,
   });
   mouse.mouseClock = new util.Clock();
-  exp_start = new visual.Polygon ({
-    win: psychoJS.window, name: 'exp_start', 
-    edges: 100, size:[(an2pix / 3), (an2pix / 3)],
-    ori: 0.0, pos: [0, 0],
-    lineWidth: 1.0, lineColor: new util.Color('white'),
-    fillColor: new util.Color('white'),
-    opacity: undefined, depth: -4, interpolate: true,
-  });
-  
   // Initialize components for Routine "showStim"
   showStimClock = new util.Clock();
   fake_key_resp = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
@@ -564,7 +694,7 @@ function experimentInit() {
   question_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'question_text',
-    text: 'Where was the cat?\nPlease press the key.',
+    text: 'Where was the cat?\nPlease click the number.',
     font: 'Open Sans',
     units: undefined, 
     pos: [(10 * an2pix), 0], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
@@ -574,6 +704,10 @@ function experimentInit() {
   
   key_ans = new core.Keyboard({psychoJS: psychoJS, clock: new util.Clock(), waitForStart: true});
   
+  ans_mouse = new core.Mouse({
+    win: psychoJS.window,
+  });
+  ans_mouse.mouseClock = new util.Clock();
   // Initialize components for Routine "showFeedback"
   showFeedbackClock = new util.Clock();
   feedback_text = new visual.TextStim({
@@ -813,6 +947,8 @@ function screenScaleRoutineEnd(snapshot) {
 
 
 var image_list;
+var ans_list;
+var ans_to_pos;
 var expIntroComponents;
 function expIntroRoutineBegin(snapshot) {
   return function () {
@@ -822,8 +958,6 @@ function expIntroRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    hw_rate = win.size[1] / win.size[0];
-    
     image_0_0.setSize([an2pix, an2pix]);
     image_0_1.setSize([an2pix, an2pix]);
     image_0_2.setSize([an2pix, an2pix]);
@@ -858,13 +992,40 @@ function expIntroRoutineBegin(snapshot) {
         }
     }
     
-    fixation_point.setOpacity(0.0);
-    fixation_point.setSize([(an2pix / 3), (an2pix / 3)]);
     stimuli_arrangement.size = [
         an2pix * (2 * eccentricities[2] / Math.sqrt(2) + 8),
         an2pix * (2 * eccentricities[2] / Math.sqrt(2) + 8)
     ];
     
+    ans_list = [ans_0_0, ans_0_1, ans_0_2, ans_0_3, ans_1_0, ans_1_1, ans_1_2, ans_1_3, ans_2_0, ans_2_1, ans_2_2, ans_2_3];
+    
+    for (var i = 0, _pj_a = ans_list.length; (i < _pj_a); i += 1) {
+        if (i < 4) {
+            ans_list[i].pos = [
+                an2pix * eccentricities[0] * Math.cos(calcRad((i % 4) * 90 + 45)),
+                an2pix * eccentricities[0] * Math.sin(calcRad((i % 4) * 90 + 45))
+            ];
+        } else {
+            if ((4 <= i) && (i < 8)) {
+                ans_list[i].pos = [
+                    an2pix * eccentricities[1] * Math.cos(calcRad((i % 4) * 90)),
+                    an2pix * eccentricities[1] * Math.sin(calcRad((i % 4) * 90))
+                ];
+            } else {
+                ans_list[i].pos = [
+                    an2pix * eccentricities[2] * Math.cos(calcRad((i % 4) * 90 + 45)),
+                    an2pix * eccentricities[2] * Math.sin(calcRad((i % 4) * 90 + 45))
+                ];
+            }
+        }
+    }
+    ans_to_pos = {};
+    for (var i = 0, _pj_a = ans_list.length; (i < _pj_a); i += 1) {
+        ans_to_pos[ans_list[i].name] = [(Number.parseInt((i / 4)) % 3), (i % 4)];
+    }
+    
+    fixation_point.setOpacity(0.0);
+    fixation_point.setSize([(an2pix / 3), (an2pix / 3)]);
     // keep track of which components have finished
     expIntroComponents = [];
     expIntroComponents.push(image_0_0);
@@ -879,8 +1040,20 @@ function expIntroRoutineBegin(snapshot) {
     expIntroComponents.push(image_2_1);
     expIntroComponents.push(image_2_2);
     expIntroComponents.push(image_2_3);
-    expIntroComponents.push(fixation_point);
     expIntroComponents.push(stimuli_arrangement);
+    expIntroComponents.push(ans_0_0);
+    expIntroComponents.push(ans_0_1);
+    expIntroComponents.push(ans_0_2);
+    expIntroComponents.push(ans_0_3);
+    expIntroComponents.push(ans_1_0);
+    expIntroComponents.push(ans_1_1);
+    expIntroComponents.push(ans_1_2);
+    expIntroComponents.push(ans_1_3);
+    expIntroComponents.push(ans_2_0);
+    expIntroComponents.push(ans_2_1);
+    expIntroComponents.push(ans_2_2);
+    expIntroComponents.push(ans_2_3);
+    expIntroComponents.push(fixation_point);
     expIntroComponents.push(introduction_text);
     expIntroComponents.push(back_text);
     
@@ -1021,16 +1194,6 @@ function expIntroRoutineEachFrame(snapshot) {
     }
 
     
-    // *fixation_point* updates
-    if (t >= 0.0 && fixation_point.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      fixation_point.tStart = t;  // (not accounting for frame time here)
-      fixation_point.frameNStart = frameN;  // exact frame index
-      
-      fixation_point.setAutoDraw(true);
-    }
-
-    
     // *stimuli_arrangement* updates
     if (t >= 0.0 && stimuli_arrangement.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
@@ -1038,6 +1201,136 @@ function expIntroRoutineEachFrame(snapshot) {
       stimuli_arrangement.frameNStart = frameN;  // exact frame index
       
       stimuli_arrangement.setAutoDraw(true);
+    }
+
+    
+    // *ans_0_0* updates
+    if (t >= 0.0 && ans_0_0.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      ans_0_0.tStart = t;  // (not accounting for frame time here)
+      ans_0_0.frameNStart = frameN;  // exact frame index
+      
+      ans_0_0.setAutoDraw(true);
+    }
+
+    
+    // *ans_0_1* updates
+    if (t >= 0.0 && ans_0_1.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      ans_0_1.tStart = t;  // (not accounting for frame time here)
+      ans_0_1.frameNStart = frameN;  // exact frame index
+      
+      ans_0_1.setAutoDraw(true);
+    }
+
+    
+    // *ans_0_2* updates
+    if (t >= 0.0 && ans_0_2.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      ans_0_2.tStart = t;  // (not accounting for frame time here)
+      ans_0_2.frameNStart = frameN;  // exact frame index
+      
+      ans_0_2.setAutoDraw(true);
+    }
+
+    
+    // *ans_0_3* updates
+    if (t >= 0.0 && ans_0_3.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      ans_0_3.tStart = t;  // (not accounting for frame time here)
+      ans_0_3.frameNStart = frameN;  // exact frame index
+      
+      ans_0_3.setAutoDraw(true);
+    }
+
+    
+    // *ans_1_0* updates
+    if (t >= 0.0 && ans_1_0.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      ans_1_0.tStart = t;  // (not accounting for frame time here)
+      ans_1_0.frameNStart = frameN;  // exact frame index
+      
+      ans_1_0.setAutoDraw(true);
+    }
+
+    
+    // *ans_1_1* updates
+    if (t >= 0.0 && ans_1_1.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      ans_1_1.tStart = t;  // (not accounting for frame time here)
+      ans_1_1.frameNStart = frameN;  // exact frame index
+      
+      ans_1_1.setAutoDraw(true);
+    }
+
+    
+    // *ans_1_2* updates
+    if (t >= 0.0 && ans_1_2.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      ans_1_2.tStart = t;  // (not accounting for frame time here)
+      ans_1_2.frameNStart = frameN;  // exact frame index
+      
+      ans_1_2.setAutoDraw(true);
+    }
+
+    
+    // *ans_1_3* updates
+    if (t >= 0.0 && ans_1_3.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      ans_1_3.tStart = t;  // (not accounting for frame time here)
+      ans_1_3.frameNStart = frameN;  // exact frame index
+      
+      ans_1_3.setAutoDraw(true);
+    }
+
+    
+    // *ans_2_0* updates
+    if (t >= 0.0 && ans_2_0.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      ans_2_0.tStart = t;  // (not accounting for frame time here)
+      ans_2_0.frameNStart = frameN;  // exact frame index
+      
+      ans_2_0.setAutoDraw(true);
+    }
+
+    
+    // *ans_2_1* updates
+    if (t >= 0.0 && ans_2_1.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      ans_2_1.tStart = t;  // (not accounting for frame time here)
+      ans_2_1.frameNStart = frameN;  // exact frame index
+      
+      ans_2_1.setAutoDraw(true);
+    }
+
+    
+    // *ans_2_2* updates
+    if (t >= 0.0 && ans_2_2.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      ans_2_2.tStart = t;  // (not accounting for frame time here)
+      ans_2_2.frameNStart = frameN;  // exact frame index
+      
+      ans_2_2.setAutoDraw(true);
+    }
+
+    
+    // *ans_2_3* updates
+    if (t >= 0.0 && ans_2_3.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      ans_2_3.tStart = t;  // (not accounting for frame time here)
+      ans_2_3.frameNStart = frameN;  // exact frame index
+      
+      ans_2_3.setAutoDraw(true);
+    }
+
+    
+    // *fixation_point* updates
+    if (t >= 0.0 && fixation_point.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      fixation_point.tStart = t;  // (not accounting for frame time here)
+      fixation_point.frameNStart = frameN;  // exact frame index
+      
+      fixation_point.setAutoDraw(true);
     }
 
     
@@ -1065,6 +1358,7 @@ function expIntroRoutineEachFrame(snapshot) {
     }
 
     keys = psychoJS.eventManager.getKeys({"keyList": ["space", "b"]});
+    
     if (keys.slice(-1)[0] === "space") {
         intro_state += 1;
     }
@@ -1074,41 +1368,45 @@ function expIntroRoutineEachFrame(snapshot) {
     if (intro_state < 0) {
         intro_state = 0;
     }
-    // if (intro_state === 0) {
-    //     introduction_text.text = "Throughout this experiment, \n maintain a viewing distance at " + distance.toString() + "cm.";
-    // }
-    if (intro_state === 0) {
-        introduction_text.text = "The task is \n \"To find a cat from animal images.";
-        introduction_text.pos = [0, 2 * an2pix];
+    
+    if ((intro_state === 0)) {
+        introduction_text.text = "The task is \n \"To find a cat from animal images\".";
+        introduction_text.pos = [0, (2 * an2pix)];
         back_text.text = "Next: \"Space\" Key";
-        back_text.pos = [0, -2 * an2pix];
+        back_text.pos = [0, ((- 2) * an2pix)];
         fixation_point.opacity = 0.0;
     }
-    if (intro_state === 1) {
+    if ((intro_state === 1)) {
         introduction_text.text = "Click the center circle to display a lineup of images.";
-        introduction_text.pos = [0, 4.5 * an2pix];
-        back_text.text = "Next: \"Space\" Key \n Back: \"b\" Key"
-        back_text.pos = [0, -4.5 * an2pix];
+        introduction_text.pos = [0, (4.5 * an2pix)];
+        back_text.text = "Next: \"Space\" Key \n Back: \"b\" Key";
+        back_text.pos = [0, ((- 4.5) * an2pix)];
         fixation_point.opacity = 1.0;
         for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
             image_list[i].opacity = 0.0;
         }
     }
-    if (intro_state === 2) {
-        introduction_text.text = "You find a cat in 200 milliseconds.";
-        introduction_text.pos = [9 * an2pix, 0];
-        back_text.pos = [-9 * an2pix, 0];
+    if ((intro_state === 2)) {
+        introduction_text.text = "You find a cat \n in 200 milliseconds.";
+        introduction_text.pos = [(9 * an2pix), 0];
+        back_text.pos = [((- 9) * an2pix), 0];
         for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
             image_list[i].opacity = 1.0;
         }
         stimuli_arrangement.opacity = 0.0;
+        for (var i = 0, _pj_a = ans_list.length; (i < _pj_a); i += 1) {
+            ans_list[i].text = "";
+        }
     }
-    if (intro_state === 3) {
-        introduction_text.text = "Then, press the key \n corresponding to \n the position.";
+    if ((intro_state === 3)) {
+        introduction_text.text = "Then, click a number \n corresponding to \n the position.";
         fixation_point.opacity = 0.0;
         stimuli_arrangement.opacity = 1.0;
+        for (var i = 0, _pj_a = ans_list.length; (i < _pj_a); i += 1) {
+            ans_list[i].text = ans_text_list[i];
+        }
     }
-    if (intro_state === 4) {
+    if ((intro_state === 4)) {
         fixation_point.opacity = 1.0;
         continueRoutine = false;
     }
@@ -1373,17 +1671,16 @@ function gitterRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    fixation_point.fillColor = [(- 0.498), (- 0.498), (- 0.498)];
-    fixation_point.lineColor = [(- 0.498), (- 0.498), (- 0.498)];
     fixation_point.setAutoDraw(true);
     // setup some python lists for storing info about the mouse
     mouse.clicked_name = [];
     gotValidClick = false; // until a click is received
+    document.body.style.cursor='auto';
+    
     // keep track of which components have finished
     gitterComponents = [];
     gitterComponents.push(gitter_text);
     gitterComponents.push(mouse);
-    gitterComponents.push(exp_start);
     
     gitterComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -1430,7 +1727,7 @@ function gitterRoutineEachFrame(snapshot) {
         if (_mouseButtons.reduce( (e, acc) => (e+acc) ) > 0) { // state changed to a new click
           // check if the mouse was inside our 'clickable' objects
           gotValidClick = false;
-          for (const obj of [eval("exp_start")]) {
+          for (const obj of [eval("fixation_point")]) {
             if (obj.contains(mouse)) {
               gotValidClick = true;
               mouse.clicked_name.push(obj.name)
@@ -1441,16 +1738,6 @@ function gitterRoutineEachFrame(snapshot) {
         }
       }
     }
-    
-    // *exp_start* updates
-    if (t >= 0.0 && exp_start.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      exp_start.tStart = t;  // (not accounting for frame time here)
-      exp_start.frameNStart = frameN;  // exact frame index
-      
-      exp_start.setAutoDraw(true);
-    }
-
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -1488,9 +1775,6 @@ function gitterRoutineEnd(snapshot) {
       }
     });
     fixation_point.setAutoDraw(false);
-    fixation_point.fillColor = [0.5059, 0.5059, 0.5059];
-    fixation_point.lineColor = [0.5059, 0.5059, 0.5059];
-    
     // store data for thisExp (ExperimentHandler)
     _mouseXYs = mouse.getPos();
     _mouseButtons = mouse.getPressed();
@@ -1501,6 +1785,8 @@ function gitterRoutineEnd(snapshot) {
     psychoJS.experiment.addData('mouse.rightButton', _mouseButtons[2]);
     if (mouse.clicked_name.length > 0) {
       psychoJS.experiment.addData('mouse.clicked_name', mouse.clicked_name[0]);}
+    document.body.style.cursor='none';
+    
     // the Routine "gitter" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -1792,10 +2078,23 @@ function askQuestionRoutineBegin(snapshot) {
     key_ans.keys = undefined;
     key_ans.rt = undefined;
     _key_ans_allKeys = [];
+    for (var i = 0, _pj_a = ans_list.length; (i < _pj_a); i += 1) {
+        ans_list[i].text = ans_text_list[i];
+    }
+    
+    for (var i = 0, _pj_a = ans_list.length; (i < _pj_a); i += 1) {
+        ans_list[i].setAutoDraw(true);
+    }
+    // setup some python lists for storing info about the ans_mouse
+    ans_mouse.clicked_name = [];
+    gotValidClick = false; // until a click is received
+    document.body.style.cursor='auto';
+    
     // keep track of which components have finished
     askQuestionComponents = [];
     askQuestionComponents.push(question_text);
     askQuestionComponents.push(key_ans);
+    askQuestionComponents.push(ans_mouse);
     
     askQuestionComponents.forEach( function(thisComponent) {
       if ('status' in thisComponent)
@@ -1847,6 +2146,35 @@ function askQuestionRoutineEachFrame(snapshot) {
       }
     }
     
+    // *ans_mouse* updates
+    if (t >= 0.0 && ans_mouse.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      ans_mouse.tStart = t;  // (not accounting for frame time here)
+      ans_mouse.frameNStart = frameN;  // exact frame index
+      
+      ans_mouse.status = PsychoJS.Status.STARTED;
+      ans_mouse.mouseClock.reset();
+      prevButtonState = ans_mouse.getPressed();  // if button is down already this ISN'T a new click
+      }
+    if (ans_mouse.status === PsychoJS.Status.STARTED) {  // only update if started and not finished!
+      _mouseButtons = ans_mouse.getPressed();
+      if (!_mouseButtons.every( (e,i,) => (e == prevButtonState[i]) )) { // button state changed?
+        prevButtonState = _mouseButtons;
+        if (_mouseButtons.reduce( (e, acc) => (e+acc) ) > 0) { // state changed to a new click
+          // check if the mouse was inside our 'clickable' objects
+          gotValidClick = false;
+          for (const obj of [eval("ans_0_0"), eval("ans_0_1"), eval("ans_0_2"), eval("ans_0_3"), eval("ans_1_0"), eval("ans_1_1"), eval("ans_1_2"), eval("ans_1_3"), eval("ans_2_0"), eval("ans_2_1"), eval("ans_2_2"), eval("ans_2_3")]) {
+            if (obj.contains(ans_mouse)) {
+              gotValidClick = true;
+              ans_mouse.clicked_name.push(obj.name)
+            }
+          }
+          if (gotValidClick === true) { // abort routine on response
+            continueRoutine = false;
+          }
+        }
+      }
+    }
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -1891,6 +2219,21 @@ function askQuestionRoutineEnd(snapshot) {
         }
     
     key_ans.stop();
+    for (var i = 0, _pj_a = ans_list.length; (i < _pj_a); i += 1) {
+        ans_list[i].setAutoDraw(false);
+    }
+    // store data for thisExp (ExperimentHandler)
+    _mouseXYs = ans_mouse.getPos();
+    _mouseButtons = ans_mouse.getPressed();
+    psychoJS.experiment.addData('ans_mouse.x', _mouseXYs[0]);
+    psychoJS.experiment.addData('ans_mouse.y', _mouseXYs[1]);
+    psychoJS.experiment.addData('ans_mouse.leftButton', _mouseButtons[0]);
+    psychoJS.experiment.addData('ans_mouse.midButton', _mouseButtons[1]);
+    psychoJS.experiment.addData('ans_mouse.rightButton', _mouseButtons[2]);
+    if (ans_mouse.clicked_name.length > 0) {
+      psychoJS.experiment.addData('ans_mouse.clicked_name', ans_mouse.clicked_name[0]);}
+    document.body.style.cursor='none';
+    
     // the Routine "askQuestion" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -1909,7 +2252,7 @@ function showFeedbackRoutineBegin(snapshot) {
     frameN = -1;
     continueRoutine = true; // until we're told otherwise
     // update component parameters for each repeat
-    if ((key_to_pos[key_ans.keys][0] === pos) && (key_to_pos[key_ans.keys][1] === ori)) {
+    if ((ans_to_pos[ans_mouse.clicked_name[0]][0] === pos) && (ans_to_pos[ans_mouse.clicked_name[0]][1] === ori)) {
         feedback_text.text = "Correct!";
         feedback_text.color = "springgreen";
         thisExp.addData("TF", "True");
@@ -2393,6 +2736,14 @@ function quitPsychoJS(message, isCompleted) {
   if (psychoJS.experiment.isEntryEmpty()) {
     psychoJS.experiment.nextEntry();
   }
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
