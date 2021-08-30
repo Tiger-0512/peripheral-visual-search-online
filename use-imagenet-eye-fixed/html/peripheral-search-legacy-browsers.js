@@ -728,7 +728,7 @@ function experimentInit() {
   break_text = new visual.TextStim({
     win: psychoJS.window,
     name: 'break_text',
-    text: 'Please take a short break.\n\nIf the experiment is ready, \nthe window will change to the fixation point.',
+    text: 'Please take a short break.\n\nIf the experiment is ready, \nthe window will change to the display with center circle.',
     font: 'Open Sans',
     units: undefined, 
     pos: [0, 0], height: an2pix * 0.7,  wrapWidth: 10000.0, ori: 0.0,
@@ -1387,7 +1387,7 @@ function expIntroRoutineEachFrame(snapshot) {
         }
     }
     if ((intro_state === 2)) {
-        introduction_text.text = "You find a cat \n in 200 milliseconds.";
+        introduction_text.text = "Gaze at \n the central fixation marker. \n You find a cat \n in 200 milliseconds.";
         introduction_text.pos = [(9 * an2pix), 0];
         back_text.pos = [((- 9) * an2pix), 0];
         for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
@@ -1797,6 +1797,8 @@ function gitterRoutineEnd(snapshot) {
 
 var _non_target_classes;
 var image_path;
+var flag;
+var timer;
 var _fake_key_resp_allKeys;
 var showStimComponents;
 function showStimRoutineBegin(snapshot) {
@@ -1840,6 +1842,8 @@ function showStimRoutineBegin(snapshot) {
     }
     
     fixation_point.setAutoDraw(true);
+    flag = false;
+    timer = new util.Clock();
     fake_key_resp.keys = undefined;
     fake_key_resp.rt = undefined;
     _fake_key_resp_allKeys = [];
@@ -1867,9 +1871,13 @@ function showStimRoutineEachFrame(snapshot) {
         for (var i = 0, _pj_a = image_list.length; (i < _pj_a); i += 1) {
             image_list[i].setAutoDraw(true);
         }
+        if (! flag) {
+            timer.reset();
+            flag = true;
+        }
     }
     
-    if ((showStimClock.getTime() > 0.4)) {
+    if ((timer.getTime() > 0.2)) {
         continueRoutine = false;
     }
     

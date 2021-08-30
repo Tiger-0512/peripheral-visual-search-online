@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2021.1.4),
-    on Fri Aug 27 03:47:35 2021
+    on Fri Aug 27 18:51:37 2021
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -508,7 +508,7 @@ show_fb_key_resp = keyboard.Keyboard()
 # Initialize components for Routine "takeBreak"
 takeBreakClock = core.Clock()
 break_text = visual.TextStim(win=win, name='break_text',
-    text='Please take a short break.\n\nIf the experiment is ready, \nthe window will change to the fixation point.',
+    text='Please take a short break.\n\nIf the experiment is ready, \nthe window will change to the display with center circle.',
     font='Open Sans',
     pos=(0, 0), height=an2pix * 0.7, wrapWidth=10000.0, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
@@ -1050,7 +1050,7 @@ while continueRoutine:
         for i in range(len(image_list)):
             image_list[i].opacity = 0.0
     if intro_state == 2:
-        introduction_text.text = 'You find a cat \n in 200 milliseconds.'
+        introduction_text.text = 'Gaze at \n the central fixation marker. \n You find a cat \n in 200 milliseconds.'
         introduction_text.pos = (9 * an2pix, 0)
         back_text.pos = (-9 * an2pix, 0)
         for i in range(len(image_list)):
@@ -1332,6 +1332,8 @@ for thisPracticeTrial in PracticeTrials:
         elif i >= 8:
             image_list[i].size = ((rate ** 2) * image_list[i].size[0], (rate ** 2) * image_list[i].size[1])
     
+    flag = False
+    timer = core.Clock()
     fake_key_resp.keys = []
     fake_key_resp.rt = []
     _fake_key_resp_allKeys = []
@@ -1363,10 +1365,14 @@ for thisPracticeTrial in PracticeTrials:
         if showStimClock.getTime() > 0.2:
             for i in range(len(image_list)):
                 image_list[i].draw()
+            if not flag:
+                timer.reset()
+                flag = True
         
-        if showStimClock.getTime() > 0.4:
+        # if showStimClock.getTime() > 0.4:
+        #    continueRoutine = False
+        if timer.getTime() > 0.2:
             continueRoutine = False
-        
         
         # *fake_key_resp* updates
         waitOnFlip = False
@@ -1993,6 +1999,8 @@ for thisActualTrial in ActualTrials:
         elif i >= 8:
             image_list[i].size = ((rate ** 2) * image_list[i].size[0], (rate ** 2) * image_list[i].size[1])
     
+    flag = False
+    timer = core.Clock()
     fake_key_resp.keys = []
     fake_key_resp.rt = []
     _fake_key_resp_allKeys = []
@@ -2024,10 +2032,14 @@ for thisActualTrial in ActualTrials:
         if showStimClock.getTime() > 0.2:
             for i in range(len(image_list)):
                 image_list[i].draw()
+            if not flag:
+                timer.reset()
+                flag = True
         
-        if showStimClock.getTime() > 0.4:
+        # if showStimClock.getTime() > 0.4:
+        #    continueRoutine = False
+        if timer.getTime() > 0.2:
             continueRoutine = False
-        
         
         # *fake_key_resp* updates
         waitOnFlip = False
