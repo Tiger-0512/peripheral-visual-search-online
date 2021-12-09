@@ -7,7 +7,7 @@
 ### 1. Local
 1. Start PsychoPy
 2. Open `.psyexp` file in each experiment's directory <br>
-  e.g. [`peripheral-visual-search-online/first-step/use-imagenet/peripheral-search.psyexp`](https://github.com/Tiger-0512/peripheral-visual-search-online/blob/main/first-step/use-imagenet/peripheral-search.psyexp)
+  e.g. [`peripheral-visual-search-online/first-exp/use-imagenet/peripheral-search.psyexp`](https://github.com/Tiger-0512/peripheral-visual-search-online/blob/main/first-exp/use-imagenet/peripheral-search.psyexp)
 3. Execute the experiment (Click "Run experiment" button in the menu bar)
 ### 2. Online
 1. Start PsychoPy
