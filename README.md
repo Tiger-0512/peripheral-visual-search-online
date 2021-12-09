@@ -1,6 +1,6 @@
 # Online experiments to design the display that utilize the peripheral vision
 
-## Environment
+## Dependencies
 - Psychopy 2021.1.4
 
 ## Usage
