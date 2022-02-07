@@ -1,4 +1,4 @@
-# Online experiments to design the display that utilize the peripheral vision
+# Online Experiments for Creating a Fair Display Regardless of the Retinal Eccentricity
 
 ## Dependencies
 - Psychopy 2021.1.4
