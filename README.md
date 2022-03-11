@@ -1,7 +1,7 @@
 # Online Experiments for Creating a Fair Display Regardless of the Retinal Eccentricity
 
 ## Dependencies
-- Psychopy 2021.1.4
+- [PsychoPy 2021.1.4](https://github.com/psychopy/psychopy/releases/tag/2021.1.4)
 
 ## Usage
 ### 1. Local
